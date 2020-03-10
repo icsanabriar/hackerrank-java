@@ -13,15 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.medium;
+package com.hacker.rank.practice.easy;
 
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.Scanner;
+import java.io.PrintStream;
 
 import static org.testng.Assert.assertEquals;
 
@@ -31,40 +30,44 @@ import static org.testng.Assert.assertEquals;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class MaxMinTest {
+public class UsernameTest {
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
-    public void given_test_case() throws IOException {
+    public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "7\n" +
-                "3\n" +
-                "10\n" +
-                "100\n" +
-                "300\n" +
-                "200\n" +
-                "1000\n" +
-                "20\n" +
-                "30\n";
-        final String expectedOutput = "20";
+        final String input = "8\n" +
+                "Julia\n" +
+                "Samantha\n" +
+                "Samantha_21\n" +
+                "1Samantha\n" +
+                "Samantha?10_2A\n" +
+                "JuliaZ007\n" +
+                "Julia@007\n" +
+                "_Julia007\n";
+
+        final String expectedOutput = "Invalid\n" +
+                "Valid\n" +
+                "Valid\n" +
+                "Invalid\n" +
+                "Invalid\n" +
+                "Valid\n" +
+                "Invalid\n" +
+                "Invalid\n";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
 
-        final MaxMin instance = new MaxMin();
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        final Username instance = new Username();
         instance.main(args);
 
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        while (sc.hasNextLine()) {
-            assertEquals(expectedOutput, sc.nextLine());
-        }
-
-        sc.close();
+        assertEquals(expectedOutput, controllerOut.toString());
 
         System.setIn(sysInBackup);
     }

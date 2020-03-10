@@ -40,6 +40,7 @@ public class MD5 {
      * @param args Arguments of the program.
      * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws NoSuchAlgorithmException {
 
         final Scanner scanner = new Scanner(System.in);

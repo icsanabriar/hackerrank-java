@@ -13,9 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.medium;
+package com.hacker.rank.practice.easy;
 
-import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -25,7 +24,7 @@ import java.util.Scanner;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class BigNumber {
+public class Token {
 
     /**
      * Main function provided by hacker rank website.
@@ -34,29 +33,24 @@ public class BigNumber {
      */
     public static void main(String[] args) {
 
-        // Input given by hacker rank website.
-        final Scanner sc = new Scanner(System.in);
+        final Scanner scanner = new Scanner(System.in);
 
-        final int n = sc.nextInt();
+        final String s = scanner.nextLine();
+        final String regex = "[^A-Za-z]+";
 
-        String[] s = new String[n + 2];
+        String[] tokens = s.split(regex);
 
-        for (int i = 0; i < n; i++) {
-            s[i] = sc.next();
+        if (tokens.length > 0 && tokens[0].isEmpty()) {
+            tokens = Arrays.copyOfRange(tokens, 1, tokens.length);
         }
 
-        sc.close();
+        System.out.println(tokens.length);
 
-        s = Arrays.copyOf(s, n);
-
-        Arrays.sort(s, (s1, s2) -> new BigDecimal(s2)
-                .compareTo(new BigDecimal(s1))
-        );
-
-        // Output given by hacker rank website.
-        for (int i = 0; i < n; i++) {
-            System.out.println(s[i]);
+        for (String token: tokens) {
+            System.out.println(token);
         }
+
+        scanner.close();
     }
 
 }

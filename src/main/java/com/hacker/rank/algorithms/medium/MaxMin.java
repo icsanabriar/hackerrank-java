@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.medium;
+package com.hacker.rank.algorithms.medium;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -59,6 +59,7 @@ public class MaxMin {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in console.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
         final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));

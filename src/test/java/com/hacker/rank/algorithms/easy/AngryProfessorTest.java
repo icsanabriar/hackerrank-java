@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.easy;
+package com.hacker.rank.algorithms.easy;
 
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintStream;
+import java.util.Scanner;
 
 import static org.testng.Assert.assertEquals;
 
@@ -30,43 +31,43 @@ import static org.testng.Assert.assertEquals;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class HandlerTest {
+public class AngryProfessorTest {
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
-    public void given_test_case() {
+    public void given_test_case() throws IOException {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3 5\n" +
-                "2 4\n" +
-                "0 0\n" +
-                "2 0\n" +
-                "0 2\n" +
-                "-1 -2\n" +
-                "-1 3\n" +
-                "1 -3\n";
+        final String input = "2\n" +
+                "4 3\n" +
+                "-1 -3 4 2\n" +
+                "4 2\n" +
+                "0 -1 2 1\n";
 
-        final String expectedOutput = "243\n" +
-                "16\n" +
-                "java.lang.Exception: n and p should not be zero.\n" +
-                "1\n" +
-                "0\n" +
-                "java.lang.Exception: n or p should not be negative.\n" +
-                "java.lang.Exception: n or p should not be negative.\n" +
-                "java.lang.Exception: n or p should not be negative.\n";
+        final String expectedOutput = "YES\n" +
+                "NO\n";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
         System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
 
-        final Handler instance = new Handler();
+        final AngryProfessor instance = new AngryProfessor();
         instance.main(args);
 
-        assertEquals(expectedOutput, controllerOut.toString());
+        final File file = new File(System.getenv("OUTPUT_PATH"));
+        final Scanner sc = new Scanner(file);
+
+        final String[] lines = expectedOutput.split("\\r?\\n");
+
+        int index = 0;
+
+        while (sc.hasNextLine()) {
+            assertEquals(lines[index], sc.nextLine());
+            index++;
+        }
+
+        sc.close();
 
         System.setIn(sysInBackup);
     }

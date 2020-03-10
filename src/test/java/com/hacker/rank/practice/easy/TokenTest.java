@@ -30,25 +30,27 @@ import static org.testng.Assert.assertEquals;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class BitSetsTest {
+public class TokenTest {
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5 4\n" +
-                "AND 1 2\n" +
-                "SET 1 4\n" +
-                "FLIP 2 2\n" +
-                "OR 2 1\n";
+        final String input = "He is a very very good boy, isn't he?";
 
-        final String expectedOutput = "0 0\n" +
-                "1 0\n" +
-                "1 1\n" +
-                "1 2\n";
+        final String expectedOutput = "10\n" +
+                "He\n" +
+                "is\n" +
+                "a\n" +
+                "very\n" +
+                "very\n" +
+                "good\n" +
+                "boy\n" +
+                "isn\n" +
+                "t\n" +
+                "he\n";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -56,7 +58,39 @@ public class BitSetsTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final BitSets instance = new BitSets();
+        Token.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    @SuppressWarnings("AccessStaticViaInstance")
+    public void edge_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "          YES      leading spaces        are valid,    problemsetters are     evillllll?";
+
+        final String expectedOutput = "8\n" +
+                "YES\n" +
+                "leading\n" +
+                "spaces\n" +
+                "are\n" +
+                "valid\n" +
+                "problemsetters\n" +
+                "are\n" +
+                "evillllll\n";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        final Token instance = new Token();
         instance.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
@@ -65,21 +99,15 @@ public class BitSetsTest {
     }
 
     @Test
-    public void edge_test_case() {
+    @SuppressWarnings("AccessStaticViaInstance")
+    public void empty_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2 4\n" +
-                "SET 1 1\n" +
-                "SET 2 1\n" +
-                "XOR 1 2\n" +
-                "ANT 1 4\n";
+        final String input = " ";
 
-        final String expectedOutput = "1 0\n" +
-                "1 1\n" +
-                "0 1\n" +
-                "0 1\n";
+        final String expectedOutput = "0\n";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -87,7 +115,8 @@ public class BitSetsTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        BitSets.main(args);
+        final Token instance = new Token();
+        instance.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

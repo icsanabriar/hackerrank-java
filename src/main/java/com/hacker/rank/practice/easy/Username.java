@@ -13,10 +13,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.medium;
+package com.hacker.rank.practice.easy;
 
-import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -25,7 +23,17 @@ import java.util.Scanner;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class BigNumber {
+public class Username {
+
+    /**
+     * Define regular expression to validate user names.
+     */
+    private static final String REGULAR_EXPRESSION = "^\\p{Alpha}([\\p{Alnum}_]){7,29}$";
+
+    /**
+     * Define scanner to read username inputs.
+     */
+    private static final Scanner scan = new Scanner(System.in);
 
     /**
      * Main function provided by hacker rank website.
@@ -34,29 +42,20 @@ public class BigNumber {
      */
     public static void main(String[] args) {
 
-        // Input given by hacker rank website.
-        final Scanner sc = new Scanner(System.in);
+        int n = Integer.parseInt(scan.nextLine());
 
-        final int n = sc.nextInt();
+        while (n-- != 0) {
 
-        String[] s = new String[n + 2];
+            final String userName = scan.nextLine();
 
-        for (int i = 0; i < n; i++) {
-            s[i] = sc.next();
+            if (userName.matches(REGULAR_EXPRESSION)) {
+                System.out.println("Valid");
+            } else {
+                System.out.println("Invalid");
+            }
         }
 
-        sc.close();
-
-        s = Arrays.copyOf(s, n);
-
-        Arrays.sort(s, (s1, s2) -> new BigDecimal(s2)
-                .compareTo(new BigDecimal(s1))
-        );
-
-        // Output given by hacker rank website.
-        for (int i = 0; i < n; i++) {
-            System.out.println(s[i]);
-        }
+        scan.close();
     }
 
 }
