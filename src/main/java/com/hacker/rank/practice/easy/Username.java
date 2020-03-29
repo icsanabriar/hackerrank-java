@@ -42,7 +42,9 @@ public class Username {
      */
     public static void main(String[] args) {
 
-        int n = Integer.parseInt(scan.nextLine());
+        int n = Integer.parseInt(
+                scan.nextLine()
+        );
 
         while (n-- != 0) {
 

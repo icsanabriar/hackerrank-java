@@ -36,7 +36,9 @@ public class Syntax {
 
         final Scanner in = new Scanner(System.in);
 
-        final int testCases = Integer.parseInt(in.nextLine());
+        final int testCases = Integer.parseInt(
+                in.nextLine()
+        );
 
         for (int i = 0; i < testCases; i++) {
 

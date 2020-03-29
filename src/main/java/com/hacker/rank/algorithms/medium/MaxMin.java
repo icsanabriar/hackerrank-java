@@ -15,6 +15,7 @@
  */
 package com.hacker.rank.algorithms.medium;
 
+import com.hacker.rank.common.ParameterReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -59,25 +60,27 @@ public class MaxMin {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in console.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        final BufferedWriter bufferedWriter = new BufferedWriter(
+                new FileWriter(
+                        System.getenv("OUTPUT_PATH")
+                )
+        );
 
-        final int n = scanner.nextInt();
-        final int k = scanner.nextInt();
+        final ParameterReader parameterReader = new ParameterReader(scanner);
+        parameterReader.readIntParams();
 
-        final int[] arr = new int[n];
+        final int result = solve(
+                parameterReader.getK(),
+                parameterReader.getA()
+        );
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = scanner.nextInt();
-        }
+        bufferedWriter.write(
+                String.valueOf(result)
+        );
 
-        final int result = solve(k, arr);
-
-        bufferedWriter.write(String.valueOf(result));
         bufferedWriter.newLine();
-
         bufferedWriter.close();
 
         scanner.close();

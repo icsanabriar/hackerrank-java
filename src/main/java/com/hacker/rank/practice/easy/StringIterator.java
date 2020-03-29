@@ -77,8 +77,8 @@ public class StringIterator {
 
         while (it.hasNext()) {
 
-            final Object element = it.next();
-            System.out.println((String) element);
+            final String element = (String) it.next();
+            System.out.println(element);
         }
 
         sc.close();

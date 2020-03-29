@@ -45,7 +45,8 @@ public class NumberHandler {
 
         } catch (Throwable t) {
 
-            String message = t.getClass().getName();
+            String message = t.getClass()
+                    .getName();
 
             if (t instanceof ArithmeticException) {
                 message = message + ": " + t.getMessage();

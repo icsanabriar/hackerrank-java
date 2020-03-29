@@ -15,6 +15,7 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import com.hacker.rank.common.ParameterReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,9 +40,9 @@ public class AngryProfessor {
 
         int counter = 0;
 
-        for (int i1 : a) {
+        for (int i : a) {
 
-            if (i1 <= 0)
+            if (i <= 0)
                 counter++;
         }
 
@@ -54,26 +55,27 @@ public class AngryProfessor {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in the OUTPUT_PATH.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        final BufferedWriter bufferedWriter = new BufferedWriter(
+                new FileWriter(
+                        System.getenv("OUTPUT_PATH")
+                )
+        );
 
         final int t = scanner.nextInt();
+        final ParameterReader parameterReader = new ParameterReader(scanner);
 
         for (int tItr = 0; tItr < t; tItr++) {
 
-            final int n = scanner.nextInt();
-            final int k = scanner.nextInt();
+            parameterReader.readIntParams();
 
-            final int[] a = new int[n];
-
-            for (int i = 0; i < n; i++) {
-                a[i] = scanner.nextInt();
-            }
-
-            final String result = angryProfessor(k, a);
+            final String result = angryProfessor(
+                    parameterReader.getK(),
+                    parameterReader.getA()
+            );
 
             bufferedWriter.write(result);
             bufferedWriter.newLine();

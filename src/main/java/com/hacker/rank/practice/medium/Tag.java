@@ -48,7 +48,9 @@ public class Tag {
 
         final Scanner in = new Scanner(System.in);
 
-        int testCases = Integer.parseInt(in.nextLine());
+        int testCases = Integer.parseInt(
+                in.nextLine()
+        );
 
         while (testCases > 0) {
 
@@ -67,7 +69,10 @@ public class Tag {
                 final String tag = matcher.group();
 
                 // Extract the name of tag in the line.
-                String name  = tag.substring(1, tag.length() - 1);
+                String name  = tag.substring(
+                        1,
+                        tag.length() - 1
+                );
 
                 if (tag.startsWith(END_TAG)) {
 
@@ -78,7 +83,10 @@ public class Tag {
                     // Validate the closing tag match with the opening tag.
                     if (name.equals(lastTagName) && lastStart) {
 
-                        final String text = line.substring(startLineIndex, matcher.start());
+                        final String text = line.substring(
+                                startLineIndex,
+                                matcher.start()
+                        );
 
                         if (!text.isEmpty()) {
                             texts.add(text);
@@ -98,7 +106,10 @@ public class Tag {
             }
 
             // Transform the multiple text in multiple line texts.
-            System.out.println(texts.isEmpty() ? "None" : String.join("\n", texts));
+            System.out.println(
+                    texts.isEmpty() ?
+                            "None" : String.join("\n", texts)
+            );
 
             testCases--;
         }

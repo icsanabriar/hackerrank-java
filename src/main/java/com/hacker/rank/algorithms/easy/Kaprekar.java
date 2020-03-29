@@ -83,14 +83,21 @@ public class Kaprekar {
 
             } else {
 
-                right = Integer.parseInt(square.substring(rightStartIndex));
-                left = Integer.parseInt(square.substring(0, rightStartIndex));
+                right = Integer.parseInt(
+                        square.substring(rightStartIndex)
+                );
+
+                left = Integer.parseInt(
+                        square.substring(0, rightStartIndex)
+                );
             }
 
             final int sum = left + right;
 
             if (sum == i) {
-                results.add(String.valueOf(i));
+
+                final String value = String.valueOf(i);
+                results.add(value);
             }
         }
 

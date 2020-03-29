@@ -45,7 +45,11 @@ public class Currency {
 
         // Build proper instances of Locale for given countries.
         locates.put("US", Locale.US);
-        locates.put("India", new Locale("en", "IN"));
+
+        locates.put("India",
+                new Locale("en", "IN")
+        );
+
         locates.put("China", Locale.CHINA);
         locates.put("France", Locale.FRANCE);
 

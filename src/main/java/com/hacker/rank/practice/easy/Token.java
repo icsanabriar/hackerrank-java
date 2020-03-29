@@ -41,7 +41,12 @@ public class Token {
         String[] tokens = s.split(regex);
 
         if (tokens.length > 0 && tokens[0].isEmpty()) {
-            tokens = Arrays.copyOfRange(tokens, 1, tokens.length);
+
+            tokens = Arrays.copyOfRange(
+                    tokens,
+                    1,
+                    tokens.length
+            );
         }
 
         System.out.println(tokens.length);

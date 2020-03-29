@@ -66,7 +66,10 @@ public class BitSets {
                 bitSets[set].set(setOrIndex);
             }
 
-            System.out.println(bitSets[0].cardinality() + " " + bitSets[1].cardinality());
+            final String result = bitSets[0].cardinality() + " " +
+                    bitSets[1].cardinality();
+
+            System.out.println(result);
         }
 
         scanner.close();

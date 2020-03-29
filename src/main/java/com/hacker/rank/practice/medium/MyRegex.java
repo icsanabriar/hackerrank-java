@@ -45,8 +45,12 @@ public class MyRegex {
         final Scanner in = new Scanner(System.in);
 
         while (in.hasNext()) {
+
             final String IP = in.next();
-            System.out.println(IP.matches(MyRegex.PATTERN));
+
+            System.out.println(
+                    IP.matches(MyRegex.PATTERN)
+            );
         }
 
         in.close();

@@ -47,8 +47,11 @@ public class DayTime {
         final Calendar gregorian = new GregorianCalendar();
         gregorian.set(year, month - 1, day);
 
-        return gregorian.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)
-                .toUpperCase();
+        return gregorian.getDisplayName(
+                Calendar.DAY_OF_WEEK,
+                Calendar.LONG,
+                Locale.US
+        ).toUpperCase();
     }
 
     /**
@@ -59,8 +62,15 @@ public class DayTime {
      */
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        final BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        final BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(System.in)
+        );
+
+        final BufferedWriter bufferedWriter = new BufferedWriter(
+                new FileWriter(
+                        System.getenv("OUTPUT_PATH")
+                )
+        );
 
         final String[] firstMultipleInput = bufferedReader.readLine()
                 .replaceAll("\\s+$", "")

@@ -13,53 +13,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.practice.easy;
-
-import org.testng.annotations.Test;
+package com.hacker.rank.common;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.text.NumberFormat;
-import java.util.Locale;
+import java.security.NoSuchAlgorithmException;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
- * Class to handle the test cases given on hacker rank website.
+ * Class to handle the test cases  for Hash.
  *
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class CurrencyTest {
+public class HashTest {
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
-    public void given_test_case() {
+    public void generate_md5_hash() throws NoSuchAlgorithmException {
 
-        final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final NumberFormat nf = NumberFormat.getCurrencyInstance();
-        nf.setMaximumFractionDigits(2);
-
-        final String nextLine = System.lineSeparator();
-        final String input = "12324.134";
-        final double castedInput = Double.parseDouble(input);
-
-        final String expectedOutput = "US: " +
-                nf.getCurrencyInstance(Locale.US)
-                        .format(castedInput) + nextLine +
-                "India: " +
-                nf.getCurrencyInstance(new Locale("en", "IN"))
-                        .format(castedInput) + nextLine +
-                "China: " +
-                nf.getCurrencyInstance(Locale.CHINA)
-                        .format(castedInput) + nextLine +
-                "France: " +
-                nf.getCurrencyInstance(Locale.FRANCE)
-                        .format(castedInput) + nextLine;
+        final String algorithm = "SHA-1";
+        final String input = "This is a test";
+        final String expectedOutput = "7971e6a051104074fdae0f02322417b6eb5695a2\n";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -67,8 +48,8 @@ public class CurrencyTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final Currency instance = new Currency();
-        instance.main(args);
+        final Hash hash = new Hash();
+        hash.generate(algorithm);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

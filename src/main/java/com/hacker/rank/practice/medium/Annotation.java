@@ -80,7 +80,9 @@ public class Annotation {
 
         final Scanner in = new Scanner(System.in);
 
-        int testCases = Integer.parseInt(in.nextLine());
+        int testCases = Integer.parseInt(
+                in.nextLine()
+        );
 
         while (testCases > 0) {
 
@@ -99,8 +101,15 @@ public class Annotation {
                     final int budgetLimit = family.budgetLimit();
 
                     if (userRole.equals(role)) {
+
                         if (budgetLimit >= spend) {
-                            method.invoke(FamilyMember.class.newInstance(), budgetLimit, spend);
+
+                            method.invoke(
+                                    FamilyMember.class.newInstance(),
+                                    budgetLimit,
+                                    spend
+                            );
+
                         } else {
                             System.out.println("Budget Limit Over");
                         }

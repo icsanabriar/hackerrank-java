@@ -15,6 +15,7 @@
  */
 package com.hacker.rank.practice.medium;
 
+import com.hacker.rank.common.ParameterReader;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -67,25 +68,23 @@ public class Game {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
         final Scanner scan = new Scanner(System.in);
+        final ParameterReader parameterReader = new ParameterReader(scan);
 
         int q = scan.nextInt();
 
         while (q-- > 0) {
 
-            final int n = scan.nextInt();
-            final int leap = scan.nextInt();
+            parameterReader.readIntParams();
 
-            final int[] game = new int[n];
-
-            for (int i = 0; i < n; i++) {
-                game[i] = scan.nextInt();
-            }
-
-            System.out.println((canWin(leap, game)) ? "YES" : "NO");
+            System.out.println(
+                    (canWin(
+                            parameterReader.getK(),
+                            parameterReader.getA()
+                    )) ? "YES" : "NO"
+            );
         }
 
         scan.close();

@@ -15,11 +15,8 @@
  */
 package com.hacker.rank.practice.medium;
 
-import javax.xml.bind.DatatypeConverter;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
+import com.hacker.rank.common.Hash;
 import java.security.NoSuchAlgorithmException;
-import java.util.Scanner;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -40,21 +37,8 @@ public class MD5 {
      * @param args Arguments of the program.
      * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws NoSuchAlgorithmException {
-
-        final Scanner scanner = new Scanner(System.in);
-        final String input = scanner.next();
-
-        final MessageDigest messageDigest = MessageDigest.getInstance(MD5);
-        final byte[] hashBytes = messageDigest.digest(input.getBytes(StandardCharsets.UTF_8));
-
-        final String hash = DatatypeConverter.printHexBinary(hashBytes)
-                .toLowerCase();
-
-        System.out.println(hash);
-
-        scanner.close();
+        Hash.generate(MD5);
     }
 
 }

@@ -83,7 +83,11 @@ public class Handler {
             final int p = in.nextInt();
 
             try {
-                System.out.println(calculator.power(n, p));
+
+                System.out.println(
+                        calculator.power(n, p)
+                );
+
             } catch (Exception e) {
                 System.out.println(e);
             }

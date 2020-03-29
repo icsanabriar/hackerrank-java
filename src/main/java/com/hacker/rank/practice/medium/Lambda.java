@@ -78,7 +78,9 @@ class MyMath {
     PerformOperation isPalindrome() {
         return num -> {
 
-            final String reverse = new StringBuilder(String.valueOf(num))
+            final String value = String.valueOf(num);
+
+            final String reverse = new StringBuilder(value)
                     .reverse()
                     .toString();
 
@@ -103,10 +105,15 @@ public class Lambda {
      */
     public static void main(String[] args) throws IOException {
 
-        MyMath ob = new MyMath();
+        final MyMath ob = new MyMath();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int T = Integer.parseInt(br.readLine());
+        final BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in)
+        );
+
+        int T = Integer.parseInt(
+                br.readLine()
+        );
 
         PerformOperation op;
         boolean ret;
@@ -114,11 +121,19 @@ public class Lambda {
 
         while (T-- > 0) {
 
-            String s = br.readLine().trim();
-            StringTokenizer st = new StringTokenizer(s);
+            final String s = br.readLine()
+                    .trim();
 
-            int ch = Integer.parseInt(st.nextToken());
-            int num = Integer.parseInt(st.nextToken());
+            final StringTokenizer st = new StringTokenizer(s);
+
+            final int ch = Integer.parseInt(
+                    st.nextToken()
+            );
+
+            final int num = Integer.parseInt(
+                    st.nextToken()
+            );
+
             ans = "UNKNOWN";
 
             if (ch == 1) {

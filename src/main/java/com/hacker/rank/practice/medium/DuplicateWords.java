@@ -39,7 +39,9 @@ public class DuplicateWords {
 
         final Scanner in = new Scanner(System.in);
 
-        int numSentences = Integer.parseInt(in.nextLine());
+        int numSentences = Integer.parseInt(
+                in.nextLine()
+        );
 
         while (numSentences-- > 0) {
 
@@ -49,7 +51,11 @@ public class DuplicateWords {
 
             // Check for subsequents of input that match the compiled pattern.
             while (m.find()) {
-                input = input.replaceAll(m.group(), m.group(1));
+
+                input = input.replaceAll(
+                        m.group(),
+                        m.group(1)
+                );
             }
 
             // Prints the modified sentence.
