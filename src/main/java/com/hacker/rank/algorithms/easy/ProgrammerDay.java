@@ -15,11 +15,14 @@
  */
 package com.hacker.rank.algorithms.easy;
 
-import com.hacker.rank.common.ParameterReader;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.time.Year;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -27,26 +30,30 @@ import java.util.Scanner;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class AngryProfessor {
+public class ProgrammerDay {
 
     /**
-     * Function that return YES if the class is canceled based on the given k and array a.
+     * Estimates the 256th of the year based on Julian Calendar before 1918, after this year Gregorian Calendar.
      *
-     * @param k Number of students should be present on time.
-     * @param a Integer numbers representing the arrival's minutes early or late from the student classroom.
-     * @return A String YES in case the class is canceled, otherwise NO is returned.
+     * @param year Given year to estimate the date.
+     * @return Day of the year based on the format dd.mm.yyyy.
      */
-    private static String angryProfessor(int k, int[] a) {
+    private static String dayOfProgrammer(int year) {
 
-        int counter = 0;
+        int dayOfYear = 256;
 
-        for (int i : a) {
+        if (year < 1918 && year % 100 == 0)
+            dayOfYear--;
 
-            if (i <= 0)
-                counter++;
-        }
+        if (year == 1918)
+            dayOfYear = dayOfYear + 13;
 
-        return k > counter ? "YES" : "NO";
+        final LocalDate date = Year.of(year)
+                .atDay(dayOfYear);
+
+        return date.format(
+                DateTimeFormatter.ofPattern("dd.MM.yyyy")
+        );
     }
 
     /**
@@ -58,28 +65,25 @@ public class AngryProfessor {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final Scanner scanner = new Scanner(System.in);
+        final BufferedReader bufferedReader = new BufferedReader(
+                new InputStreamReader(System.in)
+        );
+
         final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
         final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int t = scanner.nextInt();
-        final ParameterReader parameterReader = new ParameterReader(scanner);
+        final int year = Integer.parseInt(
+                bufferedReader.readLine()
+                        .trim()
+        );
 
-        for (int tItr = 0; tItr < t; tItr++) {
+        final String result = dayOfProgrammer(year);
 
-            parameterReader.readIntParams();
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
 
-            final String result = angryProfessor(
-                    parameterReader.getK(),
-                    parameterReader.getA()
-            );
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
-        }
-
+        bufferedReader.close();
         bufferedWriter.close();
-        scanner.close();
     }
 
 }

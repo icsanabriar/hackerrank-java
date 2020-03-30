@@ -28,7 +28,7 @@ import java.util.Scanner;
 public class StringIterator {
 
     /**
-     * Function given bz hacker rank to update.
+     * Function given by hacker rank to update.
      *
      * @param myList List instance to iterate according to problem specifications.
      * @return Iterator after the first instance of string is found.

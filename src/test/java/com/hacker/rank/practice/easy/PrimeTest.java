@@ -33,35 +33,14 @@ import static org.testng.Assert.assertEquals;
 public class PrimeTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
         final String input = "13";
-        final String expectedOutput = "prime\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        Prime.main(args);
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void opposite_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "100";
-        final String expectedOutput = "not prime\n";
+        final String expectedOutput = "prime" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -71,6 +50,28 @@ public class PrimeTest {
 
         final Prime instance = new Prime();
         instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void opposite_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "100";
+        final String expectedOutput = "not prime" + System.lineSeparator();
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Prime.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

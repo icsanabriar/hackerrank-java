@@ -39,18 +39,18 @@ public class DuplicateWordsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5\n" +
-                "Goodbye bye bye world world world\n" +
-                "Sam went went to to to his business\n" +
-                "Reya is is the the best player in eye eye game\n" +
-                "in inthe\n" +
-                "Hello hello Ab aB\n";
+        final String input = "5" + System.lineSeparator() +
+                "Goodbye bye bye world world world" + System.lineSeparator() +
+                "Sam went went to to to his business" + System.lineSeparator() +
+                "Reya is is the the best player in eye eye game" + System.lineSeparator() +
+                "in inthe" + System.lineSeparator() +
+                "Hello hello Ab aB" + System.lineSeparator();
 
-        final String expectedOutput = "Goodbye bye world\n" +
-                "Sam went to his business\n" +
-                "Reya is the best player in eye game\n" +
-                "in inthe\n" +
-                "Hello Ab\n";
+        final String expectedOutput = "Goodbye bye world" + System.lineSeparator() +
+                "Sam went to his business" + System.lineSeparator() +
+                "Reya is the best player in eye game" + System.lineSeparator() +
+                "in inthe" + System.lineSeparator() +
+                "Hello Ab" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

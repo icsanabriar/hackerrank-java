@@ -39,14 +39,14 @@ public class SyntaxTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3\n" +
-                "([A-Z])(.+)\n" +
-                "[AZ[a-z](a-z)\n" +
+        final String input = "3" + System.lineSeparator() +
+                "([A-Z])(.+)" + System.lineSeparator() +
+                "[AZ[a-z](a-z)" + System.lineSeparator() +
                 "batcatpat(nat";
 
-        final String expectedOutput = "Valid\n" +
-                "Invalid\n" +
-                "Invalid\n";
+        final String expectedOutput = "Valid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

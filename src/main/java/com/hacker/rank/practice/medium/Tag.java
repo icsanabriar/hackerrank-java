@@ -108,7 +108,7 @@ public class Tag {
             // Transform the multiple text in multiple line texts.
             System.out.println(
                     texts.isEmpty() ?
-                            "None" : String.join("\n", texts)
+                            "None" : String.join(System.lineSeparator(), texts)
             );
 
             testCases--;

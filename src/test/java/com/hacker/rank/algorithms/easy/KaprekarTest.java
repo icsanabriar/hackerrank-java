@@ -33,41 +33,17 @@ import static org.testng.Assert.assertEquals;
 public class KaprekarTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1\n" +
-                "99999\n";
+        final String input = "1" + System.lineSeparator() +
+                "99999" + System.lineSeparator();
 
         final String expectedOutput = "1 9 45 55 99 297 703 999 2223 2728 4950 5050 7272 7777 9999 17344 " +
-                "22222 77778 82656 95121 99999\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        Kaprekar.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void invalid_range_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "400\n" +
-                "700\n";
-
-        final String expectedOutput = "INVALID RANGE\n";
+                "22222 77778 82656 95121 99999" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -77,6 +53,30 @@ public class KaprekarTest {
 
         final Kaprekar instance = new Kaprekar();
         instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void invalid_range_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "400" + System.lineSeparator() +
+                "700" + System.lineSeparator();
+
+        final String expectedOutput = "INVALID RANGE" + System.lineSeparator();
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Kaprekar.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

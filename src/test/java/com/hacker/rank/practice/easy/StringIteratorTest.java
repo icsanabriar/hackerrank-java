@@ -33,47 +33,21 @@ import static org.testng.Assert.assertEquals;
 public class StringIteratorTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2\n"
-                + "2\n"
-                + "42\n"
-                + "10\n"
-                + "Hello\n"
-                + "Java\n";
+        final String input = "2" + System.lineSeparator() +
+                "2" + System.lineSeparator() +
+                "42" + System.lineSeparator() +
+                "10" + System.lineSeparator() +
+                "Hello" + System.lineSeparator() +
+                "Java" + System.lineSeparator();
 
-        final String expectedOutput = "Hello\n"
-                + "Java\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        StringIterator.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void empty_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "2\n"
-                + "0\n"
-                + "42\n"
-                + "10\n";
-
-        final String expectedOutput = "";
+        final String expectedOutput = "Hello" + System.lineSeparator() +
+                "Java" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -83,6 +57,32 @@ public class StringIteratorTest {
 
         final StringIterator instance = new StringIterator();
         instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void empty_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "2" + System.lineSeparator() +
+                "0" + System.lineSeparator() +
+                "42" + System.lineSeparator() +
+                "10" + System.lineSeparator();
+
+        final String expectedOutput = "";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        StringIterator.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

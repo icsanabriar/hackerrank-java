@@ -26,6 +26,11 @@ import java.util.Scanner;
 public class NumberHandler {
 
     /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = ": ";
+
+    /**
      * Main function provided by hacker rank website.
      *
      * @param args Arguments of the program.
@@ -49,7 +54,7 @@ public class NumberHandler {
                     .getName();
 
             if (t instanceof ArithmeticException) {
-                message = message + ": " + t.getMessage();
+                message = message + SEPARATOR + t.getMessage();
             }
 
             System.out.println(message);

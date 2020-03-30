@@ -15,13 +15,12 @@
  */
 package com.hacker.rank.algorithms.easy;
 
-import org.testng.annotations.Test;
-
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
+import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
@@ -31,7 +30,7 @@ import static org.testng.Assert.assertEquals;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class AngryProfessorTest {
+public class RotationTest {
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -40,19 +39,20 @@ public class AngryProfessorTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "4 3" + System.lineSeparator() +
-                "-1 -3 4 2" + System.lineSeparator() +
-                "4 2" + System.lineSeparator() +
-                "0 -1 2 1" + System.lineSeparator();
+        final String input = "3 2 3" + System.lineSeparator() +
+                "1 2 3" + System.lineSeparator() +
+                "0" + System.lineSeparator() +
+                "1" + System.lineSeparator() +
+                "2" + System.lineSeparator();
 
-        final String expectedOutput = "YES" + System.lineSeparator() +
-                "NO" + System.lineSeparator();
+        final String expectedOutput = "2" + System.lineSeparator() +
+                "3" + System.lineSeparator() +
+                "1" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        final AngryProfessor instance = new AngryProfessor();
+        final Rotation instance = new Rotation();
         instance.main(args);
 
         final File file = new File(System.getenv("OUTPUT_PATH"));

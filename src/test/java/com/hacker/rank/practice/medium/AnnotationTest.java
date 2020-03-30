@@ -39,22 +39,22 @@ public class AnnotationTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4\n" +
-                "SENIOR 75\n" +
-                "JUNIOR 45\n" +
-                "SENIOR 40\n" +
-                "SENIOR 300\n";
+        final String input = "4" + System.lineSeparator() +
+                "SENIOR 75" + System.lineSeparator() +
+                "JUNIOR 45" + System.lineSeparator() +
+                "SENIOR 40" + System.lineSeparator() +
+                "SENIOR 300" + System.lineSeparator();
 
-        final String expectedOutput = "Senior Member\n" +
-                "Spend: 75\n" +
-                "Budget Left: 25\n" +
-                "Junior Member\n" +
-                "Spend: 45\n" +
-                "Budget Left: 5\n" +
-                "Senior Member\n" +
-                "Spend: 40\n" +
-                "Budget Left: 60\n" +
-                "Budget Limit Over\n";
+        final String expectedOutput = "Senior Member" + System.lineSeparator() +
+                "Spend: 75" + System.lineSeparator() +
+                "Budget Left: 25" + System.lineSeparator() +
+                "Junior Member" + System.lineSeparator() +
+                "Spend: 45" + System.lineSeparator() +
+                "Budget Left: 5" + System.lineSeparator() +
+                "Senior Member" + System.lineSeparator() +
+                "Spend: 40" + System.lineSeparator() +
+                "Budget Left: 60" + System.lineSeparator() +
+                "Budget Limit Over" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

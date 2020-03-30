@@ -33,6 +33,16 @@ import java.util.Locale;
 public class DayTime {
 
     /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Given the month, day and year of a date the function returns the week day (Monday).
      *
      * @param month Number representing the month of a date.
@@ -73,8 +83,8 @@ public class DayTime {
         );
 
         final String[] firstMultipleInput = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll("\\s+$", REPLACEMENT)
+                .split(SEPARATOR);
 
         final int month = Integer.parseInt(firstMultipleInput[0]);
         final int day = Integer.parseInt(firstMultipleInput[1]);

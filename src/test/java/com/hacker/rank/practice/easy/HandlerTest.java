@@ -39,23 +39,23 @@ public class HandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3 5\n" +
-                "2 4\n" +
-                "0 0\n" +
-                "2 0\n" +
-                "0 2\n" +
-                "-1 -2\n" +
-                "-1 3\n" +
-                "1 -3\n";
+        final String input = "3 5" + System.lineSeparator() +
+                "2 4" + System.lineSeparator() +
+                "0 0" + System.lineSeparator() +
+                "2 0" + System.lineSeparator() +
+                "0 2" + System.lineSeparator() +
+                "-1 -2" + System.lineSeparator() +
+                "-1 3" + System.lineSeparator() +
+                "1 -3" + System.lineSeparator();
 
-        final String expectedOutput = "243\n" +
-                "16\n" +
-                "java.lang.Exception: n and p should not be zero.\n" +
-                "1\n" +
-                "0\n" +
-                "java.lang.Exception: n or p should not be negative.\n" +
-                "java.lang.Exception: n or p should not be negative.\n" +
-                "java.lang.Exception: n or p should not be negative.\n";
+        final String expectedOutput = "243" + System.lineSeparator() +
+                "16" + System.lineSeparator() +
+                "java.lang.Exception: n and p should not be zero." + System.lineSeparator() +
+                "1" + System.lineSeparator() +
+                "0" + System.lineSeparator() +
+                "java.lang.Exception: n or p should not be negative." + System.lineSeparator() +
+                "java.lang.Exception: n or p should not be negative." + System.lineSeparator() +
+                "java.lang.Exception: n or p should not be negative." + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

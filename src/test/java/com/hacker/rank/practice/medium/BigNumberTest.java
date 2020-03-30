@@ -39,26 +39,26 @@ public class BigNumberTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "9\n" +
-                "-100\n" +
-                "50\n" +
-                "0\n" +
-                "56.6\n" +
-                "90\n" +
-                "0.12\n" +
-                ".12\n" +
-                "02.34\n" +
-                "000.000\n";
+        final String input = "9" + System.lineSeparator() +
+                "-100" + System.lineSeparator() +
+                "50" + System.lineSeparator() +
+                "0" + System.lineSeparator() +
+                "56.6" + System.lineSeparator() +
+                "90" + System.lineSeparator() +
+                "0.12" + System.lineSeparator() +
+                ".12" + System.lineSeparator() +
+                "02.34" + System.lineSeparator() +
+                "000.000" + System.lineSeparator();
 
-        final String expectedOutput = "90\n" +
-                "56.6\n" +
-                "50\n" +
-                "02.34\n" +
-                "0.12\n" +
-                ".12\n" +
-                "0\n" +
-                "000.000\n" +
-                "-100\n";
+        final String expectedOutput = "90" + System.lineSeparator() +
+                "56.6" + System.lineSeparator() +
+                "50" + System.lineSeparator() +
+                "02.34" + System.lineSeparator() +
+                "0.12" + System.lineSeparator() +
+                ".12" + System.lineSeparator() +
+                "0" + System.lineSeparator() +
+                "000.000" + System.lineSeparator() +
+                "-100" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

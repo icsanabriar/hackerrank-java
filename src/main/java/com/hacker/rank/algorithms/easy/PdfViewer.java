@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.algorithms.easy;
 
-import com.hacker.rank.common.ParameterReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,26 +26,28 @@ import java.util.Scanner;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class AngryProfessor {
+public class PdfViewer {
 
     /**
-     * Function that return YES if the class is canceled based on the given k and array a.
-     *
-     * @param k Number of students should be present on time.
-     * @param a Integer numbers representing the arrival's minutes early or late from the student classroom.
-     * @return A String YES in case the class is canceled, otherwise NO is returned.
+     * Separator of values in same line.
      */
-    private static String angryProfessor(int k, int[] a) {
+    private static final String SEPARATOR = " ";
 
-        int counter = 0;
+    /**
+     * Designer pdf viewer calculates the highlight area for the given word, taking into account the heights of each letter.
+     *
+     * @param h    Height of letters.
+     * @param word Word to highlight on text.
+     * @return Area that is going to be highlighted.
+     */
+    private static int designerPdfViewer(int[] h, String word) {
 
-        for (int i : a) {
+        final int maximumHeight = word.chars()
+                .map(c -> h[c - 'a'])
+                .max()
+                .orElse(0);
 
-            if (i <= 0)
-                counter++;
-        }
-
-        return k > counter ? "YES" : "NO";
+        return word.length() * maximumHeight;
     }
 
     /**
@@ -62,21 +63,21 @@ public class AngryProfessor {
         final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
         final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int t = scanner.nextInt();
-        final ParameterReader parameterReader = new ParameterReader(scanner);
+        final int[] h = new int[26];
 
-        for (int tItr = 0; tItr < t; tItr++) {
+        final String[] hItems = scanner.nextLine().split(SEPARATOR);
 
-            parameterReader.readIntParams();
-
-            final String result = angryProfessor(
-                    parameterReader.getK(),
-                    parameterReader.getA()
-            );
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
+        for (int i = 0; i < 26; i++) {
+            final int hItem = Integer.parseInt(hItems[i]);
+            h[i] = hItem;
         }
+
+        final String word = scanner.nextLine();
+
+        final int result = designerPdfViewer(h, word);
+
+        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.newLine();
 
         bufferedWriter.close();
         scanner.close();

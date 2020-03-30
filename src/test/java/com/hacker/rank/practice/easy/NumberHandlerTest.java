@@ -33,15 +33,41 @@ import static org.testng.Assert.assertEquals;
 public class NumberHandlerTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10\n" +
+        final String input = "10" + System.lineSeparator() +
                 "3";
 
-        final String expectedOutput = "3\n";
+        final String expectedOutput = "3" + System.lineSeparator();
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        final NumberHandler instance = new NumberHandler();
+        instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void opposite_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "10" + System.lineSeparator() +
+                "hello";
+
+        final String expectedOutput = "java.util.InputMismatchException" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -57,42 +83,15 @@ public class NumberHandlerTest {
     }
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void opposite_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "10\n" +
-                "hello";
-
-        final String expectedOutput = "java.util.InputMismatchException\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        final NumberHandler instance = new NumberHandler();
-        instance.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void divide_zero_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10\n" +
+        final String input = "10" + System.lineSeparator() +
                 "0";
 
-        final String expectedOutput = "java.lang.ArithmeticException: / by zero\n";
+        final String expectedOutput = "java.lang.ArithmeticException: / by zero" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -100,8 +99,7 @@ public class NumberHandlerTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final NumberHandler instance = new NumberHandler();
-        instance.main(args);
+        NumberHandler.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 
@@ -109,16 +107,15 @@ public class NumberHandlerTest {
     }
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void invalid_input_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "23.323\n" +
+        final String input = "23.323" + System.lineSeparator() +
                 "0";
 
-        final String expectedOutput = "java.util.InputMismatchException\n";
+        final String expectedOutput = "java.util.InputMismatchException" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -126,8 +123,7 @@ public class NumberHandlerTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final NumberHandler instance = new NumberHandler();
-        instance.main(args);
+        NumberHandler.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

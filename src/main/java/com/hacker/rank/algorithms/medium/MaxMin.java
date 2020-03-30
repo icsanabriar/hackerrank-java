@@ -62,11 +62,8 @@ public class MaxMin {
      */
     public static void main(String[] args) throws IOException {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(
-                        System.getenv("OUTPUT_PATH")
-                )
-        );
+        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
+        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
         final ParameterReader parameterReader = new ParameterReader(scanner);
         parameterReader.readIntParams();

@@ -30,6 +30,11 @@ import java.util.Scanner;
 public class Currency {
 
     /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = ": ";
+
+    /**
      * Main function provided by hacker rank website.
      *
      * @param args Arguments of the program.
@@ -61,7 +66,7 @@ public class Currency {
 
             final String result = nf.format(payment);
 
-            System.out.println((k + ": " + result));
+            System.out.println((k + SEPARATOR + result));
         });
 
         scanner.close();

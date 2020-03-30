@@ -39,24 +39,24 @@ public class UsernameTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "8\n" +
-                "Julia\n" +
-                "Samantha\n" +
-                "Samantha_21\n" +
-                "1Samantha\n" +
-                "Samantha?10_2A\n" +
-                "JuliaZ007\n" +
-                "Julia@007\n" +
-                "_Julia007\n";
+        final String input = "8" + System.lineSeparator() +
+                "Julia" + System.lineSeparator() +
+                "Samantha" + System.lineSeparator() +
+                "Samantha_21" + System.lineSeparator() +
+                "1Samantha" + System.lineSeparator() +
+                "Samantha?10_2A" + System.lineSeparator() +
+                "JuliaZ007" + System.lineSeparator() +
+                "Julia@007" + System.lineSeparator() +
+                "_Julia007" + System.lineSeparator();
 
-        final String expectedOutput = "Invalid\n" +
-                "Valid\n" +
-                "Valid\n" +
-                "Invalid\n" +
-                "Invalid\n" +
-                "Valid\n" +
-                "Invalid\n" +
-                "Invalid\n";
+        final String expectedOutput = "Invalid" + System.lineSeparator() +
+                "Valid" + System.lineSeparator() +
+                "Valid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator() +
+                "Valid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator() +
+                "Invalid" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

@@ -33,59 +33,27 @@ import static org.testng.Assert.assertEquals;
 public class GameTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4\n" +
-                "5 3\n" +
-                "0 0 0 0 0\n" +
-                "6 5\n" +
-                "0 0 0 1 1 1\n" +
-                "6 3\n" +
-                "0 0 1 1 1 0\n" +
-                "3 1\n" +
-                "0 1 0\n";
+        final String input = "4" + System.lineSeparator() +
+                "5 3" + System.lineSeparator() +
+                "0 0 0 0 0" + System.lineSeparator() +
+                "6 5" + System.lineSeparator() +
+                "0 0 0 1 1 1" + System.lineSeparator() +
+                "6 3" + System.lineSeparator() +
+                "0 0 1 1 1 0" + System.lineSeparator() +
+                "3 1" + System.lineSeparator() +
+                "0 1 0" + System.lineSeparator();
 
 
-        final String expectedOutput = "YES\n" +
-                "YES\n" +
-                "NO\n" +
-                "NO\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        Game.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void edge_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "3\n" +
-                "11 5\n" +
-                "0 1 1 1 0 0 0 0 0 0 1\n" +
-                "11 5\n" +
-                "0 1 1 1 0 0 1 1 1 0 1\n" +
-                "11 5\n" +
-                "0 1 1 1 1 0 1 1 1 0 1\n";
-
-
-        final String expectedOutput = "YES\n" +
-                "YES\n" +
-                "NO\n";
+        final String expectedOutput = "YES" + System.lineSeparator() +
+                "YES" + System.lineSeparator() +
+                "NO" + System.lineSeparator() +
+                "NO" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -95,6 +63,38 @@ public class GameTest {
 
         final Game instance = new Game();
         instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void edge_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "3" + System.lineSeparator() +
+                "11 5" + System.lineSeparator() +
+                "0 1 1 1 0 0 0 0 0 0 1" + System.lineSeparator() +
+                "11 5" + System.lineSeparator() +
+                "0 1 1 1 0 0 1 1 1 0 1" + System.lineSeparator() +
+                "11 5" + System.lineSeparator() +
+                "0 1 1 1 1 0 1 1 1 0 1" + System.lineSeparator();
+
+
+        final String expectedOutput = "YES" + System.lineSeparator() +
+                "YES" + System.lineSeparator() +
+                "NO" + System.lineSeparator();
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Game.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

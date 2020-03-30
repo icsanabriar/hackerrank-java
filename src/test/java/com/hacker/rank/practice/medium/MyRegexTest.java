@@ -39,19 +39,19 @@ public class MyRegexTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "000.12.12.034\n" +
-                "121.234.12.12\n" +
-                "23.45.12.56\n" +
-                "00.12.123.123123.123\n" +
-                "122.23\n" +
-                "Hello.IP\n";
+        final String input = "000.12.12.034" + System.lineSeparator() +
+                "121.234.12.12" + System.lineSeparator() +
+                "23.45.12.56" + System.lineSeparator() +
+                "00.12.123.123123.123" + System.lineSeparator() +
+                "122.23" + System.lineSeparator() +
+                "Hello.IP" + System.lineSeparator();
 
-        final String expectedOutput = "true\n" +
-                "true\n" +
-                "true\n" +
-                "false\n" +
-                "false\n" +
-                "false\n";
+        final String expectedOutput = "true" + System.lineSeparator() +
+                "true" + System.lineSeparator() +
+                "true" + System.lineSeparator() +
+                "false" + System.lineSeparator() +
+                "false" + System.lineSeparator() +
+                "false" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

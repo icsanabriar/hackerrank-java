@@ -41,7 +41,7 @@ public class MD5Test {
         final InputStream sysInBackup = System.in;
 
         final String input = "HelloWorld";
-        final String expectedOutput = "68e109f0f40ca72a15e05cc22786f8e6\n";
+        final String expectedOutput = "68e109f0f40ca72a15e05cc22786f8e6" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

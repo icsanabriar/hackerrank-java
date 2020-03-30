@@ -39,16 +39,16 @@ public class BitSetsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5 4\n" +
-                "AND 1 2\n" +
-                "SET 1 4\n" +
-                "FLIP 2 2\n" +
-                "OR 2 1\n";
+        final String input = "5 4" + System.lineSeparator() +
+                "AND 1 2" + System.lineSeparator() +
+                "SET 1 4" + System.lineSeparator() +
+                "FLIP 2 2" + System.lineSeparator() +
+                "OR 2 1" + System.lineSeparator();
 
-        final String expectedOutput = "0 0\n" +
-                "1 0\n" +
-                "1 1\n" +
-                "1 2\n";
+        final String expectedOutput = "0 0" + System.lineSeparator() +
+                "1 0" + System.lineSeparator() +
+                "1 1" + System.lineSeparator() +
+                "1 2" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -70,16 +70,16 @@ public class BitSetsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2 4\n" +
-                "SET 1 1\n" +
-                "SET 2 1\n" +
-                "XOR 1 2\n" +
-                "ANT 1 4\n";
+        final String input = "2 4" + System.lineSeparator() +
+                "SET 1 1" + System.lineSeparator() +
+                "SET 2 1" + System.lineSeparator() +
+                "XOR 1 2" + System.lineSeparator() +
+                "ANT 1 4" + System.lineSeparator();
 
-        final String expectedOutput = "1 0\n" +
-                "1 1\n" +
-                "0 1\n" +
-                "0 1\n";
+        final String expectedOutput = "1 0" + System.lineSeparator() +
+                "1 1" + System.lineSeparator() +
+                "0 1" + System.lineSeparator() +
+                "0 1" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

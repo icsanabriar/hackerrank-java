@@ -40,15 +40,16 @@ public class MaxMinTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "7\n" +
-                "3\n" +
-                "10\n" +
-                "100\n" +
-                "300\n" +
-                "200\n" +
-                "1000\n" +
-                "20\n" +
-                "30\n";
+        final String input = "7" + System.lineSeparator() +
+                "3" + System.lineSeparator() +
+                "10" + System.lineSeparator() +
+                "100" + System.lineSeparator() +
+                "300" + System.lineSeparator() +
+                "200" + System.lineSeparator() +
+                "1000" + System.lineSeparator() +
+                "20" + System.lineSeparator() +
+                "30" + System.lineSeparator();
+
         final String expectedOutput = "20";
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());

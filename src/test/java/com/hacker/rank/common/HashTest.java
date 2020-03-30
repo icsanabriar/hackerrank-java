@@ -40,7 +40,7 @@ public class HashTest {
 
         final String algorithm = "SHA-1";
         final String input = "This is a test";
-        final String expectedOutput = "7971e6a051104074fdae0f02322417b6eb5695a2\n";
+        final String expectedOutput = "7971e6a051104074fdae0f02322417b6eb5695a2" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

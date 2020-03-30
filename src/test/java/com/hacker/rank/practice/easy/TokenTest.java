@@ -33,6 +33,7 @@ import static org.testng.Assert.assertEquals;
 public class TokenTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
 
         final String[] args = {};
@@ -40,17 +41,49 @@ public class TokenTest {
 
         final String input = "He is a very very good boy, isn't he?";
 
-        final String expectedOutput = "10\n" +
-                "He\n" +
-                "is\n" +
-                "a\n" +
-                "very\n" +
-                "very\n" +
-                "good\n" +
-                "boy\n" +
-                "isn\n" +
-                "t\n" +
-                "he\n";
+        final String expectedOutput = "10" + System.lineSeparator() +
+                "He" + System.lineSeparator() +
+                "is" + System.lineSeparator() +
+                "a" + System.lineSeparator() +
+                "very" + System.lineSeparator() +
+                "very" + System.lineSeparator() +
+                "good" + System.lineSeparator() +
+                "boy" + System.lineSeparator() +
+                "isn" + System.lineSeparator() +
+                "t" + System.lineSeparator() +
+                "he" + System.lineSeparator();
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        final Token instance = new Token();
+        instance.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void edge_test_case() {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "          YES      leading spaces        are valid,    problemsetters are     evillllll?";
+
+        final String expectedOutput = "8" + System.lineSeparator() +
+                "YES" + System.lineSeparator() +
+                "leading" + System.lineSeparator() +
+                "spaces" + System.lineSeparator() +
+                "are" + System.lineSeparator() +
+                "valid" + System.lineSeparator() +
+                "problemsetters" + System.lineSeparator() +
+                "are" + System.lineSeparator() +
+                "evillllll" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -66,40 +99,6 @@ public class TokenTest {
     }
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
-    public void edge_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
-        final String input = "          YES      leading spaces        are valid,    problemsetters are     evillllll?";
-
-        final String expectedOutput = "8\n" +
-                "YES\n" +
-                "leading\n" +
-                "spaces\n" +
-                "are\n" +
-                "valid\n" +
-                "problemsetters\n" +
-                "are\n" +
-                "evillllll\n";
-
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        final Token instance = new Token();
-        instance.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
-    }
-
-    @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void empty_test_case() {
 
         final String[] args = {};
@@ -107,7 +106,7 @@ public class TokenTest {
 
         final String input = " ";
 
-        final String expectedOutput = "0\n";
+        final String expectedOutput = "0" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -115,8 +114,7 @@ public class TokenTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final Token instance = new Token();
-        instance.main(args);
+        Token.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

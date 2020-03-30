@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.algorithms.easy;
 
-import com.hacker.rank.common.ParameterReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -27,26 +26,37 @@ import java.util.Scanner;
  * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since   1.0.0
  */
-public class AngryProfessor {
+public class Append {
 
     /**
-     * Function that return YES if the class is canceled based on the given k and array a.
+     * Function that return YES if the given string s could be converted to string t on the given k-steps.
      *
-     * @param k Number of students should be present on time.
-     * @param a Integer numbers representing the arrival's minutes early or late from the student classroom.
-     * @return A String YES in case the class is canceled, otherwise NO is returned.
+     * @param s String that is going to be converted.
+     * @param t String that is the target of the transformation.
+     * @param k Number of allow steps to append or last characters.
+     * @return A String with value YES or NO given the result of the transformation.
      */
-    private static String angryProfessor(int k, int[] a) {
+    private static String appendAndDelete(String s, String t, int k) {
 
-        int counter = 0;
+        if ( k >= s.length() + t.length())
+            return "Yes";
 
-        for (int i : a) {
+        int index = s.length();
 
-            if (i <= 0)
-                counter++;
+        while (index > 0) {
+
+            final String prefix = s.substring(0, index);
+
+            if (t.startsWith(prefix)) {
+
+                final int operations = (s.length() - index) + (t.length() - index);
+
+                return operations <= k && (k - operations) % 2 == 0 ? "Yes": "No";
+            }
+            index--;
         }
 
-        return k > counter ? "YES" : "NO";
+        return "No";
     }
 
     /**
@@ -62,21 +72,14 @@ public class AngryProfessor {
         final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
         final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int t = scanner.nextInt();
-        final ParameterReader parameterReader = new ParameterReader(scanner);
+        final String s = scanner.nextLine();
+        final String t = scanner.nextLine();
+        final int k = scanner.nextInt();
 
-        for (int tItr = 0; tItr < t; tItr++) {
+        final String result = appendAndDelete(s, t, k);
 
-            parameterReader.readIntParams();
-
-            final String result = angryProfessor(
-                    parameterReader.getK(),
-                    parameterReader.getA()
-            );
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
-        }
+        bufferedWriter.write(result);
+        bufferedWriter.newLine();
 
         bufferedWriter.close();
         scanner.close();

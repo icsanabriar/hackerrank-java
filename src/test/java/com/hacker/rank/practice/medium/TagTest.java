@@ -39,19 +39,19 @@ public class TagTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5\n" +
-                "<h1>Nayeem loves counseling</h1>\n" +
-                "<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>\n" +
-                "<Amee>safat codes like a ninja</amee>\n" +
-                "<SA premium>Imtiaz has a secret crush</SA premium>\n" +
+        final String input = "5" + System.lineSeparator() +
+                "<h1>Nayeem loves counseling</h1>" + System.lineSeparator() +
+                "<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>" + System.lineSeparator() +
+                "<Amee>safat codes like a ninja</amee>" + System.lineSeparator() +
+                "<SA premium>Imtiaz has a secret crush</SA premium>" + System.lineSeparator() +
                 "<empty></empty>";
 
-        final String expectedOutput = "Nayeem loves counseling\n" +
-                "Sanjay has no watch\n" +
-                "So wait for a while\n" +
-                "None\n" +
-                "Imtiaz has a secret crush\n" +
-                "None\n";
+        final String expectedOutput = "Nayeem loves counseling" + System.lineSeparator() +
+                "Sanjay has no watch" + System.lineSeparator() +
+                "So wait for a while" + System.lineSeparator() +
+                "None" + System.lineSeparator() +
+                "Imtiaz has a secret crush" + System.lineSeparator() +
+                "None" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

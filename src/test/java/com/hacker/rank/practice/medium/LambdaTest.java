@@ -34,23 +34,24 @@ import static org.testng.Assert.assertEquals;
 public class LambdaTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() throws IOException {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5\n" +
-                "1 4\n" +
-                "2 5\n" +
-                "3 898\n" +
-                "1 3\n" +
+        final String input = "5" + System.lineSeparator() +
+                "1 4" + System.lineSeparator() +
+                "2 5" + System.lineSeparator() +
+                "3 898" + System.lineSeparator() +
+                "1 3" + System.lineSeparator() +
                 "2 12";
 
-        final String expectedOutput = "EVEN\n" +
-                "PRIME\n" +
-                "PALINDROME\n" +
-                "ODD\n" +
-                "COMPOSITE\n";
+        final String expectedOutput = "EVEN" + System.lineSeparator() +
+                "PRIME" + System.lineSeparator() +
+                "PALINDROME" + System.lineSeparator() +
+                "ODD" + System.lineSeparator() +
+                "COMPOSITE" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -58,7 +59,9 @@ public class LambdaTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        Lambda.main(args);
+        final Lambda instance = new Lambda();
+        instance.main(args);
+
         assertEquals(expectedOutput, controllerOut.toString());
 
         System.setIn(sysInBackup);
@@ -70,16 +73,16 @@ public class LambdaTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4\n" +
-                "1 41\n" +
-                "2 523152\n" +
-                "3 812318\n" +
-                "1 333333\n";
+        final String input = "4" + System.lineSeparator() +
+                "1 41" + System.lineSeparator() +
+                "2 523152" + System.lineSeparator() +
+                "3 812318" + System.lineSeparator() +
+                "1 333333" + System.lineSeparator();
 
-        final String expectedOutput = "ODD\n" +
-                "COMPOSITE\n" +
-                "NOT PALINDROME\n" +
-                "ODD\n";
+        final String expectedOutput = "ODD" + System.lineSeparator() +
+                "COMPOSITE" + System.lineSeparator() +
+                "NOT PALINDROME" + System.lineSeparator() +
+                "ODD" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -94,18 +97,17 @@ public class LambdaTest {
     }
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void edge_test_case() throws IOException {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2\n" +
-                "1 41\n" +
-                "4 333333\n";
+        final String input = "2" + System.lineSeparator() +
+                "1 41" + System.lineSeparator() +
+                "4 333333" + System.lineSeparator();
 
-        final String expectedOutput = "ODD\n" +
-                "UNKNOWN\n";
+        final String expectedOutput = "ODD" + System.lineSeparator() +
+                "UNKNOWN" + System.lineSeparator();
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -113,8 +115,7 @@ public class LambdaTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final Lambda instance = new Lambda();
-        instance.main(args);
+        Lambda.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
 
