@@ -27,7 +27,7 @@ import java.util.Scanner;
 public class Kaprekar {
 
     /**
-     * Define separator string to print the Kaprekar range.
+     * Separator string to print the Kaprekar range.
      */
     private static final String SEPARATOR = " ";
 
