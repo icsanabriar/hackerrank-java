@@ -22,8 +22,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class BigNumber {
 
@@ -50,8 +50,7 @@ public class BigNumber {
         s = Arrays.copyOf(s, n);
 
         Arrays.sort(s, (s1, s2) -> new BigDecimal(s2)
-                .compareTo(new BigDecimal(s1))
-        );
+                .compareTo(new BigDecimal(s1)));
 
         // Output given by hacker rank website.
         for (int i = 0; i < n; i++) {

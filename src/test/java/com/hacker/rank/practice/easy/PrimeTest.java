@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class PrimeTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -40,7 +45,7 @@ public class PrimeTest {
         final InputStream sysInBackup = System.in;
 
         final String input = "13";
-        final String expectedOutput = "prime" + System.lineSeparator();
+        final String expectedOutput = "prime" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -63,7 +68,7 @@ public class PrimeTest {
         final InputStream sysInBackup = System.in;
 
         final String input = "100";
-        final String expectedOutput = "not prime" + System.lineSeparator();
+        final String expectedOutput = "not prime" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class HandlerTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,23 +44,23 @@ public class HandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3 5" + System.lineSeparator() +
-                "2 4" + System.lineSeparator() +
-                "0 0" + System.lineSeparator() +
-                "2 0" + System.lineSeparator() +
-                "0 2" + System.lineSeparator() +
-                "-1 -2" + System.lineSeparator() +
-                "-1 3" + System.lineSeparator() +
-                "1 -3" + System.lineSeparator();
+        final String input = "3 5" + SEPARATOR +
+                "2 4" + SEPARATOR +
+                "0 0" + SEPARATOR +
+                "2 0" + SEPARATOR +
+                "0 2" + SEPARATOR +
+                "-1 -2" + SEPARATOR +
+                "-1 3" + SEPARATOR +
+                "1 -3" + SEPARATOR;
 
-        final String expectedOutput = "243" + System.lineSeparator() +
-                "16" + System.lineSeparator() +
-                "java.lang.Exception: n and p should not be zero." + System.lineSeparator() +
-                "1" + System.lineSeparator() +
-                "0" + System.lineSeparator() +
-                "java.lang.Exception: n or p should not be negative." + System.lineSeparator() +
-                "java.lang.Exception: n or p should not be negative." + System.lineSeparator() +
-                "java.lang.Exception: n or p should not be negative." + System.lineSeparator();
+        final String expectedOutput = "243" + SEPARATOR +
+                "16" + SEPARATOR +
+                "java.lang.Exception: n and p should not be zero." + SEPARATOR +
+                "1" + SEPARATOR +
+                "0" + SEPARATOR +
+                "java.lang.Exception: n or p should not be negative." + SEPARATOR +
+                "java.lang.Exception: n or p should not be negative." + SEPARATOR +
+                "java.lang.Exception: n or p should not be negative." + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

@@ -28,10 +28,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class AngryProfessorTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -40,14 +45,14 @@ public class AngryProfessorTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "4 3" + System.lineSeparator() +
-                "-1 -3 4 2" + System.lineSeparator() +
-                "4 2" + System.lineSeparator() +
-                "0 -1 2 1" + System.lineSeparator();
+        final String input = "2" + SEPARATOR +
+                "4 3" + SEPARATOR +
+                "-1 -3 4 2" + SEPARATOR +
+                "4 2" + SEPARATOR +
+                "0 -1 2 1" + SEPARATOR;
 
-        final String expectedOutput = "YES" + System.lineSeparator() +
-                "NO" + System.lineSeparator();
+        final String expectedOutput = "YES" + SEPARATOR +
+                "NO" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

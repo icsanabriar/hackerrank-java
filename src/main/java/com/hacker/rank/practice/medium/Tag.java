@@ -24,8 +24,8 @@ import java.util.regex.Pattern;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Tag {
 
@@ -48,9 +48,7 @@ public class Tag {
 
         final Scanner in = new Scanner(System.in);
 
-        int testCases = Integer.parseInt(
-                in.nextLine()
-        );
+        int testCases = Integer.parseInt(in.nextLine());
 
         while (testCases > 0) {
 
@@ -69,10 +67,9 @@ public class Tag {
                 final String tag = matcher.group();
 
                 // Extract the name of tag in the line.
-                String name  = tag.substring(
+                String name = tag.substring(
                         1,
-                        tag.length() - 1
-                );
+                        tag.length() - 1);
 
                 if (tag.startsWith(END_TAG)) {
 
@@ -85,8 +82,7 @@ public class Tag {
 
                         final String text = line.substring(
                                 startLineIndex,
-                                matcher.start()
-                        );
+                                matcher.start());
 
                         if (!text.isEmpty()) {
                             texts.add(text);
@@ -108,8 +104,7 @@ public class Tag {
             // Transform the multiple text in multiple line texts.
             System.out.println(
                     texts.isEmpty() ?
-                            "None" : String.join(System.lineSeparator(), texts)
-            );
+                            "None" : String.join(System.lineSeparator(), texts));
 
             testCases--;
         }

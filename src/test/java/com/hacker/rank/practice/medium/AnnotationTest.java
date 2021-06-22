@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class AnnotationTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,22 +44,22 @@ public class AnnotationTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4" + System.lineSeparator() +
-                "SENIOR 75" + System.lineSeparator() +
-                "JUNIOR 45" + System.lineSeparator() +
-                "SENIOR 40" + System.lineSeparator() +
-                "SENIOR 300" + System.lineSeparator();
+        final String input = "4" + SEPARATOR +
+                "SENIOR 75" + SEPARATOR +
+                "JUNIOR 45" + SEPARATOR +
+                "SENIOR 40" + SEPARATOR +
+                "SENIOR 300" + SEPARATOR;
 
-        final String expectedOutput = "Senior Member" + System.lineSeparator() +
-                "Spend: 75" + System.lineSeparator() +
-                "Budget Left: 25" + System.lineSeparator() +
-                "Junior Member" + System.lineSeparator() +
-                "Spend: 45" + System.lineSeparator() +
-                "Budget Left: 5" + System.lineSeparator() +
-                "Senior Member" + System.lineSeparator() +
-                "Spend: 40" + System.lineSeparator() +
-                "Budget Left: 60" + System.lineSeparator() +
-                "Budget Limit Over" + System.lineSeparator();
+        final String expectedOutput = "Senior Member" + SEPARATOR +
+                "Spend: 75" + SEPARATOR +
+                "Budget Left: 25" + SEPARATOR +
+                "Junior Member" + SEPARATOR +
+                "Spend: 45" + SEPARATOR +
+                "Budget Left: 5" + SEPARATOR +
+                "Senior Member" + SEPARATOR +
+                "Spend: 40" + SEPARATOR +
+                "Budget Left: 60" + SEPARATOR +
+                "Budget Limit Over" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

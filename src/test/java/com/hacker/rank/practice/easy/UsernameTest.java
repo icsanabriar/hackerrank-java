@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class UsernameTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,24 +44,24 @@ public class UsernameTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "8" + System.lineSeparator() +
-                "Julia" + System.lineSeparator() +
-                "Samantha" + System.lineSeparator() +
-                "Samantha_21" + System.lineSeparator() +
-                "1Samantha" + System.lineSeparator() +
-                "Samantha?10_2A" + System.lineSeparator() +
-                "JuliaZ007" + System.lineSeparator() +
-                "Julia@007" + System.lineSeparator() +
-                "_Julia007" + System.lineSeparator();
+        final String input = "8" + SEPARATOR +
+                "Julia" + SEPARATOR +
+                "Samantha" + SEPARATOR +
+                "Samantha_21" + SEPARATOR +
+                "1Samantha" + SEPARATOR +
+                "Samantha?10_2A" + SEPARATOR +
+                "JuliaZ007" + SEPARATOR +
+                "Julia@007" + SEPARATOR +
+                "_Julia007" + SEPARATOR;
 
-        final String expectedOutput = "Invalid" + System.lineSeparator() +
-                "Valid" + System.lineSeparator() +
-                "Valid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator() +
-                "Valid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator();
+        final String expectedOutput = "Invalid" + SEPARATOR +
+                "Valid" + SEPARATOR +
+                "Valid" + SEPARATOR +
+                "Invalid" + SEPARATOR +
+                "Invalid" + SEPARATOR +
+                "Valid" + SEPARATOR +
+                "Invalid" + SEPARATOR +
+                "Invalid" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

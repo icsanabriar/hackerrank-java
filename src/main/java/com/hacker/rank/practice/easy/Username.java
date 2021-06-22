@@ -20,8 +20,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Username {
 
@@ -43,18 +43,16 @@ public class Username {
     public static void main(String[] args) {
 
         int n = Integer.parseInt(
-                scan.nextLine()
-        );
+                scan.nextLine());
 
         while (n-- != 0) {
 
             final String userName = scan.nextLine();
 
-            if (userName.matches(REGULAR_EXPRESSION)) {
+            if (userName.matches(REGULAR_EXPRESSION))
                 System.out.println("Valid");
-            } else {
+            else
                 System.out.println("Invalid");
-            }
         }
 
         scan.close();

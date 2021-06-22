@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ProgrammerDayTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,8 +45,8 @@ public class ProgrammerDayTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2017" + System.lineSeparator();
-        final String expectedOutput = "13.09.2017" + System.lineSeparator();
+        final String input = "2017" + SEPARATOR;
+        final String expectedOutput = "13.09.2017" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -71,8 +77,8 @@ public class ProgrammerDayTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2016" + System.lineSeparator();
-        final String expectedOutput = "12.09.2016" + System.lineSeparator();
+        final String input = "2016" + SEPARATOR;
+        final String expectedOutput = "12.09.2016" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -102,8 +108,8 @@ public class ProgrammerDayTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1800" + System.lineSeparator();
-        final String expectedOutput = "12.09.1800" + System.lineSeparator();
+        final String input = "1800" + SEPARATOR;
+        final String expectedOutput = "12.09.1800" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -133,8 +139,8 @@ public class ProgrammerDayTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1884" + System.lineSeparator();
-        final String expectedOutput = "12.09.1884" + System.lineSeparator();
+        final String input = "1884" + SEPARATOR;
+        final String expectedOutput = "12.09.1884" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -164,8 +170,8 @@ public class ProgrammerDayTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1918" + System.lineSeparator();
-        final String expectedOutput = "26.09.1918" + System.lineSeparator();
+        final String input = "1918" + SEPARATOR;
+        final String expectedOutput = "26.09.1918" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

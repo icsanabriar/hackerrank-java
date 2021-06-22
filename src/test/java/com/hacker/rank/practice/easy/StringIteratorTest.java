@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class StringIteratorTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,15 +44,15 @@ public class StringIteratorTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "2" + System.lineSeparator() +
-                "42" + System.lineSeparator() +
-                "10" + System.lineSeparator() +
-                "Hello" + System.lineSeparator() +
-                "Java" + System.lineSeparator();
+        final String input = "2" + SEPARATOR +
+                "2" + SEPARATOR +
+                "42" + SEPARATOR +
+                "10" + SEPARATOR +
+                "Hello" + SEPARATOR +
+                "Java" + SEPARATOR;
 
-        final String expectedOutput = "Hello" + System.lineSeparator() +
-                "Java" + System.lineSeparator();
+        final String expectedOutput = "Hello" + SEPARATOR +
+                "Java" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -69,10 +74,10 @@ public class StringIteratorTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "0" + System.lineSeparator() +
-                "42" + System.lineSeparator() +
-                "10" + System.lineSeparator();
+        final String input = "2" + SEPARATOR +
+                "0" + SEPARATOR +
+                "42" + SEPARATOR +
+                "10" + SEPARATOR;
 
         final String expectedOutput = "";
 

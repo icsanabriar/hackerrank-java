@@ -54,8 +54,8 @@ class MyCalculator {
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Handler {
 
@@ -84,9 +84,8 @@ public class Handler {
 
             try {
 
-                System.out.println(
-                        calculator.power(n, p)
-                );
+                final long power = calculator.power(n, p);
+                System.out.println(power);
 
             } catch (Exception e) {
                 System.out.println(e);

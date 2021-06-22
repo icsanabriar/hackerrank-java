@@ -15,25 +15,25 @@
  */
 package com.hacker.rank.common;
 
+import javax.xml.bind.DatatypeConverter;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
-import javax.xml.bind.DatatypeConverter;
 
 /**
  * Class that is responsible of generating HASHES based on given algorithm.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Hash {
 
     /**
-     * Function that prints out the HASH of given string over console and print the result based on the given algorithm. <p>
-     *
-     * Currently supported algorithms: <p>
-     *
+     * Function that prints out the HASH of given string over console and print the result based on the given algorithm.
+     * <p>
+     * Currently supported algorithms:
+     * <p>
      * - MD5 <p>
      * - SHA <p>
      *
@@ -48,8 +48,7 @@ public class Hash {
         final MessageDigest messageDigest = MessageDigest.getInstance(algorithm);
 
         final byte[] hashBytes = messageDigest.digest(
-                input.getBytes(StandardCharsets.UTF_8)
-        );
+                input.getBytes(StandardCharsets.UTF_8));
 
         final String hash = DatatypeConverter.printHexBinary(hashBytes)
                 .toLowerCase();

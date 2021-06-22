@@ -24,8 +24,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Priority {
 
@@ -45,8 +45,7 @@ public class Priority {
         final List<String> events = new ArrayList<>();
 
         int totalEvents = Integer.parseInt(
-                scan.nextLine()
-        );
+                scan.nextLine());
 
         while (totalEvents-- != 0) {
             String event = scan.nextLine();
@@ -180,8 +179,7 @@ class Priorities {
                 final Student student = new Student(
                         Integer.parseInt(studentInput[3]),
                         studentInput[1],
-                        Double.parseDouble(studentInput[2])
-                );
+                        Double.parseDouble(studentInput[2]));
 
                 students.offer(student);
             }

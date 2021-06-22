@@ -22,8 +22,8 @@ import java.util.regex.Pattern;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class DuplicateWords {
 
@@ -38,10 +38,7 @@ public class DuplicateWords {
         final Pattern p = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
 
         final Scanner in = new Scanner(System.in);
-
-        int numSentences = Integer.parseInt(
-                in.nextLine()
-        );
+        int numSentences = Integer.parseInt(in.nextLine());
 
         while (numSentences-- > 0) {
 
@@ -54,8 +51,7 @@ public class DuplicateWords {
 
                 input = input.replaceAll(
                         m.group(),
-                        m.group(1)
-                );
+                        m.group(1));
             }
 
             // Prints the modified sentence.

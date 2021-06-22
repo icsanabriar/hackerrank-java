@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ElectronicShopTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,11 +45,11 @@ public class ElectronicShopTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10 2 3" + System.lineSeparator() +
-                "3 1" + System.lineSeparator() +
-                "5 2 8" + System.lineSeparator();
+        final String input = "10 2 3" + SEPARATOR +
+                "3 1" + SEPARATOR +
+                "5 2 8" + SEPARATOR;
 
-        final String expectedOutput = "9" + System.lineSeparator();
+        final String expectedOutput = "9" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -74,11 +80,11 @@ public class ElectronicShopTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5 1 1" + System.lineSeparator() +
-                "4" + System.lineSeparator() +
-                "5" + System.lineSeparator();
+        final String input = "5 1 1" + SEPARATOR +
+                "4" + SEPARATOR +
+                "5" + SEPARATOR;
 
-        final String expectedOutput = "-1" + System.lineSeparator();
+        final String expectedOutput = "-1" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -108,11 +114,11 @@ public class ElectronicShopTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10 1 1" + System.lineSeparator() +
-                "5" + System.lineSeparator() +
-                "5" + System.lineSeparator();
+        final String input = "10 1 1" + SEPARATOR +
+                "5" + SEPARATOR +
+                "5" + SEPARATOR;
 
-        final String expectedOutput = "10" + System.lineSeparator();
+        final String expectedOutput = "10" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

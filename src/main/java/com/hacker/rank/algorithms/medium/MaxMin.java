@@ -16,6 +16,7 @@
 package com.hacker.rank.algorithms.medium;
 
 import com.hacker.rank.common.ParameterReader;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -26,8 +27,8 @@ import java.util.stream.IntStream;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class MaxMin {
 
@@ -70,12 +71,10 @@ public class MaxMin {
 
         final int result = solve(
                 parameterReader.getK(),
-                parameterReader.getA()
-        );
+                parameterReader.getA());
 
         bufferedWriter.write(
-                String.valueOf(result)
-        );
+                String.valueOf(result));
 
         bufferedWriter.newLine();
         bufferedWriter.close();

@@ -23,16 +23,16 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class SherlockSquares {
 
     /**
      * Return the  number of squares (1,4,9..) of given range.
      *
-     * @param a     Start of the range.
-     * @param b     End of the range.
+     * @param a Start of the range.
+     * @param b End of the range.
      * @return Number of squares in the given range.
      */
     private static int squares(int a, int b) {
@@ -41,9 +41,8 @@ public class SherlockSquares {
 
         int lowSqrt = (int) Math.floor(Math.sqrt(a));
 
-        if (lowSqrt * lowSqrt == a) {
+        if (lowSqrt * lowSqrt == a)
             lowSqrt--;
-        }
 
         return highSqrt - lowSqrt;
     }

@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class TokenTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -41,17 +46,17 @@ public class TokenTest {
 
         final String input = "He is a very very good boy, isn't he?";
 
-        final String expectedOutput = "10" + System.lineSeparator() +
-                "He" + System.lineSeparator() +
-                "is" + System.lineSeparator() +
-                "a" + System.lineSeparator() +
-                "very" + System.lineSeparator() +
-                "very" + System.lineSeparator() +
-                "good" + System.lineSeparator() +
-                "boy" + System.lineSeparator() +
-                "isn" + System.lineSeparator() +
-                "t" + System.lineSeparator() +
-                "he" + System.lineSeparator();
+        final String expectedOutput = "10" + SEPARATOR +
+                "He" + SEPARATOR +
+                "is" + SEPARATOR +
+                "a" + SEPARATOR +
+                "very" + SEPARATOR +
+                "very" + SEPARATOR +
+                "good" + SEPARATOR +
+                "boy" + SEPARATOR +
+                "isn" + SEPARATOR +
+                "t" + SEPARATOR +
+                "he" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -75,15 +80,15 @@ public class TokenTest {
 
         final String input = "          YES      leading spaces        are valid,    problemsetters are     evillllll?";
 
-        final String expectedOutput = "8" + System.lineSeparator() +
-                "YES" + System.lineSeparator() +
-                "leading" + System.lineSeparator() +
-                "spaces" + System.lineSeparator() +
-                "are" + System.lineSeparator() +
-                "valid" + System.lineSeparator() +
-                "problemsetters" + System.lineSeparator() +
-                "are" + System.lineSeparator() +
-                "evillllll" + System.lineSeparator();
+        final String expectedOutput = "8" + SEPARATOR +
+                "YES" + SEPARATOR +
+                "leading" + SEPARATOR +
+                "spaces" + SEPARATOR +
+                "are" + SEPARATOR +
+                "valid" + SEPARATOR +
+                "problemsetters" + SEPARATOR +
+                "are" + SEPARATOR +
+                "evillllll" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -106,7 +111,7 @@ public class TokenTest {
 
         final String input = " ";
 
-        final String expectedOutput = "0" + System.lineSeparator();
+        final String expectedOutput = "0" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

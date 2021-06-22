@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class GameTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,21 +44,21 @@ public class GameTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4" + System.lineSeparator() +
-                "5 3" + System.lineSeparator() +
-                "0 0 0 0 0" + System.lineSeparator() +
-                "6 5" + System.lineSeparator() +
-                "0 0 0 1 1 1" + System.lineSeparator() +
-                "6 3" + System.lineSeparator() +
-                "0 0 1 1 1 0" + System.lineSeparator() +
-                "3 1" + System.lineSeparator() +
-                "0 1 0" + System.lineSeparator();
+        final String input = "4" + SEPARATOR +
+                "5 3" + SEPARATOR +
+                "0 0 0 0 0" + SEPARATOR +
+                "6 5" + SEPARATOR +
+                "0 0 0 1 1 1" + SEPARATOR +
+                "6 3" + SEPARATOR +
+                "0 0 1 1 1 0" + SEPARATOR +
+                "3 1" + SEPARATOR +
+                "0 1 0" + SEPARATOR;
 
 
-        final String expectedOutput = "YES" + System.lineSeparator() +
-                "YES" + System.lineSeparator() +
-                "NO" + System.lineSeparator() +
-                "NO" + System.lineSeparator();
+        final String expectedOutput = "YES" + SEPARATOR +
+                "YES" + SEPARATOR +
+                "NO" + SEPARATOR +
+                "NO" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -75,18 +80,18 @@ public class GameTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3" + System.lineSeparator() +
-                "11 5" + System.lineSeparator() +
-                "0 1 1 1 0 0 0 0 0 0 1" + System.lineSeparator() +
-                "11 5" + System.lineSeparator() +
-                "0 1 1 1 0 0 1 1 1 0 1" + System.lineSeparator() +
-                "11 5" + System.lineSeparator() +
-                "0 1 1 1 1 0 1 1 1 0 1" + System.lineSeparator();
+        final String input = "3" + SEPARATOR +
+                "11 5" + SEPARATOR +
+                "0 1 1 1 0 0 0 0 0 0 1" + SEPARATOR +
+                "11 5" + SEPARATOR +
+                "0 1 1 1 0 0 1 1 1 0 1" + SEPARATOR +
+                "11 5" + SEPARATOR +
+                "0 1 1 1 1 0 1 1 1 0 1" + SEPARATOR;
 
 
-        final String expectedOutput = "YES" + System.lineSeparator() +
-                "YES" + System.lineSeparator() +
-                "NO" + System.lineSeparator();
+        final String expectedOutput = "YES" + SEPARATOR +
+                "YES" + SEPARATOR +
+                "NO" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

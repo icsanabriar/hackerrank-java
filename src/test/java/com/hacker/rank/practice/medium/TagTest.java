@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class TagTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,19 +44,19 @@ public class TagTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5" + System.lineSeparator() +
-                "<h1>Nayeem loves counseling</h1>" + System.lineSeparator() +
-                "<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>" + System.lineSeparator() +
-                "<Amee>safat codes like a ninja</amee>" + System.lineSeparator() +
-                "<SA premium>Imtiaz has a secret crush</SA premium>" + System.lineSeparator() +
+        final String input = "5" + SEPARATOR +
+                "<h1>Nayeem loves counseling</h1>" + SEPARATOR +
+                "<h1><h1>Sanjay has no watch</h1></h1><par>So wait for a while</par>" + SEPARATOR +
+                "<Amee>safat codes like a ninja</amee>" + SEPARATOR +
+                "<SA premium>Imtiaz has a secret crush</SA premium>" + SEPARATOR +
                 "<empty></empty>";
 
-        final String expectedOutput = "Nayeem loves counseling" + System.lineSeparator() +
-                "Sanjay has no watch" + System.lineSeparator() +
-                "So wait for a while" + System.lineSeparator() +
-                "None" + System.lineSeparator() +
-                "Imtiaz has a secret crush" + System.lineSeparator() +
-                "None" + System.lineSeparator();
+        final String expectedOutput = "Nayeem loves counseling" + SEPARATOR +
+                "Sanjay has no watch" + SEPARATOR +
+                "So wait for a while" + SEPARATOR +
+                "None" + SEPARATOR +
+                "Imtiaz has a secret crush" + SEPARATOR +
+                "None" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

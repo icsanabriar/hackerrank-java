@@ -27,8 +27,8 @@ import java.util.Locale;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class DayTime {
 
@@ -54,14 +54,13 @@ public class DayTime {
     private static String findDay(int month, int day, int year) {
 
         // Adjust the month to pass as parameter to calendar instance.
-        final Calendar gregorian = new GregorianCalendar();
-        gregorian.set(year, month - 1, day);
+        final int estimatedMonth = month - 1;
 
-        return gregorian.getDisplayName(
-                Calendar.DAY_OF_WEEK,
-                Calendar.LONG,
-                Locale.US
-        ).toUpperCase();
+        final Calendar gregorian = new GregorianCalendar();
+        gregorian.set(year, estimatedMonth, day);
+
+        return gregorian.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.US)
+                .toUpperCase();
     }
 
     /**
@@ -73,14 +72,11 @@ public class DayTime {
     public static void main(String[] args) throws IOException {
 
         final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in)
-        );
+                new InputStreamReader(System.in));
 
         final BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter(
-                        System.getenv("OUTPUT_PATH")
-                )
-        );
+                        System.getenv("OUTPUT_PATH")));
 
         final String[] firstMultipleInput = bufferedReader.readLine()
                 .replaceAll("\\s+$", REPLACEMENT)

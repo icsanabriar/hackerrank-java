@@ -58,6 +58,7 @@ class MyMath {
      * @return A boolean representing if a given number is prime.
      */
     PerformOperation isPrime() {
+
         return num -> {
 
             for (int i = 2; i * i <= num; i++) {
@@ -71,11 +72,12 @@ class MyMath {
     }
 
     /**
-     * Validate that a given number is palidrome.
+     * Validate that a given number is palindrome.
      *
-     * @return A boolean representing if a given number is palidrome.
+     * @return A boolean representing if a given number is palindrome.
      */
     PerformOperation isPalindrome() {
+
         return num -> {
 
             final String value = String.valueOf(num);
@@ -92,8 +94,8 @@ class MyMath {
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Lambda {
 
@@ -107,13 +109,8 @@ public class Lambda {
 
         final MyMath ob = new MyMath();
 
-        final BufferedReader br = new BufferedReader(
-                new InputStreamReader(System.in)
-        );
-
-        int T = Integer.parseInt(
-                br.readLine()
-        );
+        final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int T = Integer.parseInt(br.readLine());
 
         PerformOperation op;
         boolean ret;
@@ -126,13 +123,8 @@ public class Lambda {
 
             final StringTokenizer st = new StringTokenizer(s);
 
-            final int ch = Integer.parseInt(
-                    st.nextToken()
-            );
-
-            final int num = Integer.parseInt(
-                    st.nextToken()
-            );
+            final int ch = Integer.parseInt(st.nextToken());
+            final int num = Integer.parseInt(st.nextToken());
 
             ans = "UNKNOWN";
 

@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class SyntaxTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,14 +44,14 @@ public class SyntaxTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3" + System.lineSeparator() +
-                "([A-Z])(.+)" + System.lineSeparator() +
-                "[AZ[a-z](a-z)" + System.lineSeparator() +
+        final String input = "3" + SEPARATOR +
+                "([A-Z])(.+)" + SEPARATOR +
+                "[AZ[a-z](a-z)" + SEPARATOR +
                 "batcatpat(nat";
 
-        final String expectedOutput = "Valid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator() +
-                "Invalid" + System.lineSeparator();
+        final String expectedOutput = "Valid" + SEPARATOR +
+                "Invalid" + SEPARATOR +
+                "Invalid" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

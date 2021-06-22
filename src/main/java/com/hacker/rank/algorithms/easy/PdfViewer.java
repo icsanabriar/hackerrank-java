@@ -23,8 +23,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class PdfViewer {
 
@@ -65,7 +65,8 @@ public class PdfViewer {
 
         final int[] h = new int[26];
 
-        final String[] hItems = scanner.nextLine().split(SEPARATOR);
+        final String[] hItems = scanner.nextLine()
+                .split(SEPARATOR);
 
         for (int i = 0; i < 26; i++) {
             final int hItem = Integer.parseInt(hItems[i]);

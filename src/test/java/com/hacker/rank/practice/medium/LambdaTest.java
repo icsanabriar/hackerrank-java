@@ -28,10 +28,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class LambdaTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -40,18 +45,18 @@ public class LambdaTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5" + System.lineSeparator() +
-                "1 4" + System.lineSeparator() +
-                "2 5" + System.lineSeparator() +
-                "3 898" + System.lineSeparator() +
-                "1 3" + System.lineSeparator() +
+        final String input = "5" + SEPARATOR +
+                "1 4" + SEPARATOR +
+                "2 5" + SEPARATOR +
+                "3 898" + SEPARATOR +
+                "1 3" + SEPARATOR +
                 "2 12";
 
-        final String expectedOutput = "EVEN" + System.lineSeparator() +
-                "PRIME" + System.lineSeparator() +
-                "PALINDROME" + System.lineSeparator() +
-                "ODD" + System.lineSeparator() +
-                "COMPOSITE" + System.lineSeparator();
+        final String expectedOutput = "EVEN" + SEPARATOR +
+                "PRIME" + SEPARATOR +
+                "PALINDROME" + SEPARATOR +
+                "ODD" + SEPARATOR +
+                "COMPOSITE" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -73,16 +78,16 @@ public class LambdaTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "4" + System.lineSeparator() +
-                "1 41" + System.lineSeparator() +
-                "2 523152" + System.lineSeparator() +
-                "3 812318" + System.lineSeparator() +
-                "1 333333" + System.lineSeparator();
+        final String input = "4" + SEPARATOR +
+                "1 41" + SEPARATOR +
+                "2 523152" + SEPARATOR +
+                "3 812318" + SEPARATOR +
+                "1 333333" + SEPARATOR;
 
-        final String expectedOutput = "ODD" + System.lineSeparator() +
-                "COMPOSITE" + System.lineSeparator() +
-                "NOT PALINDROME" + System.lineSeparator() +
-                "ODD" + System.lineSeparator();
+        final String expectedOutput = "ODD" + SEPARATOR +
+                "COMPOSITE" + SEPARATOR +
+                "NOT PALINDROME" + SEPARATOR +
+                "ODD" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -102,12 +107,12 @@ public class LambdaTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "1 41" + System.lineSeparator() +
-                "4 333333" + System.lineSeparator();
+        final String input = "2" + SEPARATOR +
+                "1 41" + SEPARATOR +
+                "4 333333" + SEPARATOR;
 
-        final String expectedOutput = "ODD" + System.lineSeparator() +
-                "UNKNOWN" + System.lineSeparator();
+        final String expectedOutput = "ODD" + SEPARATOR +
+                "UNKNOWN" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

@@ -27,11 +27,16 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class BitSetsTest {
 
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
+    
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
@@ -39,16 +44,16 @@ public class BitSetsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5 4" + System.lineSeparator() +
-                "AND 1 2" + System.lineSeparator() +
-                "SET 1 4" + System.lineSeparator() +
-                "FLIP 2 2" + System.lineSeparator() +
-                "OR 2 1" + System.lineSeparator();
+        final String input = "5 4" + SEPARATOR +
+                "AND 1 2" + SEPARATOR +
+                "SET 1 4" + SEPARATOR +
+                "FLIP 2 2" + SEPARATOR +
+                "OR 2 1" + SEPARATOR;
 
-        final String expectedOutput = "0 0" + System.lineSeparator() +
-                "1 0" + System.lineSeparator() +
-                "1 1" + System.lineSeparator() +
-                "1 2" + System.lineSeparator();
+        final String expectedOutput = "0 0" + SEPARATOR +
+                "1 0" + SEPARATOR +
+                "1 1" + SEPARATOR +
+                "1 2" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -70,16 +75,16 @@ public class BitSetsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2 4" + System.lineSeparator() +
-                "SET 1 1" + System.lineSeparator() +
-                "SET 2 1" + System.lineSeparator() +
-                "XOR 1 2" + System.lineSeparator() +
-                "ANT 1 4" + System.lineSeparator();
+        final String input = "2 4" + SEPARATOR +
+                "SET 1 1" + SEPARATOR +
+                "SET 2 1" + SEPARATOR +
+                "XOR 1 2" + SEPARATOR +
+                "ANT 1 4" + SEPARATOR;
 
-        final String expectedOutput = "1 0" + System.lineSeparator() +
-                "1 1" + System.lineSeparator() +
-                "0 1" + System.lineSeparator() +
-                "0 1" + System.lineSeparator();
+        final String expectedOutput = "1 0" + SEPARATOR +
+                "1 1" + SEPARATOR +
+                "0 1" + SEPARATOR +
+                "0 1" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

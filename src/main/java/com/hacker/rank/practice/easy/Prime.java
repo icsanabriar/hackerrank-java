@@ -21,8 +21,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Prime {
 
@@ -38,11 +38,10 @@ public class Prime {
         final String n = scanner.nextLine();
         final BigInteger number = new BigInteger(n);
 
-        if (number.isProbablePrime(1)) {
+        if (number.isProbablePrime(1))
             System.out.println("prime");
-        } else {
+        else
             System.out.println("not prime");
-        }
 
         scanner.close();
     }
