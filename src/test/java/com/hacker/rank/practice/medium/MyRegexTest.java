@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class MyRegexTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,19 +44,19 @@ public class MyRegexTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "000.12.12.034" + System.lineSeparator() +
-                "121.234.12.12" + System.lineSeparator() +
-                "23.45.12.56" + System.lineSeparator() +
-                "00.12.123.123123.123" + System.lineSeparator() +
-                "122.23" + System.lineSeparator() +
-                "Hello.IP" + System.lineSeparator();
+        final String input = "000.12.12.034" + SEPARATOR +
+                "121.234.12.12" + SEPARATOR +
+                "23.45.12.56" + SEPARATOR +
+                "00.12.123.123123.123" + SEPARATOR +
+                "122.23" + SEPARATOR +
+                "Hello.IP" + SEPARATOR;
 
-        final String expectedOutput = "true" + System.lineSeparator() +
-                "true" + System.lineSeparator() +
-                "true" + System.lineSeparator() +
-                "false" + System.lineSeparator() +
-                "false" + System.lineSeparator() +
-                "false" + System.lineSeparator();
+        final String expectedOutput = "true" + SEPARATOR +
+                "true" + SEPARATOR +
+                "true" + SEPARATOR +
+                "false" + SEPARATOR +
+                "false" + SEPARATOR +
+                "false" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

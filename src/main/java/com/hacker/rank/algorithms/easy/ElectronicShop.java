@@ -24,8 +24,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ElectronicShop {
 
@@ -53,14 +53,14 @@ public class ElectronicShop {
 
             int index = Arrays.binarySearch(drives, b - keyboard);
 
-            if (index < 0) {
+            if (index < 0)
                 // The index that is a match is the insertion point - 1.
                 index = -1 - (index + 1);
-            }
 
-            if (index >= 0) {
+
+            if (index >= 0)
                 expenses = Math.max(expenses, keyboard + drives[index]);
-            }
+
         }
 
         return expenses;
@@ -87,7 +87,8 @@ public class ElectronicShop {
 
         final int[] keyboards = new int[n];
 
-        final String[] keyboardsItems = scanner.nextLine().split(SEPARATOR);
+        final String[] keyboardsItems = scanner.nextLine()
+                .split(SEPARATOR);
 
         for (int keyboardsItr = 0; keyboardsItr < n; keyboardsItr++) {
 
@@ -97,7 +98,8 @@ public class ElectronicShop {
 
         final int[] drives = new int[m];
 
-        final String[] drivesItems = scanner.nextLine().split(SEPARATOR);
+        final String[] drivesItems = scanner.nextLine()
+                .split(SEPARATOR);
 
         for (int drivesItr = 0; drivesItr < m; drivesItr++) {
 

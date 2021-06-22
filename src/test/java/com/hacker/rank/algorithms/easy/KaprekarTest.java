@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class KaprekarTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,11 +44,11 @@ public class KaprekarTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1" + System.lineSeparator() +
-                "99999" + System.lineSeparator();
+        final String input = "1" + SEPARATOR +
+                "99999" + SEPARATOR;
 
         final String expectedOutput = "1 9 45 55 99 297 703 999 2223 2728 4950 5050 7272 7777 9999 17344 " +
-                "22222 77778 82656 95121 99999" + System.lineSeparator();
+                "22222 77778 82656 95121 99999" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -65,10 +70,10 @@ public class KaprekarTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "400" + System.lineSeparator() +
-                "700" + System.lineSeparator();
+        final String input = "400" + SEPARATOR +
+                "700" + SEPARATOR;
 
-        final String expectedOutput = "INVALID RANGE" + System.lineSeparator();
+        final String expectedOutput = "INVALID RANGE" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class BigNumberTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,26 +44,26 @@ public class BigNumberTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "9" + System.lineSeparator() +
-                "-100" + System.lineSeparator() +
-                "50" + System.lineSeparator() +
-                "0" + System.lineSeparator() +
-                "56.6" + System.lineSeparator() +
-                "90" + System.lineSeparator() +
-                "0.12" + System.lineSeparator() +
-                ".12" + System.lineSeparator() +
-                "02.34" + System.lineSeparator() +
-                "000.000" + System.lineSeparator();
+        final String input = "9" + SEPARATOR +
+                "-100" + SEPARATOR +
+                "50" + SEPARATOR +
+                "0" + SEPARATOR +
+                "56.6" + SEPARATOR +
+                "90" + SEPARATOR +
+                "0.12" + SEPARATOR +
+                ".12" + SEPARATOR +
+                "02.34" + SEPARATOR +
+                "000.000" + SEPARATOR;
 
-        final String expectedOutput = "90" + System.lineSeparator() +
-                "56.6" + System.lineSeparator() +
-                "50" + System.lineSeparator() +
-                "02.34" + System.lineSeparator() +
-                "0.12" + System.lineSeparator() +
-                ".12" + System.lineSeparator() +
-                "0" + System.lineSeparator() +
-                "000.000" + System.lineSeparator() +
-                "-100" + System.lineSeparator();
+        final String expectedOutput = "90" + SEPARATOR +
+                "56.6" + SEPARATOR +
+                "50" + SEPARATOR +
+                "02.34" + SEPARATOR +
+                "0.12" + SEPARATOR +
+                ".12" + SEPARATOR +
+                "0" + SEPARATOR +
+                "000.000" + SEPARATOR +
+                "-100" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

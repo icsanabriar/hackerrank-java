@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class DuplicateWordsTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,18 +44,18 @@ public class DuplicateWordsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5" + System.lineSeparator() +
-                "Goodbye bye bye world world world" + System.lineSeparator() +
-                "Sam went went to to to his business" + System.lineSeparator() +
-                "Reya is is the the best player in eye eye game" + System.lineSeparator() +
-                "in inthe" + System.lineSeparator() +
-                "Hello hello Ab aB" + System.lineSeparator();
+        final String input = "5" + SEPARATOR +
+                "Goodbye bye bye world world world" + SEPARATOR +
+                "Sam went went to to to his business" + SEPARATOR +
+                "Reya is is the the best player in eye eye game" + SEPARATOR +
+                "in inthe" + SEPARATOR +
+                "Hello hello Ab aB" + SEPARATOR;
 
-        final String expectedOutput = "Goodbye bye world" + System.lineSeparator() +
-                "Sam went to his business" + System.lineSeparator() +
-                "Reya is the best player in eye game" + System.lineSeparator() +
-                "in inthe" + System.lineSeparator() +
-                "Hello Ab" + System.lineSeparator();
+        final String expectedOutput = "Goodbye bye world" + SEPARATOR +
+                "Sam went to his business" + SEPARATOR +
+                "Reya is the best player in eye game" + SEPARATOR +
+                "in inthe" + SEPARATOR +
+                "Hello Ab" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

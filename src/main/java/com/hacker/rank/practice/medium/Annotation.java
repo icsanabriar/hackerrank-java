@@ -29,13 +29,13 @@ import java.util.Scanner;
 @Retention(RetentionPolicy.RUNTIME)
 @interface FamilyBudget {
     String userRole() default "GUEST";
-
     int budgetLimit();
 }
 
 /**
  * FamilyMember class given by hacker rank.
  */
+@SuppressWarnings("unused")
 class FamilyMember {
 
     /**
@@ -80,9 +80,7 @@ public class Annotation {
 
         final Scanner in = new Scanner(System.in);
 
-        int testCases = Integer.parseInt(
-                in.nextLine()
-        );
+        int testCases = Integer.parseInt(in.nextLine());
 
         while (testCases > 0) {
 
@@ -105,12 +103,14 @@ public class Annotation {
                         if (budgetLimit >= spend) {
 
                             method.invoke(
-                                    FamilyMember.class.newInstance(),
+                                    FamilyMember.class
+                                            .getDeclaredConstructor()
+                                            .newInstance(),
                                     budgetLimit,
-                                    spend
-                            );
+                                    spend);
 
                         } else {
+
                             System.out.println("Budget Limit Over");
                         }
                     }

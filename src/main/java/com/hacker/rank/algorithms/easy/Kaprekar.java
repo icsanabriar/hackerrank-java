@@ -21,8 +21,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Kaprekar {
 
@@ -39,20 +39,18 @@ public class Kaprekar {
      */
     private static int digits(long a) {
         if (a < 100) {
-            if (a < 10) {
+            if (a < 10)
                 return 1;
-            } else {
+            else
                 return 2;
-            }
         } else {
-            if (a < 1000) {
+            if (a < 1000)
                 return 3;
-            } else {
-                if (a < 10000) {
+            else {
+                if (a < 10000)
                     return 4;
-                } else {
+                else
                     return 5;
-                }
             }
         }
     }
@@ -84,12 +82,10 @@ public class Kaprekar {
             } else {
 
                 right = Integer.parseInt(
-                        square.substring(rightStartIndex)
-                );
+                        square.substring(rightStartIndex));
 
                 left = Integer.parseInt(
-                        square.substring(0, rightStartIndex)
-                );
+                        square.substring(0, rightStartIndex));
             }
 
             final int sum = left + right;

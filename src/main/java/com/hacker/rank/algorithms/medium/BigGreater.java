@@ -23,8 +23,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class BigGreater {
 
@@ -38,6 +38,7 @@ public class BigGreater {
     private static void swapChar(StringBuilder builder, int index, int swap) {
 
         char temp = builder.charAt(index);
+
         builder.setCharAt(index, builder.charAt(swap));
         builder.setCharAt(swap, temp);
     }
@@ -106,7 +107,6 @@ public class BigGreater {
         for (int TItr = 0; TItr < T; TItr++) {
 
             final String w = scanner.next();
-
             final String result = biggerIsGreater(w);
 
             bufferedWriter.write(result);

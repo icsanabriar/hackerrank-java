@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class AppendTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,11 +45,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "hackerhappy" + System.lineSeparator() +
-                "hackerrank" + System.lineSeparator() +
-                "9" + System.lineSeparator();
+        final String input = "hackerhappy" + SEPARATOR +
+                "hackerrank" + SEPARATOR +
+                "9" + SEPARATOR;
 
-        final String expectedOutput = "Yes" + System.lineSeparator();
+        final String expectedOutput = "Yes" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -74,11 +80,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "abcdefgh" + System.lineSeparator() +
-                "xyz" + System.lineSeparator() +
-                "12" + System.lineSeparator();
+        final String input = "abcdefgh" + SEPARATOR +
+                "xyz" + SEPARATOR +
+                "12" + SEPARATOR;
 
-        final String expectedOutput = "Yes" + System.lineSeparator();
+        final String expectedOutput = "Yes" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -108,11 +114,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "ashley" + System.lineSeparator() +
-                "ash" + System.lineSeparator() +
-                "2" + System.lineSeparator();
+        final String input = "ashley" + SEPARATOR +
+                "ash" + SEPARATOR +
+                "2" + SEPARATOR;
 
-        final String expectedOutput = "No" + System.lineSeparator();
+        final String expectedOutput = "No" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -142,11 +148,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "abcd" + System.lineSeparator() +
-                "abcdert" + System.lineSeparator() +
-                "10" + System.lineSeparator();
+        final String input = "abcd" + SEPARATOR +
+                "abcdert" + SEPARATOR +
+                "10" + SEPARATOR;
 
-        final String expectedOutput = "No" + System.lineSeparator();
+        final String expectedOutput = "No" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -176,11 +182,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "abcd" + System.lineSeparator() +
-                "abcd" + System.lineSeparator() +
-                "1" + System.lineSeparator();
+        final String input = "abcd" + SEPARATOR +
+                "abcd" + SEPARATOR +
+                "1" + SEPARATOR;
 
-        final String expectedOutput = "No" + System.lineSeparator();
+        final String expectedOutput = "No" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -210,11 +216,11 @@ public class AppendTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = System.lineSeparator() +
-                "abcd" + System.lineSeparator() +
-                "1" + System.lineSeparator();
+        final String input = SEPARATOR +
+                "abcd" + SEPARATOR +
+                "1" + SEPARATOR;
 
-        final String expectedOutput = "No" + System.lineSeparator();
+        final String expectedOutput = "No" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

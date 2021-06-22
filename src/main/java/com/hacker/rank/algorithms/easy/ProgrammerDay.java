@@ -27,8 +27,8 @@ import java.time.format.DateTimeFormatter;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ProgrammerDay {
 
@@ -52,8 +52,7 @@ public class ProgrammerDay {
                 .atDay(dayOfYear);
 
         return date.format(
-                DateTimeFormatter.ofPattern("dd.MM.yyyy")
-        );
+                DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
 
     /**
@@ -66,17 +65,15 @@ public class ProgrammerDay {
     public static void main(String[] args) throws IOException {
 
         final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in)
-        );
+                new InputStreamReader(System.in));
 
         final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
         final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int year = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim()
-        );
+        final String yearLine = bufferedReader.readLine()
+                .trim();
 
+        final int year = Integer.parseInt(yearLine);
         final String result = dayOfProgrammer(year);
 
         bufferedWriter.write(result);

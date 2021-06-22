@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.medium;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class BigGreaterTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,18 +45,18 @@ public class BigGreaterTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "5" + System.lineSeparator() +
-                "ab" + System.lineSeparator() +
-                "bb" + System.lineSeparator() +
-                "hefg" + System.lineSeparator() +
-                "dhck" + System.lineSeparator() +
-                "dkhc" + System.lineSeparator();
+        final String input = "5" + SEPARATOR +
+                "ab" + SEPARATOR +
+                "bb" + SEPARATOR +
+                "hefg" + SEPARATOR +
+                "dhck" + SEPARATOR +
+                "dkhc" + SEPARATOR;
 
-        final String expectedOutput = "ba" + System.lineSeparator() +
-                "no answer" + System.lineSeparator() +
-                "hegf" + System.lineSeparator() +
-                "dhkc" + System.lineSeparator() +
-                "hcdk" + System.lineSeparator();
+        final String expectedOutput = "ba" + SEPARATOR +
+                "no answer" + SEPARATOR +
+                "hegf" + SEPARATOR +
+                "dhkc" + SEPARATOR +
+                "hcdk" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

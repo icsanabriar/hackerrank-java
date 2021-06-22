@@ -23,8 +23,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Append {
 
@@ -38,7 +38,7 @@ public class Append {
      */
     private static String appendAndDelete(String s, String t, int k) {
 
-        if ( k >= s.length() + t.length())
+        if (k >= s.length() + t.length())
             return "Yes";
 
         int index = s.length();
@@ -51,8 +51,9 @@ public class Append {
 
                 final int operations = (s.length() - index) + (t.length() - index);
 
-                return operations <= k && (k - operations) % 2 == 0 ? "Yes": "No";
+                return operations <= k && (k - operations) % 2 == 0 ? "Yes" : "No";
             }
+
             index--;
         }
 

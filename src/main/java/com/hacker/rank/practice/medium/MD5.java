@@ -16,13 +16,14 @@
 package com.hacker.rank.practice.medium;
 
 import com.hacker.rank.common.Hash;
+
 import java.security.NoSuchAlgorithmException;
 
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class MD5 {
 

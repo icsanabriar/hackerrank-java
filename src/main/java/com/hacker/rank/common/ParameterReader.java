@@ -20,8 +20,8 @@ import java.util.Scanner;
 /**
  * Class that is responsible of abstracting duplicate code to read inputs of given problems on hacker rank.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ParameterReader {
 
@@ -50,8 +50,8 @@ public class ParameterReader {
     }
 
     /**
-     * Reads an set of integers based on 3 parts. <p>
-     *
+     * Reads an set of integers based on 3 parts.
+     * <p>
      * - N - Size of array.<p>
      * - K - Parameter to process.<p>
      * - A - Array of integers with size N.<p>

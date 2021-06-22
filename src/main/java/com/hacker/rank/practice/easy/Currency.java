@@ -24,8 +24,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Currency {
 
@@ -52,8 +52,7 @@ public class Currency {
         locates.put("US", Locale.US);
 
         locates.put("India",
-                new Locale("en", "IN")
-        );
+                new Locale("en", "IN"));
 
         locates.put("China", Locale.CHINA);
         locates.put("France", Locale.FRANCE);

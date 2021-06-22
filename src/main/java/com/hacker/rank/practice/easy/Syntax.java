@@ -22,8 +22,8 @@ import java.util.regex.PatternSyntaxException;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Syntax {
 
@@ -37,8 +37,7 @@ public class Syntax {
         final Scanner in = new Scanner(System.in);
 
         final int testCases = Integer.parseInt(
-                in.nextLine()
-        );
+                in.nextLine());
 
         for (int i = 0; i < testCases; i++) {
 

@@ -27,10 +27,15 @@ import static org.testng.Assert.assertEquals;
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class NumberHandlerTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,10 +44,10 @@ public class NumberHandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10" + System.lineSeparator() +
+        final String input = "10" + SEPARATOR +
                 "3";
 
-        final String expectedOutput = "3" + System.lineSeparator();
+        final String expectedOutput = "3" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -64,10 +69,10 @@ public class NumberHandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10" + System.lineSeparator() +
+        final String input = "10" + SEPARATOR +
                 "hello";
 
-        final String expectedOutput = "java.util.InputMismatchException" + System.lineSeparator();
+        final String expectedOutput = "java.util.InputMismatchException" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -88,10 +93,10 @@ public class NumberHandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "10" + System.lineSeparator() +
+        final String input = "10" + SEPARATOR +
                 "0";
 
-        final String expectedOutput = "java.lang.ArithmeticException: / by zero" + System.lineSeparator();
+        final String expectedOutput = "java.lang.ArithmeticException: / by zero" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -112,10 +117,10 @@ public class NumberHandlerTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "23.323" + System.lineSeparator() +
+        final String input = "23.323" + SEPARATOR +
                 "0";
 
-        final String expectedOutput = "java.util.InputMismatchException" + System.lineSeparator();
+        final String expectedOutput = "java.util.InputMismatchException" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

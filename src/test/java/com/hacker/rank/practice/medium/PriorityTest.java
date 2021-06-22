@@ -15,21 +15,27 @@
  */
 package com.hacker.rank.practice.medium;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class PriorityTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -38,24 +44,24 @@ public class PriorityTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "12" + System.lineSeparator() +
-                "ENTER John 3.75 50" + System.lineSeparator() +
-                "ENTER Mark 3.8 24" + System.lineSeparator() +
-                "ENTER Shafaet 3.7 35" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator() +
-                "ENTER Samiha 3.85 36" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator() +
-                "ENTER Ashley 3.9 42" + System.lineSeparator() +
-                "ENTER Maria 3.6 46" + System.lineSeparator() +
-                "ENTER Anik 3.95 49" + System.lineSeparator() +
-                "ENTER Dan 3.95 50" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator();
+        final String input = "12" + SEPARATOR +
+                "ENTER John 3.75 50" + SEPARATOR +
+                "ENTER Mark 3.8 24" + SEPARATOR +
+                "ENTER Shafaet 3.7 35" + SEPARATOR +
+                "SERVED" + SEPARATOR +
+                "SERVED" + SEPARATOR +
+                "ENTER Samiha 3.85 36" + SEPARATOR +
+                "SERVED" + SEPARATOR +
+                "ENTER Ashley 3.9 42" + SEPARATOR +
+                "ENTER Maria 3.6 46" + SEPARATOR +
+                "ENTER Anik 3.95 49" + SEPARATOR +
+                "ENTER Dan 3.95 50" + SEPARATOR +
+                "SERVED" + SEPARATOR;
 
-        final String expectedOutput = "Dan" + System.lineSeparator() +
-                "Ashley" + System.lineSeparator() +
-                "Shafaet" + System.lineSeparator() +
-                "Maria" + System.lineSeparator();
+        final String expectedOutput = "Dan" + SEPARATOR +
+                "Ashley" + SEPARATOR +
+                "Shafaet" + SEPARATOR +
+                "Maria" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -77,16 +83,16 @@ public class PriorityTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "6" + System.lineSeparator() +
-                "ENTER Mario 3.8 50" + System.lineSeparator() +
-                "ENTER Pedro 3.8 24" + System.lineSeparator() +
-                "ENTER Mario 3.8 25" + System.lineSeparator() +
-                "ENTER Mario 3.7 35" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator();
+        final String input = "6" + SEPARATOR +
+                "ENTER Mario 3.8 50" + SEPARATOR +
+                "ENTER Pedro 3.8 24" + SEPARATOR +
+                "ENTER Mario 3.8 25" + SEPARATOR +
+                "ENTER Mario 3.7 35" + SEPARATOR +
+                "SERVED" + SEPARATOR +
+                "SERVED" + SEPARATOR;
 
-        final String expectedOutput = "Pedro" + System.lineSeparator() +
-                "Mario" + System.lineSeparator();
+        final String expectedOutput = "Pedro" + SEPARATOR +
+                "Mario" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
@@ -107,11 +113,11 @@ public class PriorityTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "2" + System.lineSeparator() +
-                "ENTER Mario 3.8 50" + System.lineSeparator() +
-                "SERVED" + System.lineSeparator();
+        final String input = "2" + SEPARATOR +
+                "ENTER Mario 3.8 50" + SEPARATOR +
+                "SERVED" + SEPARATOR;
 
-        final String expectedOutput = "EMPTY" + System.lineSeparator();
+        final String expectedOutput = "EMPTY" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

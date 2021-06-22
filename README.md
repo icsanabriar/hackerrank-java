@@ -1,17 +1,17 @@
 # Hacker Rank Solutions
 
-version 1.0.0 - 13/03/2020
+version 1.0.0 - 10/06/2021
 
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Introduction
 
 HackerRank is a online platform to connect companies with developers to practice and hire right people based on skill 
-assetsments.
+assessments.
 
 ## Requirements
 
-- JDK 1.8.x
+- JDK 14.x
 - Maven 3.6.x
 - IDE for JAVA (Eclipse, Netbeans, IntelliJ).
 
@@ -19,7 +19,7 @@ assetsments.
 
 To run the application on your IDE:
 
-1. Verify the version of your JDK - 1.8.x or higher.
+1. Verify the version of your JDK - 14.x or higher.
 2. Verify the version of Maven - 3.6.x or higher.
 3. Download the source code from repository.
 4. Integrate your project with IDE:
@@ -32,7 +32,7 @@ To run the application on your IDE:
 
 To run the unit tests on terminal:
 
-1. Verify the version of your JDK - 1.8.x or higher.
+1. Verify the version of your JDK - 14.x or higher.
 2. Verify the version of Maven - 3.6.x or higher.
 3. Download the source code from repository.
 4. Open a terminal.
@@ -43,9 +43,11 @@ To run the unit tests on terminal:
     mvn clean test
 ```
 
-## Check Application Test Coverage on Terminal using Jacoco
+## Check Application Test Coverage using Jacoco
 
-1. Verify the version of your JDK - 1.8.x or higher.
+To verify test coverage on terminal:
+
+1. Verify the version of your JDK - 14.x or higher.
 2. Verify the version of Maven - 3.6.x or higher.
 3. Download the source code from repository.
 4. Open a terminal.
@@ -57,9 +59,11 @@ To run the unit tests on terminal:
     open target/site/jacoco/index.html
 ```
 
-## List Dependencies with Licences
+# List Dependency Licenses
 
-1. Verify the version of your JDK - 1.8.x or higher.
+To generate list of dependency licenses on terminal:
+
+1. Verify the version of your JDK - 14.x or higher.
 2. Verify the version of Maven - 3.6.x or higher.
 3. Download the source code from repository.
 4. Open a terminal.

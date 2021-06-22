@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class ViralTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,8 +45,8 @@ public class ViralTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3" + System.lineSeparator();
-        final String expectedOutput = "9" + System.lineSeparator();
+        final String input = "3" + SEPARATOR;
+        final String expectedOutput = "9" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -71,8 +77,8 @@ public class ViralTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "6" + System.lineSeparator();
-        final String expectedOutput = "37" + System.lineSeparator();
+        final String input = "6" + SEPARATOR;
+        final String expectedOutput = "37" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

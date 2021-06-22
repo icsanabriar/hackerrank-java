@@ -16,6 +16,7 @@
 package com.hacker.rank.practice.medium;
 
 import com.hacker.rank.common.ParameterReader;
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -23,8 +24,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class Game {
 
@@ -80,11 +81,7 @@ public class Game {
             parameterReader.readIntParams();
 
             System.out.println(
-                    (canWin(
-                            parameterReader.getK(),
-                            parameterReader.getA()
-                    )) ? "YES" : "NO"
-            );
+                    canWin(parameterReader.getK(), parameterReader.getA()) ? "YES" : "NO");
         }
 
         scan.close();

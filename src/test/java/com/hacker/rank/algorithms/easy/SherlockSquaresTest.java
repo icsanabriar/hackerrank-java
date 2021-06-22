@@ -15,22 +15,28 @@
  */
 package com.hacker.rank.algorithms.easy;
 
+import org.testng.annotations.Test;
+
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Scanner;
-import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 /**
  * Class to handle the test cases given on hacker rank website.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class SherlockSquaresTest {
+
+    /**
+     * Define line separator for test cases.
+     */
+    private static final String SEPARATOR = System.lineSeparator();
 
     @Test
     @SuppressWarnings("AccessStaticViaInstance")
@@ -39,16 +45,16 @@ public class SherlockSquaresTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3" + System.lineSeparator() +
-                "35 70" + System.lineSeparator() +
-                "100 1000" + System.lineSeparator() +
-                "3 9" + System.lineSeparator() +
-                "17 24" + System.lineSeparator();
+        final String input = "3" + SEPARATOR +
+                "35 70" + SEPARATOR +
+                "100 1000" + SEPARATOR +
+                "3 9" + SEPARATOR +
+                "17 24" + SEPARATOR;
 
-        final String expectedOutput = "3" + System.lineSeparator() +
-                "22" + System.lineSeparator() +
-                "2" + System.lineSeparator() +
-                "0" + System.lineSeparator();
+        final String expectedOutput = "3" + SEPARATOR +
+                "22" + SEPARATOR +
+                "2" + SEPARATOR +
+                "0" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

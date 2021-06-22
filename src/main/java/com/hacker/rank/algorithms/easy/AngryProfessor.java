@@ -16,6 +16,7 @@
 package com.hacker.rank.algorithms.easy;
 
 import com.hacker.rank.common.ParameterReader;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -24,8 +25,8 @@ import java.util.Scanner;
 /**
  * Class that is executed in hacker rank website as solution.
  *
- * @author  Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since   1.0.0
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 public class AngryProfessor {
 
@@ -71,8 +72,7 @@ public class AngryProfessor {
 
             final String result = angryProfessor(
                     parameterReader.getK(),
-                    parameterReader.getA()
-            );
+                    parameterReader.getA());
 
             bufferedWriter.write(result);
             bufferedWriter.newLine();
