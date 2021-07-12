@@ -109,7 +109,9 @@ public class ElectronicShop {
 
         final int moneySpent = getMoneySpent(keyboards, drives, b);
 
-        bufferedWriter.write(String.valueOf(moneySpent));
+        bufferedWriter.write(
+                String.valueOf(moneySpent));
+
         bufferedWriter.newLine();
 
         bufferedWriter.close();

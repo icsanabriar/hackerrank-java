@@ -77,7 +77,9 @@ public class PdfViewer {
 
         final int result = designerPdfViewer(h, word);
 
-        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.write(
+                String.valueOf(result));
+
         bufferedWriter.newLine();
 
         bufferedWriter.close();
