@@ -109,7 +109,9 @@ public class Lambda {
 
         final MyMath ob = new MyMath();
 
-        final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        final BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in));
+
         int T = Integer.parseInt(br.readLine());
 
         PerformOperation op;

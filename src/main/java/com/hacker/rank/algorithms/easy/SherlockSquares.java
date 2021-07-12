@@ -69,7 +69,9 @@ public class SherlockSquares {
 
             final int result = squares(a, b);
 
-            bufferedWriter.write(String.valueOf(result));
+            bufferedWriter.write(
+                    String.valueOf(result));
+
             bufferedWriter.newLine();
         }
 

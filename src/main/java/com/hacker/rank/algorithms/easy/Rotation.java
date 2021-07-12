@@ -85,10 +85,11 @@ public class Rotation {
 
         for (int i = 0; i < result.length; i++) {
 
-            bufferedWriter.write(String.valueOf(result[i]));
+            bufferedWriter.write(
+                    String.valueOf(result[i]));
 
             if (i != result.length - 1) {
-                bufferedWriter.write(System.lineSeparator());
+                bufferedWriter.newLine();
             }
         }
 

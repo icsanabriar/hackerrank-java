@@ -66,7 +66,9 @@ public class Viral {
         final int n = scanner.nextInt();
         final int result = viralAdvertising(n);
 
-        bufferedWriter.write(String.valueOf(result));
+        bufferedWriter.write(
+                String.valueOf(result));
+
         bufferedWriter.newLine();
 
         bufferedWriter.close();

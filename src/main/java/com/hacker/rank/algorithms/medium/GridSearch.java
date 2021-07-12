@@ -149,8 +149,9 @@ public class GridSearch {
         final BufferedWriter bufferedWriter = new BufferedWriter(
                 new FileWriter(System.getenv("OUTPUT_PATH")));
 
-        final int t = Integer.parseInt(bufferedReader.readLine()
-                .trim());
+        final int t = Integer.parseInt(
+                bufferedReader.readLine()
+                        .trim());
 
         for (int tItr = 0; tItr < t; tItr++) {
 
