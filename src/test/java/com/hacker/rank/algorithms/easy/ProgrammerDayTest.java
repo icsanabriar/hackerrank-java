@@ -41,8 +41,8 @@ public class ProgrammerDayTest {
     @Test
     public void given_test_case() throws IOException {
 
-        final String input = "2017" + SEPARATOR;
-        final String expected = "13.09.2017" + SEPARATOR;
+        final String input = "2017";
+        final String expected = "13.09.2017";
 
         parameterized_test_case(input, expected);
     }
@@ -50,8 +50,8 @@ public class ProgrammerDayTest {
     @Test
     public void leap_test_case() throws IOException {
 
-        final String input = "2016" + SEPARATOR;
-        final String expected = "12.09.2016" + SEPARATOR;
+        final String input = "2016";
+        final String expected = "12.09.2016";
 
         parameterized_test_case(input, expected);
     }
@@ -59,8 +59,8 @@ public class ProgrammerDayTest {
     @Test
     public void past_adjust_test_case() throws IOException {
 
-        final String input = "1800" + SEPARATOR;
-        final String expected = "12.09.1800" + SEPARATOR;
+        final String input = "1800";
+        final String expected = "12.09.1800";
 
         parameterized_test_case(input, expected);
     }
@@ -68,8 +68,8 @@ public class ProgrammerDayTest {
     @Test
     public void past_leap_test_case() throws IOException {
 
-        final String input = "1884" + SEPARATOR;
-        final String expected = "12.09.1884" + SEPARATOR;
+        final String input = "1884";
+        final String expected = "12.09.1884";
 
         parameterized_test_case(input, expected);
     }
@@ -77,8 +77,8 @@ public class ProgrammerDayTest {
     @Test
     public void change_test_case() throws IOException {
 
-        final String input = "1918" + SEPARATOR;
-        final String expected = "26.09.1918" + SEPARATOR;
+        final String input = "1918";
+        final String expected = "26.09.1918";
 
         parameterized_test_case(input, expected);
     }
@@ -86,16 +86,17 @@ public class ProgrammerDayTest {
     /**
      * Abstraction of several test cases to avoid code duplication.
      *
-     * @param input    Input given to the program.
-     * @param expected Expected output of the program.
+     * @param parameter Parameter given to the program.
+     * @param expected  Expected output of the program.
      * @throws IOException Thrown when there is a problem processing the given input.
      */
     @SuppressWarnings("AccessStaticViaInstance")
-    private void parameterized_test_case(String input, String expected) throws IOException {
+    private void parameterized_test_case(String parameter, String expected) throws IOException {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
+        final String input = parameter + SEPARATOR;
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 

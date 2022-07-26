@@ -40,10 +40,8 @@ public class NumberHandlerTest {
     @Test
     public void given_test_case() {
 
-        final String input = "10" + SEPARATOR +
-                "3";
-
-        final String expected = "3" + SEPARATOR;
+        final String input = "10" + SEPARATOR + "3";
+        final String expected = "3";
 
         parameterized_test_case(input, expected);
     }
@@ -51,10 +49,8 @@ public class NumberHandlerTest {
     @Test
     public void opposite_test_case() {
 
-        final String input = "10" + SEPARATOR +
-                "hello";
-
-        final String expected = "java.util.InputMismatchException" + SEPARATOR;
+        final String input = "10" + SEPARATOR + "hello";
+        final String expected = "java.util.InputMismatchException";
 
         parameterized_test_case(input, expected);
     }
@@ -63,10 +59,8 @@ public class NumberHandlerTest {
     @Test
     public void divide_zero_test_case() {
 
-        final String input = "10" + SEPARATOR +
-                "0";
-
-        final String expected = "java.lang.ArithmeticException: / by zero" + SEPARATOR;
+        final String input = "10" + SEPARATOR + "0";
+        final String expected = "java.lang.ArithmeticException: / by zero";
 
         parameterized_test_case(input, expected);
     }
@@ -74,10 +68,8 @@ public class NumberHandlerTest {
     @Test
     public void invalid_input_test_case() {
 
-        final String input = "23.323" + SEPARATOR +
-                "0";
-
-        final String expected = "java.util.InputMismatchException" + SEPARATOR;
+        final String input = "23.323" + SEPARATOR + "0";
+        final String expected = "java.util.InputMismatchException";
 
         parameterized_test_case(input, expected);
     }
@@ -103,6 +95,7 @@ public class NumberHandlerTest {
         final NumberHandler instance = new NumberHandler();
         instance.main(args);
 
+        expected = expected + SEPARATOR;
         assertEquals(expected, controllerOut.toString());
 
         System.setIn(sysInBackup);
