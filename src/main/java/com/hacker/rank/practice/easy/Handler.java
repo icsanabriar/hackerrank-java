@@ -29,16 +29,16 @@ class MyCalculator {
      * @param n Number to estimate the power.
      * @param p Power value to calculate over the given n.
      * @return Number representing the power of the given n.
-     * @throws InvalidParameterException Thrown when n or p are equal or less than 0.
+     * @throws Exception Thrown when n or p are equal or less than 0.
      */
-    long power(int n, int p) throws InvalidParameterException {
+    long power(int n, int p) throws Exception {
 
         if (n < 0 || p < 0) {
-            throw new InvalidParameterException("n or p should not be negative.");
+            throw new Exception("n or p should not be negative.");
         }
 
         if (n == 0 && p == 0) {
-            throw new InvalidParameterException("n and p should not be zero.");
+            throw new Exception("n and p should not be zero.");
         }
 
         long result = 1;
@@ -88,7 +88,7 @@ public class Handler {
                 final long power = calculator.power(n, p);
                 System.out.println(power);
 
-            } catch (InvalidParameterException e) {
+            } catch (Exception e) {
                 System.out.println(e);
             }
         }
