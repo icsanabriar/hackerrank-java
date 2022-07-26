@@ -33,6 +33,11 @@ import java.util.Locale;
 public class DayTime {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
      * Separator of values in same line.
      */
     private static final String SEPARATOR = " ";
@@ -69,6 +74,7 @@ public class DayTime {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in console.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
         final BufferedReader bufferedReader = new BufferedReader(
@@ -79,7 +85,7 @@ public class DayTime {
                         System.getenv("OUTPUT_PATH")));
 
         final String[] firstMultipleInput = bufferedReader.readLine()
-                .replaceAll("\\s+$", REPLACEMENT)
+                .replaceAll(REGEX, REPLACEMENT)
                 .split(SEPARATOR);
 
         final int month = Integer.parseInt(firstMultipleInput[0]);

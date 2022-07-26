@@ -32,35 +32,50 @@ import java.util.List;
 public class LarryArray {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Return YES in case the given array A is sorted by the premises specify on the problem, otherwise the function
      * returns NO.
      *
-     * @param A Sequence of numbers to sort.
+     * @param array Sequence of numbers to sort.
      * @return String representing if the array could be sorted or not.
      */
-    private static String larrysArray(final List<Integer> A) {
+    private static String larrysArray(final List<Integer> array) {
 
-        for (int i = 0; i < A.size(); i++) {
+        for (int i = 0; i < array.size(); i++) {
 
-            int index = A.indexOf(i + 1);
+            int index = array.indexOf(i + 1);
 
             while (index >= i + 2) {
 
-                A.set(index, A.get(index - 1));
-                A.set(index - 1, A.get(index - 2));
-                A.set(index - 2, i + 1);
+                array.set(index, array.get(index - 1));
+                array.set(index - 1, array.get(index - 2));
+                array.set(index - 2, i + 1);
 
                 index = index - 2;
             }
 
             if (index == i + 1) {
 
-                if (index == A.size() - 1)
+                if (index == array.size() - 1)
                     return "NO";
 
-                A.set(index, A.get(index + 1));
-                A.set(index + 1, A.get(index - 1));
-                A.set(index - 1, i + 1);
+                array.set(index, array.get(index + 1));
+                array.set(index + 1, array.get(index - 1));
+                array.set(index - 1, i + 1);
             }
         }
 
@@ -90,18 +105,18 @@ public class LarryArray {
                     bufferedReader.readLine()
                             .trim());
 
-            final String[] ATemp = bufferedReader.readLine()
-                    .replaceAll("\\s+$", "")
-                    .split(" ");
+            final String[] aTemp = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
-            final List<Integer> A = new ArrayList<>();
+            final List<Integer> array = new ArrayList<>();
 
             for (int i = 0; i < n; i++) {
-                final int AItem = Integer.parseInt(ATemp[i]);
-                A.add(AItem);
+                final int AItem = Integer.parseInt(aTemp[i]);
+                array.add(AItem);
             }
 
-            final String result = larrysArray(A);
+            final String result = larrysArray(array);
 
             bufferedWriter.write(result);
             bufferedWriter.newLine();

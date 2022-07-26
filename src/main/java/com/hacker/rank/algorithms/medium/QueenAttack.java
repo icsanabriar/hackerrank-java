@@ -37,6 +37,21 @@ import static java.util.stream.Collectors.toSet;
 public class QueenAttack {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Position in a chess board.
      */
     private static class Position {
@@ -102,24 +117,24 @@ public class QueenAttack {
      * Find number of attack by given parameters.
      *
      * @param n         Number of rows and columns in the board.
-     * @param r_q       Row number of the queen position.
-     * @param c_q       Column number of the queen's position.
+     * @param row       Row number of the queen position.
+     * @param column    Column number of the queen's position.
+     * @param rOffset   Row offset to move the queen.
+     * @param cOffset   Column offset to move the queen.
      * @param obstacles Set of rows and columns of obstacles.
      * @return Number of queen attacks in the board.
      */
-    private static int findAttack(final int n, int r_q, int c_q, int r_offset, int c_offset,
+    private static int findAttack(final int n, int row, int column, int rOffset, int cOffset,
                                   final Set<Position> obstacles) {
 
         int attacks = 0;
 
         while (true) {
 
-            r_q += r_offset;
-            c_q += c_offset;
+            row += rOffset;
+            column += cOffset;
 
-            if (!(r_q >= 1 && r_q <= n && c_q >= 1 && c_q <= n))
-                break;
-            else if (obstacles.contains(new Position(r_q, c_q)))
+            if ((!(row >= 1 && row <= n && column >= 1 && column <= n)) || (obstacles.contains(new Position(row, column))))
                 break;
 
             attacks++;
@@ -132,19 +147,19 @@ public class QueenAttack {
      * Calculates the number of attacks the queen could make under the given conditions of the board.
      *
      * @param n         Number of rows and columns in the board.
-     * @param r_q       Row number of the queen position.
-     * @param c_q       Column number of the queen's position.
+     * @param row       Row number of the queen position.
+     * @param column    Column number of the queen's position.
      * @param positions Set of rows and columns of obstacles.
      * @return Number of queen attacks in the board.
      */
-    private static int queensAttack(final int n, final int r_q, final int c_q, final List<List<Integer>> positions) {
+    private static int queensAttack(final int n, final int row, final int column, final List<List<Integer>> positions) {
 
         final Set<Position> obstacles = positions.stream()
                 .map(c -> new Position(c.get(0), c.get(1)))
                 .collect(toSet());
 
         return IntStream.range(0, R_OFFSETS.length)
-                .map(index -> findAttack(n, r_q, c_q, R_OFFSETS[index], C_OFFSETS[index], obstacles))
+                .map(index -> findAttack(n, row, column, R_OFFSETS[index], C_OFFSETS[index], obstacles))
                 .sum();
     }
 
@@ -164,26 +179,26 @@ public class QueenAttack {
                 new FileWriter(System.getenv("OUTPUT_PATH")));
 
         final String[] firstMultipleInput = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll(REGEX, REPLACEMENT)
+                .split(SEPARATOR);
 
         final int n = Integer.parseInt(firstMultipleInput[0]);
         final int k = Integer.parseInt(firstMultipleInput[1]);
 
         final String[] secondMultipleInput = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll(REGEX, REPLACEMENT)
+                .split(SEPARATOR);
 
-        final int r_q = Integer.parseInt(secondMultipleInput[0]);
-        final int c_q = Integer.parseInt(secondMultipleInput[1]);
+        final int rq = Integer.parseInt(secondMultipleInput[0]);
+        final int cq = Integer.parseInt(secondMultipleInput[1]);
 
         final List<List<Integer>> obstacles = new ArrayList<>();
 
         for (int i = 0; i < k; i++) {
 
             final String[] obstaclesRowTempItems = bufferedReader.readLine()
-                    .replaceAll("\\s+$", "")
-                    .split(" ");
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
             final List<Integer> obstaclesRowItems = new ArrayList<>();
 
@@ -196,7 +211,7 @@ public class QueenAttack {
             obstacles.add(obstaclesRowItems);
         }
 
-        final int result = queensAttack(n, r_q, c_q, obstacles);
+        final int result = queensAttack(n, rq, cq, obstacles);
 
         bufferedWriter.write(
                 String.valueOf(result));

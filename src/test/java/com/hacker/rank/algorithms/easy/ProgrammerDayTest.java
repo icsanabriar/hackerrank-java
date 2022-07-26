@@ -74,104 +74,50 @@ public class ProgrammerDayTest {
     @Test
     public void leap_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "2016" + SEPARATOR;
-        final String expectedOutput = "12.09.2016" + SEPARATOR;
+        final String expected = "12.09.2016" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        ProgrammerDay.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
     public void past_adjust_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "1800" + SEPARATOR;
-        final String expectedOutput = "12.09.1800" + SEPARATOR;
+        final String expected = "12.09.1800" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        ProgrammerDay.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
     public void past_leap_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "1884" + SEPARATOR;
-        final String expectedOutput = "12.09.1884" + SEPARATOR;
+        final String expected = "12.09.1884" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        ProgrammerDay.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
     public void change_test_case() throws IOException {
 
+        final String input = "1918" + SEPARATOR;
+        final String expected = "26.09.1918" + SEPARATOR;
+
+        parameterized_test_case(input, expected);
+    }
+
+    /**
+     * Abstraction of several test cases to avoid code duplication.
+     *
+     * @param input    Input given to the program.
+     * @param expected Expected output of the program.
+     * @throws IOException Thrown when there is a problem processing the given input.
+     */
+    private void parameterized_test_case(String input, String expected) throws IOException {
+
         final String[] args = {};
         final InputStream sysInBackup = System.in;
-
-        final String input = "1918" + SEPARATOR;
-        final String expectedOutput = "26.09.1918" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -181,7 +127,7 @@ public class ProgrammerDayTest {
         final File file = new File(System.getenv("OUTPUT_PATH"));
         final Scanner sc = new Scanner(file);
 
-        final String[] lines = expectedOutput.split("\\r?\\n");
+        final String[] lines = expected.split("\\r?\\n");
 
         int index = 0;
 

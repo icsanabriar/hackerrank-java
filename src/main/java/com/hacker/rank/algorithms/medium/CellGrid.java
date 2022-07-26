@@ -32,6 +32,21 @@ import java.util.List;
 public class CellGrid {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Define row values to look around of a cell.
      */
     private static final int[] R_OFFSETS = {-1, -1, 0, 1, 1, 1, 0, -1};
@@ -135,8 +150,8 @@ public class CellGrid {
         for (int i = 0; i < n; i++) {
 
             final String[] matrixRowTempItems = bufferedReader.readLine()
-                    .replaceAll("\\s+$", "")
-                    .split(" ");
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
             final List<Integer> matrixRowItems = new ArrayList<>();
 

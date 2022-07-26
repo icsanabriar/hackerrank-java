@@ -37,6 +37,21 @@ import java.util.stream.IntStream;
 public class LilyHomework {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Find the number of swaps required to sort the given array.
      *
      * @param arr    Array to sort and find number of swaps required.
@@ -119,8 +134,8 @@ public class LilyHomework {
                         .trim());
 
         final String[] arrTemp = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll(REGEX, REPLACEMENT)
+                .split(SEPARATOR);
 
         final List<Integer> arr = new ArrayList<>();
 

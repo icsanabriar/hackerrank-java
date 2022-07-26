@@ -36,6 +36,21 @@ import static java.util.stream.Collectors.toList;
 public class AlmostSort {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Reverse sublist of the given array using the start and last indexes.
      *
      * @param arr        Array to reverse the sublist.
@@ -111,8 +126,8 @@ public class AlmostSort {
 
         final List<Integer> arr = Stream.of(
                 bufferedReader.readLine()
-                        .replaceAll("\\s+$", "")
-                        .split(" "))
+                        .replaceAll(REGEX, REPLACEMENT)
+                        .split(SEPARATOR))
                 .map(Integer::parseInt)
                 .collect(toList());
 

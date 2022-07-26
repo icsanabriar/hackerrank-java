@@ -35,6 +35,21 @@ import java.util.Map;
 public class GridSearch {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Collect the positions where the first pattern line is found in the given grid line.
      *
      * @param indexes     Map containing the indexes where the first pattern line was found in the grid.
@@ -74,33 +89,33 @@ public class GridSearch {
      * Match the given pattern to the grid using the indexes map.
      *
      * @param lineNumber Line number of the grid to start matching the pattern.
-     * @param G          Grid given as input of the program.
-     * @param P          Pattern given as input of the program.
+     * @param grid       Grid given as input of the program.
+     * @param pattern    Pattern given as input of the program.
      * @param positions  Current index positions that first line of pattern match with the given line number of the grid.
      * @return A boolean representing if the pattern was found on the grid or not.
      */
-    private static boolean matchPattern(final Integer lineNumber, final List<String> G, final List<String> P,
+    private static boolean matchPattern(final Integer lineNumber, final List<String> grid, final List<String> pattern,
                                         final List<Integer[]> positions) {
 
         for (Integer[] position : positions) {
 
             int matches = 0;
-            String line = G.get(lineNumber + matches);
+            String line = grid.get(lineNumber + matches);
             String extract = line.substring(position[0], position[1]);
-            String patternLine = P.get(matches);
+            String patternLine = pattern.get(matches);
 
             while (extract.equals(patternLine)) {
                 matches++;
-                if (matches < P.size()) {
-                    line = G.get(lineNumber + matches);
+                if (matches < pattern.size()) {
+                    line = grid.get(lineNumber + matches);
                     extract = line.substring(position[0], position[1]);
-                    patternLine = P.get(matches);
+                    patternLine = pattern.get(matches);
                 } else {
                     break;
                 }
             }
 
-            if (matches == P.size())
+            if (matches == pattern.size())
                 return true;
         }
 
@@ -110,24 +125,24 @@ public class GridSearch {
     /**
      * Search the given pattern P on the grid G.
      *
-     * @param G Grid to search the pattern.
-     * @param P Pattern to search at the grid.
+     * @param grid      Grid to search the pattern.
+     * @param pattern   Pattern to search at the grid.
      * @return A String representing if the pattern was found YES, otherwise NO is returned.
      */
-    private static String gridSearch(final List<String> G, final List<String> P) {
+    private static String gridSearch(final List<String> grid, final List<String> pattern) {
 
         final Map<Integer, List<Integer[]>> indexes = new HashMap<>();
 
         int lineNumber = 0;
-        String patternLine = P.get(0);
+        String patternLine = pattern.get(0);
 
-        for (String gridLine : G) {
+        for (String gridLine : grid) {
             collectPositions(indexes, patternLine, gridLine, lineNumber);
             lineNumber++;
         }
 
-        for (Integer key : indexes.keySet()) {
-            if (matchPattern(key, G, P, indexes.get(key)))
+        for (Map.Entry<Integer, List<Integer[]>> entry : indexes.entrySet()) {
+            if (matchPattern(entry.getKey(), grid, pattern, entry.getValue()))
                 return "YES";
         }
 
@@ -156,34 +171,34 @@ public class GridSearch {
         for (int tItr = 0; tItr < t; tItr++) {
 
             final String[] firstMultipleInput = bufferedReader.readLine()
-                    .replaceAll("\\s+$", "")
-                    .split(" ");
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
             final int R = Integer.parseInt(firstMultipleInput[0]);
             final int C = Integer.parseInt(firstMultipleInput[1]);
 
-            final List<String> G = new ArrayList<>();
+            final List<String> grid = new ArrayList<>();
 
             for (int i = 0; i < R; i++) {
                 final String GItem = bufferedReader.readLine();
-                G.add(GItem);
+                grid.add(GItem);
             }
 
             final String[] secondMultipleInput = bufferedReader.readLine()
-                    .replaceAll("\\s+$", "")
-                    .split(" ");
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
             final int r = Integer.parseInt(secondMultipleInput[0]);
             final int c = Integer.parseInt(secondMultipleInput[1]);
 
-            final List<String> P = new ArrayList<>();
+            final List<String> pattern = new ArrayList<>();
 
             for (int i = 0; i < r; i++) {
                 final String PItem = bufferedReader.readLine();
-                P.add(PItem);
+                pattern.add(PItem);
             }
 
-            final String result = gridSearch(G, P);
+            final String result = gridSearch(grid, pattern);
 
             bufferedWriter.write(result);
             bufferedWriter.newLine();
