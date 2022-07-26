@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.practice.easy;
 
-import java.security.InvalidParameterException;
 import java.util.Scanner;
 
 /**

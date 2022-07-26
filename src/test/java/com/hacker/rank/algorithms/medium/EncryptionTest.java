@@ -39,36 +39,12 @@ public class EncryptionTest {
     private static final String SEPARATOR = System.lineSeparator();
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "haveaniceday" + SEPARATOR;
-        final String expectedOutput = "hae and via ecy" + SEPARATOR;
+        final String expected = "hae and via ecy" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        final Encryption instance = new Encryption();
-        instance.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
@@ -105,6 +81,7 @@ public class EncryptionTest {
      * @param expected Expected output of the program.
      * @throws IOException Thrown when there is a problem processing the given input.
      */
+    @SuppressWarnings("AccessStaticViaInstance")
     private void parameterized_test_case(String input, String expected) throws IOException {
 
         final String[] args = {};
@@ -113,7 +90,8 @@ public class EncryptionTest {
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        Encryption.main(args);
+        final Encryption instance = new Encryption();
+        instance.main(args);
 
         final File file = new File(System.getenv("OUTPUT_PATH"));
         final Scanner sc = new Scanner(file);

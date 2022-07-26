@@ -38,29 +38,14 @@ public class NumberHandlerTest {
     private static final String SEPARATOR = System.lineSeparator();
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() {
-
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
 
         final String input = "10" + SEPARATOR +
                 "3";
 
-        final String expectedOutput = "3" + SEPARATOR;
+        final String expected = "3" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
-
-        System.setIn(in);
-        System.setOut(new PrintStream(controllerOut));
-
-        final NumberHandler instance = new NumberHandler();
-        instance.main(args);
-
-        assertEquals(expectedOutput, controllerOut.toString());
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
@@ -103,6 +88,7 @@ public class NumberHandlerTest {
      * @param input    Input given to the program.
      * @param expected Expected output of the program.
      */
+    @SuppressWarnings("AccessStaticViaInstance")
     private void parameterized_test_case(String input, String expected) {
 
         final String[] args = {};
@@ -114,7 +100,8 @@ public class NumberHandlerTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        NumberHandler.main(args);
+        final NumberHandler instance = new NumberHandler();
+        instance.main(args);
 
         assertEquals(expected, controllerOut.toString());
 
