@@ -112,13 +112,13 @@ public class Lambda {
         final BufferedReader br = new BufferedReader(
                 new InputStreamReader(System.in));
 
-        int T = Integer.parseInt(br.readLine());
+        int t = Integer.parseInt(br.readLine());
 
         PerformOperation op;
         boolean ret;
         String ans;
 
-        while (T-- > 0) {
+        while (t-- > 0) {
 
             final String s = br.readLine()
                     .trim();

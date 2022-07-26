@@ -32,6 +32,21 @@ import java.util.List;
 public class LeaderBoard {
 
     /**
+     * Regex used to process input of the program.
+     */
+    private static final String REGEX = "\\s+$";
+
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
+
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
+
+    /**
      * Retrieves the position of the given player based on the given score and ranked players.
      *
      * @param ranked List of ranked scores in the machine.
@@ -70,7 +85,7 @@ public class LeaderBoard {
      * @param scores Player scores to get rank.
      * @return Rank of the given player based on the ranks.
      */
-    private static List<Integer> climbingLeaderboard(final List<Integer> ranked, final List<Integer> scores) {
+    private static List<Integer> climbingLeaderBoard(final List<Integer> ranked, final List<Integer> scores) {
 
         final List<Integer> positions = new ArrayList<>();
         int position = 1;
@@ -116,8 +131,8 @@ public class LeaderBoard {
                         .trim());
 
         final String[] rankedTemp = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll(REGEX, REPLACEMENT)
+                .split(SEPARATOR);
 
         final List<Integer> ranked = new ArrayList<>();
 
@@ -131,8 +146,8 @@ public class LeaderBoard {
                         .trim());
 
         final String[] playerTemp = bufferedReader.readLine()
-                .replaceAll("\\s+$", "")
-                .split(" ");
+                .replaceAll(REGEX, REPLACEMENT)
+                .split(SEPARATOR);
 
         final List<Integer> scores = new ArrayList<>();
 
@@ -141,7 +156,7 @@ public class LeaderBoard {
             scores.add(playerItem);
         }
 
-        final List<Integer> result = climbingLeaderboard(ranked, scores);
+        final List<Integer> result = climbingLeaderBoard(ranked, scores);
 
         for (int i = 0; i < result.size(); i++) {
 

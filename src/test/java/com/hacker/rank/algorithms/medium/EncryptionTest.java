@@ -74,73 +74,41 @@ public class EncryptionTest {
     @Test
     public void second_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "feedthedog" + SEPARATOR;
-        final String expectedOutput = "fto ehg ee dd" + SEPARATOR;
+        final String expected = "fto ehg ee dd" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        Encryption.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
     public void third_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "chillout" + SEPARATOR;
-        final String expectedOutput = "clu hlt io" + SEPARATOR;
+        final String expected = "clu hlt io" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        Encryption.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
     public void square_test_case() throws IOException {
 
+        final String input = "peacelove" + SEPARATOR;
+        final String expected = "pco eev ale" + SEPARATOR;
+
+        parameterized_test_case(input, expected);
+    }
+
+    /**
+     * Abstraction of several test cases to avoid code duplication.
+     *
+     * @param input    Input given to the program.
+     * @param expected Expected output of the program.
+     * @throws IOException Thrown when there is a problem processing the given input.
+     */
+    private void parameterized_test_case(String input, String expected) throws IOException {
+
         final String[] args = {};
         final InputStream sysInBackup = System.in;
-
-        final String input = "peacelove" + SEPARATOR;
-        final String expectedOutput = "pco eev ale" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
@@ -150,7 +118,7 @@ public class EncryptionTest {
         final File file = new File(System.getenv("OUTPUT_PATH"));
         final Scanner sc = new Scanner(file);
 
-        final String[] lines = expectedOutput.split("\\r?\\n");
+        final String[] lines = expected.split("\\r?\\n");
 
         int index = 0;
 

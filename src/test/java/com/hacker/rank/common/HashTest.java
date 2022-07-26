@@ -29,12 +29,11 @@ import static org.testng.Assert.assertEquals;
  * Class to handle the test cases  for Hash.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.0.0
+ * @since 1.0.0
  */
 public class HashTest {
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void generate_md5_hash() throws NoSuchAlgorithmException {
 
         final InputStream sysInBackup = System.in;
@@ -49,8 +48,7 @@ public class HashTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final Hash hash = new Hash();
-        hash.generate(algorithm);
+        Hash.generate(algorithm);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

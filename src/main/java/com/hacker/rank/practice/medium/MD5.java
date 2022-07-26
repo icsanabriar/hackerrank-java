@@ -30,7 +30,7 @@ public class MD5 {
     /**
      * Define algorithm name to hash the given string.
      */
-    private static final String MD5 = "MD5";
+    private static final String ALGORITHM = "MD5";
 
     /**
      * Main function provided by hacker rank website.
@@ -39,7 +39,7 @@ public class MD5 {
      * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
      */
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        Hash.generate(MD5);
+        Hash.generate(ALGORITHM);
     }
 
 }

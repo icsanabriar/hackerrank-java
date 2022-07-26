@@ -30,7 +30,7 @@ public class SHA {
     /**
      * Define algorithm name to hash the given string.
      */
-    private static final String SHA = "SHA-256";
+    private static final String ALGORITHM = "SHA-256";
 
     /**
      * Main function provided by hacker rank website.
@@ -39,7 +39,7 @@ public class SHA {
      * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
      */
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        Hash.generate(SHA);
+        Hash.generate(ALGORITHM);
     }
 
 }

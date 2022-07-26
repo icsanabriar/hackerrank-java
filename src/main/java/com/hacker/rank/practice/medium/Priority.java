@@ -32,7 +32,7 @@ public class Priority {
     /**
      * Priority queue used to handle student request.
      */
-    private final static Priorities priorities = new Priorities();
+    private static final Priorities priorities = new Priorities();
 
     /**
      * Main function provided by hacker rank website.
