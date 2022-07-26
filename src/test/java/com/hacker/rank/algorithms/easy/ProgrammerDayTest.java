@@ -39,36 +39,12 @@ public class ProgrammerDayTest {
     private static final String SEPARATOR = System.lineSeparator();
 
     @Test
-    @SuppressWarnings("AccessStaticViaInstance")
     public void given_test_case() throws IOException {
 
-        final String[] args = {};
-        final InputStream sysInBackup = System.in;
-
         final String input = "2017" + SEPARATOR;
-        final String expectedOutput = "13.09.2017" + SEPARATOR;
+        final String expected = "13.09.2017" + SEPARATOR;
 
-        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-
-        final ProgrammerDay instance = new ProgrammerDay();
-        instance.main(args);
-
-        final File file = new File(System.getenv("OUTPUT_PATH"));
-        final Scanner sc = new Scanner(file);
-
-        final String[] lines = expectedOutput.split("\\r?\\n");
-
-        int index = 0;
-
-        while (sc.hasNextLine()) {
-            assertEquals(lines[index], sc.nextLine());
-            index++;
-        }
-
-        sc.close();
-
-        System.setIn(sysInBackup);
+        parameterized_test_case(input, expected);
     }
 
     @Test
@@ -114,6 +90,7 @@ public class ProgrammerDayTest {
      * @param expected Expected output of the program.
      * @throws IOException Thrown when there is a problem processing the given input.
      */
+    @SuppressWarnings("AccessStaticViaInstance")
     private void parameterized_test_case(String input, String expected) throws IOException {
 
         final String[] args = {};
@@ -122,7 +99,8 @@ public class ProgrammerDayTest {
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        ProgrammerDay.main(args);
+        final ProgrammerDay instance = new ProgrammerDay();
+        instance.main(args);
 
         final File file = new File(System.getenv("OUTPUT_PATH"));
         final Scanner sc = new Scanner(file);

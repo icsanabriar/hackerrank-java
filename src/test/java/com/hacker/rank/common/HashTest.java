@@ -34,6 +34,7 @@ import static org.testng.Assert.assertEquals;
 public class HashTest {
 
     @Test
+    @SuppressWarnings("AccessStaticViaInstance")
     public void generate_md5_hash() throws NoSuchAlgorithmException {
 
         final InputStream sysInBackup = System.in;
@@ -48,7 +49,8 @@ public class HashTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        Hash.generate(algorithm);
+        final Hash instance = new Hash();
+        instance.generate(algorithm);
 
         assertEquals(expectedOutput, controllerOut.toString());
 

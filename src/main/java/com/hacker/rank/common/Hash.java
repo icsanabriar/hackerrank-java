@@ -30,13 +30,6 @@ import java.util.Scanner;
 public class Hash {
 
     /**
-     * Private constructor to hide public one.
-     */
-    private Hash() {
-        throw new IllegalStateException("This utility class and should be used in such mode.");
-    }
-
-    /**
      * Function that prints out the HASH of given string over console and print the result based on the given algorithm.
      * <p>
      * Currently supported algorithms:
