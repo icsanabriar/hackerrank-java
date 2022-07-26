@@ -41,8 +41,8 @@ public class EncryptionTest {
     @Test
     public void given_test_case() throws IOException {
 
-        final String input = "haveaniceday" + SEPARATOR;
-        final String expected = "hae and via ecy" + SEPARATOR;
+        final String input = "haveaniceday";
+        final String expected = "hae and via ecy";
 
         parameterized_test_case(input, expected);
     }
@@ -50,8 +50,8 @@ public class EncryptionTest {
     @Test
     public void second_test_case() throws IOException {
 
-        final String input = "feedthedog" + SEPARATOR;
-        final String expected = "fto ehg ee dd" + SEPARATOR;
+        final String input = "feedthedog";
+        final String expected = "fto ehg ee dd";
 
         parameterized_test_case(input, expected);
     }
@@ -59,8 +59,8 @@ public class EncryptionTest {
     @Test
     public void third_test_case() throws IOException {
 
-        final String input = "chillout" + SEPARATOR;
-        final String expected = "clu hlt io" + SEPARATOR;
+        final String input = "chillout";
+        final String expected = "clu hlt io";
 
         parameterized_test_case(input, expected);
     }
@@ -68,8 +68,8 @@ public class EncryptionTest {
     @Test
     public void square_test_case() throws IOException {
 
-        final String input = "peacelove" + SEPARATOR;
-        final String expected = "pco eev ale" + SEPARATOR;
+        final String input = "peacelove";
+        final String expected = "pco eev ale";
 
         parameterized_test_case(input, expected);
     }
@@ -77,16 +77,17 @@ public class EncryptionTest {
     /**
      * Abstraction of several test cases to avoid code duplication.
      *
-     * @param input    Input given to the program.
-     * @param expected Expected output of the program.
+     * @param parameter Parameter given to the program.
+     * @param expected  Expected output of the program.
      * @throws IOException Thrown when there is a problem processing the given input.
      */
     @SuppressWarnings("AccessStaticViaInstance")
-    private void parameterized_test_case(String input, String expected) throws IOException {
+    private void parameterized_test_case(String parameter, String expected) throws IOException {
 
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
+        final String input = parameter + SEPARATOR;
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
