@@ -52,9 +52,9 @@ public class ParameterReader {
     /**
      * Reads an set of integers based on 3 parts.
      * <p>
-     * - N -> Size of array.<p>
-     * - K -> Parameter to process.<p>
-     * - A -> Array of integers with size N.<p>
+     * - N - Size of array.
+     * - K - Parameter to process.
+     * - A - Array of integers with size N.
      */
     public void readIntParams() {
 
