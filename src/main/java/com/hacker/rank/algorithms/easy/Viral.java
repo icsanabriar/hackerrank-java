@@ -60,18 +60,18 @@ public class Viral {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int n = scanner.nextInt();
-        final int result = viralAdvertising(n);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.write(
-                String.valueOf(result));
+            final int n = scanner.nextInt();
+            final int result = viralAdvertising(n);
 
-        bufferedWriter.newLine();
+            bufferedWriter.write(
+                    String.valueOf(result));
 
-        bufferedWriter.close();
+            bufferedWriter.newLine();
+        }
+
         scanner.close();
     }
 

@@ -57,24 +57,25 @@ public class Cats {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int q = scanner.nextInt();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int qItr = 0; qItr < q; qItr++) {
+            final int q = scanner.nextInt();
 
-            final int x = scanner.nextInt();
-            final int y = scanner.nextInt();
-            final int z = scanner.nextInt();
+            for (int qItr = 0; qItr < q; qItr++) {
 
-            final String result = catAndMouse(x, y, z);
+                final int x = scanner.nextInt();
+                final int y = scanner.nextInt();
+                final int z = scanner.nextInt();
 
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
+                final String result = catAndMouse(x, y, z);
+
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+
         }
 
-        bufferedWriter.close();
         scanner.close();
     }
 

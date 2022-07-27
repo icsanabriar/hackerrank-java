@@ -76,45 +76,46 @@ public class ElectronicShop {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final String[] bnm = scanner.nextLine().split(SEPARATOR);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        int b = Integer.parseInt(bnm[0]);
-        int n = Integer.parseInt(bnm[1]);
-        int m = Integer.parseInt(bnm[2]);
+            final String[] bnm = scanner.nextLine().split(SEPARATOR);
 
-        final int[] keyboards = new int[n];
+            int b = Integer.parseInt(bnm[0]);
+            int n = Integer.parseInt(bnm[1]);
+            int m = Integer.parseInt(bnm[2]);
 
-        final String[] keyboardsItems = scanner.nextLine()
-                .split(SEPARATOR);
+            final int[] keyboards = new int[n];
 
-        for (int keyboardsItr = 0; keyboardsItr < n; keyboardsItr++) {
+            final String[] keyboardsItems = scanner.nextLine()
+                    .split(SEPARATOR);
 
-            final int keyboardsItem = Integer.parseInt(keyboardsItems[keyboardsItr]);
-            keyboards[keyboardsItr] = keyboardsItem;
+            for (int keyboardsItr = 0; keyboardsItr < n; keyboardsItr++) {
+
+                final int keyboardsItem = Integer.parseInt(keyboardsItems[keyboardsItr]);
+                keyboards[keyboardsItr] = keyboardsItem;
+            }
+
+            final int[] drives = new int[m];
+
+            final String[] drivesItems = scanner.nextLine()
+                    .split(SEPARATOR);
+
+            for (int drivesItr = 0; drivesItr < m; drivesItr++) {
+
+                final int drivesItem = Integer.parseInt(drivesItems[drivesItr]);
+                drives[drivesItr] = drivesItem;
+            }
+
+            final int moneySpent = getMoneySpent(keyboards, drives, b);
+
+            bufferedWriter.write(
+                    String.valueOf(moneySpent));
+
+            bufferedWriter.newLine();
+
         }
 
-        final int[] drives = new int[m];
-
-        final String[] drivesItems = scanner.nextLine()
-                .split(SEPARATOR);
-
-        for (int drivesItr = 0; drivesItr < m; drivesItr++) {
-
-            final int drivesItem = Integer.parseInt(drivesItems[drivesItr]);
-            drives[drivesItr] = drivesItem;
-        }
-
-        final int moneySpent = getMoneySpent(keyboards, drives, b);
-
-        bufferedWriter.write(
-                String.valueOf(moneySpent));
-
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
         scanner.close();
     }
 

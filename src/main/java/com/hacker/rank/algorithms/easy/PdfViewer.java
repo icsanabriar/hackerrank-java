@@ -60,29 +60,30 @@ public class PdfViewer {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int[] h = new int[26];
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        final String[] hItems = scanner.nextLine()
-                .split(SEPARATOR);
+            final int[] h = new int[26];
 
-        for (int i = 0; i < 26; i++) {
-            final int hItem = Integer.parseInt(hItems[i]);
-            h[i] = hItem;
+            final String[] hItems = scanner.nextLine()
+                    .split(SEPARATOR);
+
+            for (int i = 0; i < 26; i++) {
+                final int hItem = Integer.parseInt(hItems[i]);
+                h[i] = hItem;
+            }
+
+            final String word = scanner.nextLine();
+
+            final int result = designerPdfViewer(h, word);
+
+            bufferedWriter.write(
+                    String.valueOf(result));
+
+            bufferedWriter.newLine();
+
         }
 
-        final String word = scanner.nextLine();
-
-        final int result = designerPdfViewer(h, word);
-
-        bufferedWriter.write(
-                String.valueOf(result));
-
-        bufferedWriter.newLine();
-
-        bufferedWriter.close();
         scanner.close();
     }
 

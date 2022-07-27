@@ -64,23 +64,21 @@ public class ProgrammerDay {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            final String yearLine = bufferedReader.readLine()
+                    .trim();
 
-        final String yearLine = bufferedReader.readLine()
-                .trim();
+            final int year = Integer.parseInt(yearLine);
+            final String result = dayOfProgrammer(year);
 
-        final int year = Integer.parseInt(yearLine);
-        final String result = dayOfProgrammer(year);
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+        }
 
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 
 }
