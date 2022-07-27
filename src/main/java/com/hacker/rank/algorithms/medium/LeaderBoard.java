@@ -120,58 +120,54 @@ public class LeaderBoard {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
-
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        final int rankedCount = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
-
-        final String[] rankedTemp = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
-
         final List<Integer> ranked = new ArrayList<>();
-
-        for (int i = 0; i < rankedCount; i++) {
-            final int rankedItem = Integer.parseInt(rankedTemp[i]);
-            ranked.add(rankedItem);
-        }
-
-        final int playerCount = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
-
-        final String[] playerTemp = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
-
         final List<Integer> scores = new ArrayList<>();
 
-        for (int i = 0; i < playerCount; i++) {
-            final int playerItem = Integer.parseInt(playerTemp[i]);
-            scores.add(playerItem);
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+
+            final int rankedCount = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
+
+            final String[] rankedTemp = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
+
+            for (int i = 0; i < rankedCount; i++) {
+                final int rankedItem = Integer.parseInt(rankedTemp[i]);
+                ranked.add(rankedItem);
+            }
+
+            final int playerCount = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
+
+            final String[] playerTemp = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
+
+            for (int i = 0; i < playerCount; i++) {
+                final int playerItem = Integer.parseInt(playerTemp[i]);
+                scores.add(playerItem);
+            }
         }
 
         final List<Integer> result = climbingLeaderBoard(ranked, scores);
 
-        for (int i = 0; i < result.size(); i++) {
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-            bufferedWriter.write(
-                    String.valueOf(result.get(i)));
+            for (int i = 0; i < result.size(); i++) {
 
-            if (i != result.size() - 1) {
-                bufferedWriter.newLine();
+                bufferedWriter.write(
+                        String.valueOf(result.get(i)));
+
+                if (i != result.size() - 1) {
+                    bufferedWriter.newLine();
+                }
             }
+
+            bufferedWriter.newLine();
         }
-
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 
 }

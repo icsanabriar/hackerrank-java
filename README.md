@@ -1,8 +1,16 @@
 # Hacker Rank Solutions
 
-version 1.0.0 - 10/06/2021
+version 1.1.0 - 27/07/2021
 
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Build](https://img.shields.io/github/workflow/status/icsanabriar/hackerrank-java/CI)](https://github.com/icsanabriar/hackerrank-java/actions/workflows/main.yml)
+[![PR](https://img.shields.io/github/issues-pr/icsanabriar/hackerrank-java)](https://github.com/icsanabriar/hackerrank-java/pulls)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=alert_status)](https://sonarcloud.io/component_measures/metric/alert_status/list?id=icsanabriar_hackerrank-java)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=bugs)](https://sonarcloud.io/component_measures/metric/bugs/list?id=icsanabriar_hackerrank-java)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=coverage)](https://sonarcloud.io/component_measures/metric/coverage/list?id=icsanabriar_hackerrank-java)
+[![Size](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=ncloc)](https://sonarcloud.io/component_measures/metric/ncloc/list?id=icsanabriar_hackerrank-java)
+[![TechnicalDebt](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=sqale_index)](https://sonarcloud.io/component_measures/metric/sqale_index/list?id=icsanabriar_hackerrank-java)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=icsanabriar_hackerrank-java&metric=vulnerabilities)](https://sonarcloud.io/component_measures/metric/vulnerabilities/list?id=icsanabriar_hackerrank-java)
 
 ## Introduction
 
