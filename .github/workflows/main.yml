@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'adopt'
-          java-version: '11'
+          java-version: '16'
       - name: Analyze with Sonar
         run: |
           mvn -B verify sonar:sonar -Dsonar.projectKey=icsanabriar_hackerrank-java -Dsonar.organization=icsanabriar -Dsonar.host.url=https://sonarcloud.io
