@@ -9,7 +9,7 @@ on:
 
 #Environment variables required for the tests
 env:
-  OUTPUT_PATH: output/results.txt
+  OUTPUT_PATH: results.txt
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -28,5 +28,5 @@ jobs:
           java-version: '16'
       - name: Analyze with Sonar
         run: |
-          touch $OUTPUT_PATH
+          pwd
           mvn -B verify sonar:sonar -Dsonar.projectKey=icsanabriar_hackerrank-java -Dsonar.organization=icsanabriar -Dsonar.host.url=https://sonarcloud.io
