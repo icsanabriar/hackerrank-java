@@ -57,25 +57,26 @@ public class SherlockSquares {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int q = scanner.nextInt();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int qItr = 0; qItr < q; qItr++) {
+            final int q = scanner.nextInt();
 
-            final int a = scanner.nextInt();
-            final int b = scanner.nextInt();
+            for (int qItr = 0; qItr < q; qItr++) {
 
-            final int result = squares(a, b);
+                final int a = scanner.nextInt();
+                final int b = scanner.nextInt();
 
-            bufferedWriter.write(
-                    String.valueOf(result));
+                final int result = squares(a, b);
 
-            bufferedWriter.newLine();
+                bufferedWriter.write(
+                        String.valueOf(result));
+
+                bufferedWriter.newLine();
+            }
+
         }
 
-        bufferedWriter.close();
         scanner.close();
     }
 

@@ -62,39 +62,40 @@ public class Rotation {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int n = scanner.nextInt();
-        final int k = scanner.nextInt();
-        final int q = scanner.nextInt();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        final int[] a = new int[n];
+            final int n = scanner.nextInt();
+            final int k = scanner.nextInt();
+            final int q = scanner.nextInt();
 
-        for (int i = 0; i < n; i++) {
-            a[i] = scanner.nextInt();
-        }
+            final int[] a = new int[n];
 
-        final int[] queries = new int[q];
-
-        for (int i = 0; i < q; i++) {
-            queries[i] = scanner.nextInt();
-        }
-
-        final int[] result = circularArrayRotation(a, k, queries);
-
-        for (int i = 0; i < result.length; i++) {
-
-            bufferedWriter.write(
-                    String.valueOf(result[i]));
-
-            if (i != result.length - 1) {
-                bufferedWriter.newLine();
+            for (int i = 0; i < n; i++) {
+                a[i] = scanner.nextInt();
             }
-        }
 
-        bufferedWriter.newLine();
-        bufferedWriter.close();
+            final int[] queries = new int[q];
+
+            for (int i = 0; i < q; i++) {
+                queries[i] = scanner.nextInt();
+            }
+
+            final int[] result = circularArrayRotation(a, k, queries);
+
+            for (int i = 0; i < result.length; i++) {
+
+                bufferedWriter.write(
+                        String.valueOf(result[i]));
+
+                if (i != result.length - 1) {
+                    bufferedWriter.newLine();
+                }
+            }
+
+            bufferedWriter.newLine();
+
+        }
 
         scanner.close();
     }

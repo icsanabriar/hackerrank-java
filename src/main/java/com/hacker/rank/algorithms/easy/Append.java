@@ -70,19 +70,20 @@ public class Append {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final String s = scanner.nextLine();
-        final String t = scanner.nextLine();
-        final int k = scanner.nextInt();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        final String result = appendAndDelete(s, t, k);
+            final String s = scanner.nextLine();
+            final String t = scanner.nextLine();
+            final int k = scanner.nextInt();
 
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
+            final String result = appendAndDelete(s, t, k);
 
-        bufferedWriter.close();
+            bufferedWriter.write(result);
+            bufferedWriter.newLine();
+
+        }
+
         scanner.close();
     }
 

@@ -60,25 +60,26 @@ public class AngryProfessor {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int t = scanner.nextInt();
-        final ParameterReader parameterReader = new ParameterReader(scanner);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int tItr = 0; tItr < t; tItr++) {
+            final int t = scanner.nextInt();
+            final ParameterReader parameterReader = new ParameterReader(scanner);
 
-            parameterReader.readIntParams();
+            for (int tItr = 0; tItr < t; tItr++) {
 
-            final String result = angryProfessor(
-                    parameterReader.getK(),
-                    parameterReader.getA());
+                parameterReader.readIntParams();
 
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
+                final String result = angryProfessor(
+                        parameterReader.getK(),
+                        parameterReader.getA());
+
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+
         }
 
-        bufferedWriter.close();
         scanner.close();
     }
 
