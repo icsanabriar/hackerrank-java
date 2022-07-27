@@ -9,7 +9,7 @@ on:
 
 #Environment variables required for the tests
 env:
-  OUTPUT_PATH: results.txt
+  OUTPUT_PATH: /home/runner/work/hackerrank-java/hackerrank-java/results.txt
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -29,4 +29,6 @@ jobs:
       - name: Analyze with Sonar
         run: |
           pwd
+          echo 'Hello World' > results.txt
+          cat results.txt
           mvn -B verify sonar:sonar -Dsonar.projectKey=icsanabriar_hackerrank-java -Dsonar.organization=icsanabriar -Dsonar.host.url=https://sonarcloud.io
