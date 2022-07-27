@@ -172,54 +172,53 @@ public class QueenAttack {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        int result;
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final String[] firstMultipleInput = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
-
-        final int n = Integer.parseInt(firstMultipleInput[0]);
-        final int k = Integer.parseInt(firstMultipleInput[1]);
-
-        final String[] secondMultipleInput = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
-
-        final int rq = Integer.parseInt(secondMultipleInput[0]);
-        final int cq = Integer.parseInt(secondMultipleInput[1]);
-
-        final List<List<Integer>> obstacles = new ArrayList<>();
-
-        for (int i = 0; i < k; i++) {
-
-            final String[] obstaclesRowTempItems = bufferedReader.readLine()
+            final String[] firstMultipleInput = bufferedReader.readLine()
                     .replaceAll(REGEX, REPLACEMENT)
                     .split(SEPARATOR);
 
-            final List<Integer> obstaclesRowItems = new ArrayList<>();
+            final int n = Integer.parseInt(firstMultipleInput[0]);
+            final int k = Integer.parseInt(firstMultipleInput[1]);
 
-            for (int j = 0; j < 2; j++) {
+            final String[] secondMultipleInput = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
-                final int obstaclesItem = Integer.parseInt(obstaclesRowTempItems[j]);
-                obstaclesRowItems.add(obstaclesItem);
+            final int rq = Integer.parseInt(secondMultipleInput[0]);
+            final int cq = Integer.parseInt(secondMultipleInput[1]);
+
+            final List<List<Integer>> obstacles = new ArrayList<>();
+
+            for (int i = 0; i < k; i++) {
+
+                final String[] obstaclesRowTempItems = bufferedReader.readLine()
+                        .replaceAll(REGEX, REPLACEMENT)
+                        .split(SEPARATOR);
+
+                final List<Integer> obstaclesRowItems = new ArrayList<>();
+
+                for (int j = 0; j < 2; j++) {
+
+                    final int obstaclesItem = Integer.parseInt(obstaclesRowTempItems[j]);
+                    obstaclesRowItems.add(obstaclesItem);
+                }
+
+                obstacles.add(obstaclesRowItems);
             }
 
-            obstacles.add(obstaclesRowItems);
+            result = queensAttack(n, rq, cq, obstacles);
         }
 
-        final int result = queensAttack(n, rq, cq, obstacles);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.write(
-                String.valueOf(result));
+            bufferedWriter.write(
+                    String.valueOf(result));
 
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+            bufferedWriter.newLine();
+        }
     }
 
 }

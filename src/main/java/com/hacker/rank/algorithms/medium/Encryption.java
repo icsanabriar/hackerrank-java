@@ -121,21 +121,17 @@ public class Encryption {
      */
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
+            final String s = bufferedReader.readLine();
+            final String result = encryption(s);
 
-        final String s = bufferedReader.readLine();
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        final String result = encryption(s);
-
-        bufferedWriter.write(result);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+        }
     }
 
 }

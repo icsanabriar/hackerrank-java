@@ -91,39 +91,36 @@ public class LarryArray {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
+            final int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-        final int t = Integer.parseInt(bufferedReader.readLine().trim());
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int tItr = 0; tItr < t; tItr++) {
+                for (int tItr = 0; tItr < t; tItr++) {
 
-            final int n = Integer.parseInt(
-                    bufferedReader.readLine()
-                            .trim());
+                    final int n = Integer.parseInt(
+                            bufferedReader.readLine()
+                                    .trim());
 
-            final String[] aTemp = bufferedReader.readLine()
-                    .replaceAll(REGEX, REPLACEMENT)
-                    .split(SEPARATOR);
+                    final String[] aTemp = bufferedReader.readLine()
+                            .replaceAll(REGEX, REPLACEMENT)
+                            .split(SEPARATOR);
 
-            final List<Integer> array = new ArrayList<>();
+                    final List<Integer> array = new ArrayList<>();
 
-            for (int i = 0; i < n; i++) {
-                final int AItem = Integer.parseInt(aTemp[i]);
-                array.add(AItem);
+                    for (int i = 0; i < n; i++) {
+                        final int AItem = Integer.parseInt(aTemp[i]);
+                        array.add(AItem);
+                    }
+
+                    final String result = larrysArray(array);
+
+                    bufferedWriter.write(result);
+                    bufferedWriter.newLine();
+                }
             }
-
-            final String result = larrysArray(array);
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
         }
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 
 }

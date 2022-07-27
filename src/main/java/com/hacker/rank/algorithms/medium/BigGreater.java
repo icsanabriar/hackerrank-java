@@ -99,21 +99,22 @@ public class BigGreater {
     public static void main(String[] args) throws IOException {
 
         final Scanner scanner = new Scanner(System.in);
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-        final int T = scanner.nextInt();
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int TItr = 0; TItr < T; TItr++) {
+            final int T = scanner.nextInt();
 
-            final String w = scanner.next();
-            final String result = biggerIsGreater(w);
+            for (int TItr = 0; TItr < T; TItr++) {
 
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
+                final String w = scanner.next();
+                final String result = biggerIsGreater(w);
+
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+
         }
 
-        bufferedWriter.close();
         scanner.close();
     }
 

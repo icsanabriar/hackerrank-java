@@ -32,7 +32,7 @@ import java.util.stream.IntStream;
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since 1.0.0
+ * @since  1.0.0
  */
 public class LilyHomework {
 
@@ -123,36 +123,33 @@ public class LilyHomework {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
-
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        final int n = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
-
-        final String[] arrTemp = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
-
         final List<Integer> arr = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
-            final int arrItem = Integer.parseInt(arrTemp[i]);
-            arr.add(arrItem);
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
+
+            final int n = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
+
+            final String[] arrTemp = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
+
+            for (int i = 0; i < n; i++) {
+                final int arrItem = Integer.parseInt(arrTemp[i]);
+                arr.add(arrItem);
+            }
         }
 
         final int result = lilysHomework(arr);
 
-        bufferedWriter.write(
-                String.valueOf(result));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.newLine();
+            bufferedWriter.write(
+                    String.valueOf(result));
 
-        bufferedReader.close();
-        bufferedWriter.close();
+            bufferedWriter.newLine();
+        }
     }
 
 }

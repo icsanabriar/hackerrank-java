@@ -125,8 +125,8 @@ public class GridSearch {
     /**
      * Search the given pattern P on the grid G.
      *
-     * @param grid      Grid to search the pattern.
-     * @param pattern   Pattern to search at the grid.
+     * @param grid    Grid to search the pattern.
+     * @param pattern Pattern to search at the grid.
      * @return A String representing if the pattern was found YES, otherwise NO is returned.
      */
     private static String gridSearch(final List<String> grid, final List<String> pattern) {
@@ -158,54 +158,51 @@ public class GridSearch {
     @SuppressWarnings({"Duplicates", "unused"})
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
+            final int t = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
 
-        final int t = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        for (int tItr = 0; tItr < t; tItr++) {
+                for (int tItr = 0; tItr < t; tItr++) {
 
-            final String[] firstMultipleInput = bufferedReader.readLine()
-                    .replaceAll(REGEX, REPLACEMENT)
-                    .split(SEPARATOR);
+                    final String[] firstMultipleInput = bufferedReader.readLine()
+                            .replaceAll(REGEX, REPLACEMENT)
+                            .split(SEPARATOR);
 
-            final int R = Integer.parseInt(firstMultipleInput[0]);
-            final int C = Integer.parseInt(firstMultipleInput[1]);
+                    final int R = Integer.parseInt(firstMultipleInput[0]);
+                    final int C = Integer.parseInt(firstMultipleInput[1]);
 
-            final List<String> grid = new ArrayList<>();
+                    final List<String> grid = new ArrayList<>();
 
-            for (int i = 0; i < R; i++) {
-                final String GItem = bufferedReader.readLine();
-                grid.add(GItem);
+                    for (int i = 0; i < R; i++) {
+                        final String GItem = bufferedReader.readLine();
+                        grid.add(GItem);
+                    }
+
+                    final String[] secondMultipleInput = bufferedReader.readLine()
+                            .replaceAll(REGEX, REPLACEMENT)
+                            .split(SEPARATOR);
+
+                    final int r = Integer.parseInt(secondMultipleInput[0]);
+                    final int c = Integer.parseInt(secondMultipleInput[1]);
+
+                    final List<String> pattern = new ArrayList<>();
+
+                    for (int i = 0; i < r; i++) {
+                        final String PItem = bufferedReader.readLine();
+                        pattern.add(PItem);
+                    }
+
+                    final String result = gridSearch(grid, pattern);
+
+                    bufferedWriter.write(result);
+                    bufferedWriter.newLine();
+                }
             }
-
-            final String[] secondMultipleInput = bufferedReader.readLine()
-                    .replaceAll(REGEX, REPLACEMENT)
-                    .split(SEPARATOR);
-
-            final int r = Integer.parseInt(secondMultipleInput[0]);
-            final int c = Integer.parseInt(secondMultipleInput[1]);
-
-            final List<String> pattern = new ArrayList<>();
-
-            for (int i = 0; i < r; i++) {
-                final String PItem = bufferedReader.readLine();
-                pattern.add(PItem);
-            }
-
-            final String result = gridSearch(grid, pattern);
-
-            bufferedWriter.write(result);
-            bufferedWriter.newLine();
         }
-
-        bufferedReader.close();
-        bufferedWriter.close();
     }
 
 }

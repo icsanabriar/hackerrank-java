@@ -63,21 +63,20 @@ public class MaxMin {
      */
     public static void main(String[] args) throws IOException {
 
-        final FileWriter fileWriter = new FileWriter(System.getenv("OUTPUT_PATH"));
-        final BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        final ParameterReader parameterReader = new ParameterReader(scanner);
-        parameterReader.readIntParams();
+            final ParameterReader parameterReader = new ParameterReader(scanner);
+            parameterReader.readIntParams();
 
-        final int result = solve(
-                parameterReader.getK(),
-                parameterReader.getA());
+            final int result = solve(
+                    parameterReader.getK(),
+                    parameterReader.getA());
 
-        bufferedWriter.write(
-                String.valueOf(result));
+            bufferedWriter.write(
+                    String.valueOf(result));
 
-        bufferedWriter.newLine();
-        bufferedWriter.close();
+            bufferedWriter.newLine();
+        }
 
         scanner.close();
     }

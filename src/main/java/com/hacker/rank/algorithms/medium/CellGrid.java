@@ -131,48 +131,45 @@ public class CellGrid {
     @SuppressWarnings({"Duplicates", "unused"})
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
-
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(System.getenv("OUTPUT_PATH")));
-
-        final int n = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
-
-        final int m = Integer.parseInt(
-                bufferedReader.readLine()
-                        .trim());
-
         final List<List<Integer>> matrix = new ArrayList<>();
 
-        for (int i = 0; i < n; i++) {
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-            final String[] matrixRowTempItems = bufferedReader.readLine()
-                    .replaceAll(REGEX, REPLACEMENT)
-                    .split(SEPARATOR);
+            final int n = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
 
-            final List<Integer> matrixRowItems = new ArrayList<>();
+            final int m = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
 
-            for (int j = 0; j < m; j++) {
+            for (int i = 0; i < n; i++) {
 
-                final int matrixItem = Integer.parseInt(matrixRowTempItems[j]);
-                matrixRowItems.add(matrixItem);
+                final String[] matrixRowTempItems = bufferedReader.readLine()
+                        .replaceAll(REGEX, REPLACEMENT)
+                        .split(SEPARATOR);
+
+                final List<Integer> matrixRowItems = new ArrayList<>();
+
+                for (int j = 0; j < m; j++) {
+
+                    final int matrixItem = Integer.parseInt(matrixRowTempItems[j]);
+                    matrixRowItems.add(matrixItem);
+                }
+
+                matrix.add(matrixRowItems);
             }
-
-            matrix.add(matrixRowItems);
         }
 
         final int result = connectedCell(matrix);
 
-        bufferedWriter.write(
-                String.valueOf(result));
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.newLine();
+            bufferedWriter.write(
+                    String.valueOf(result));
 
-        bufferedReader.close();
-        bufferedWriter.close();
+            bufferedWriter.newLine();
+        }
     }
 
 }
