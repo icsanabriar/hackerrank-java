@@ -77,28 +77,24 @@ public class DayTime {
     @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
-        final BufferedReader bufferedReader = new BufferedReader(
-                new InputStreamReader(System.in));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-        final BufferedWriter bufferedWriter = new BufferedWriter(
-                new FileWriter(
-                        System.getenv("OUTPUT_PATH")));
+            final String[] firstMultipleInput = bufferedReader.readLine()
+                    .replaceAll(REGEX, REPLACEMENT)
+                    .split(SEPARATOR);
 
-        final String[] firstMultipleInput = bufferedReader.readLine()
-                .replaceAll(REGEX, REPLACEMENT)
-                .split(SEPARATOR);
+            final int month = Integer.parseInt(firstMultipleInput[0]);
+            final int day = Integer.parseInt(firstMultipleInput[1]);
+            final int year = Integer.parseInt(firstMultipleInput[2]);
 
-        final int month = Integer.parseInt(firstMultipleInput[0]);
-        final int day = Integer.parseInt(firstMultipleInput[1]);
-        final int year = Integer.parseInt(firstMultipleInput[2]);
+            final String result = findDay(month, day, year);
 
-        final String res = findDay(month, day, year);
+            try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-        bufferedWriter.write(res);
-        bufferedWriter.newLine();
-
-        bufferedReader.close();
-        bufferedWriter.close();
+                bufferedWriter.write(result);
+                bufferedWriter.newLine();
+            }
+        }
     }
 
 }
