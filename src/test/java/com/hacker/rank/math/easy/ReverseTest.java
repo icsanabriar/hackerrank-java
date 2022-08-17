@@ -65,4 +65,31 @@ public class ReverseTest {
 
         System.setIn(sysInBackup);
     }
+
+    @Test
+    public void second_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "2" + SEPARATOR +
+                "8 3" + SEPARATOR +
+                "15 1" + SEPARATOR;
+
+        final String expectedOutput = "7" + SEPARATOR +
+                "3" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Reverse.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
 }
