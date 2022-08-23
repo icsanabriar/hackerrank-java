@@ -20,6 +20,10 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+
+import static java.util.stream.Collectors.joining;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -27,7 +31,7 @@ import java.io.InputStreamReader;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Floating {
+public class Point {
 
     /**
      * Regex used to process input of the program.
@@ -45,27 +49,22 @@ public class Floating {
     private static final String REPLACEMENT = "";
 
     /**
-     * Greatest Common Divisor for the given numbers a, b.
+     * Find the reflection point of the given coordinates pair.
      *
-     * @param a Number to calculate gcd.
-     * @param b Number to calculate gcd.
-     * @return Greatest common divisor of the given a,b.
+     * @param px X coordinate of point P.
+     * @param py Y coordinate of point P.
+     * @param qx X coordinate of point Q.
+     * @param qy Y coordinate of point Q.
+     * @return List of integer with X and Y coordinate of the reflection point.
      */
-    private static int gcd(int a, int b) {
-        return (b == 0) ? Math.max(1, a) : gcd(b, a % b);
-    }
+    private static List<Integer> findPoint(int px, int py, int qx, int qy) {
 
-    /**
-     * Return the number of rocks between the two given points.
-     *
-     * @param x1 X coordinate of P1.
-     * @param y1 Y coordinate of P2.
-     * @param x2 X coordinate of P1.
-     * @param y2 Y coordinate of P2.
-     * @return Number of rocks between P1 and P2.
-     */
-    private static int solve(int x1, int y1, int x2, int y2) {
-        return gcd(Math.abs(x1 - x2), Math.abs(y1 - y2)) - 1;
+        final List<Integer> result = new ArrayList<>();
+
+        result.add(qx * 2 - px);
+        result.add(qy * 2 - py);
+
+        return result;
     }
 
     /**
@@ -79,28 +78,33 @@ public class Floating {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-            final int t = Integer.parseInt(bufferedReader.readLine().trim());
+            final int n = Integer.parseInt(
+                    bufferedReader.readLine()
+                            .trim());
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                for (int tItr = 0; tItr < t; tItr++) {
+                for (int tItr = 0; tItr < n; tItr++) {
 
-                    final String[] firstMultipleInput = bufferedReader.readLine()
+                    String[] firstMultipleInput = bufferedReader.readLine()
                             .replaceAll(REGEX, REPLACEMENT)
                             .split(SEPARATOR);
 
-                    final int x1 = Integer.parseInt(firstMultipleInput[0]);
-                    final int y1 = Integer.parseInt(firstMultipleInput[1]);
+                    final int px = Integer.parseInt(firstMultipleInput[0]);
+                    final int py = Integer.parseInt(firstMultipleInput[1]);
+                    final int qx = Integer.parseInt(firstMultipleInput[2]);
+                    final int qy = Integer.parseInt(firstMultipleInput[3]);
 
-                    final int x2 = Integer.parseInt(firstMultipleInput[2]);
-                    final int y2 = Integer.parseInt(firstMultipleInput[3]);
+                    List<Integer> result = findPoint(px, py, qx, qy);
 
-                    final int result = solve(x1, y1, x2, y2);
-
-                    bufferedWriter.write(String.valueOf(result));
-                    bufferedWriter.newLine();
+                    bufferedWriter.write(
+                            result.stream()
+                                    .map(Object::toString)
+                                    .collect(joining(" "))
+                                    + "\n");
                 }
             }
         }
     }
+
 }

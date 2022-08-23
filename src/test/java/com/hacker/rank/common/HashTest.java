@@ -29,7 +29,7 @@ import static org.testng.Assert.assertEquals;
  * Class to handle the test cases  for Hash.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since 1.0.0
+ * @since  1.0.0
  */
 public class HashTest {
 
