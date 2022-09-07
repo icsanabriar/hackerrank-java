@@ -25,9 +25,9 @@ import java.io.InputStreamReader;
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since  1.4.0
  */
-public class Triangle {
+public class Path {
 
     /**
      * Regex used to process input of the program.
@@ -45,18 +45,28 @@ public class Triangle {
     private static final String REPLACEMENT = "";
 
     /**
-     * Find the lowest triangle using the given area and base.
+     * Greatest Common Divisor for the given numbers a, b.
      *
-     * @param base Base of the triangle.
-     * @param area Area of the triangle.
-     * @return Height of the lowest triangle.
+     * @param a Number to calculate gcd.
+     * @param b Number to calculate gcd.
+     * @return Greatest common divisor of the given a,b.
      */
-    private static int lowestTriangle(int base, int area) {
+    private static long gcd(long a, long b) {
+        return (b == 0) ? Math.max(1, a) : gcd(b, a % b);
+    }
 
-        final int doubleArea = 2 * area;
-        final int height = doubleArea / base;
-
-        return height + (doubleArea % base == 0 ? 0 : 1);
+    /**
+     * Return YES if point with coordinates (x,y) is reachable starting from (a,b) adding a or b units. Otherwise NO is
+     * given on the return statement.
+     *
+     * @param a X coordinate of starting point.
+     * @param b Y coordinate of starting point.
+     * @param x X coordinate ending point.
+     * @param y Y coordinate ending point.
+     * @return A string representing if ending point is reachable or not.
+     */
+    private static String solve(long a, long b, long x, long y) {
+        return gcd(a, b) == gcd(x, y) ? "YES" : "NO";
     }
 
     /**
@@ -72,17 +82,24 @@ public class Triangle {
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                final String[] firstMultipleInput = bufferedReader.readLine()
-                        .replaceAll(REGEX, REPLACEMENT)
-                        .split(SEPARATOR);
+                final int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-                final int base = Integer.parseInt(firstMultipleInput[0]);
-                final int area = Integer.parseInt(firstMultipleInput[1]);
+                for (int i = 0; i < t; i++) {
 
-                final int height = lowestTriangle(base, area);
+                    final String[] firstMultipleInput = bufferedReader.readLine()
+                            .replaceAll(REGEX, REPLACEMENT)
+                            .split(SEPARATOR);
 
-                bufferedWriter.write(String.valueOf(height));
-                bufferedWriter.newLine();
+                    final long a = Long.parseLong(firstMultipleInput[0]);
+                    final long b = Long.parseLong(firstMultipleInput[1]);
+                    final long x = Long.parseLong(firstMultipleInput[2]);
+                    final long y = Long.parseLong(firstMultipleInput[3]);
+
+                    final String result = solve(a, b, x, y);
+
+                    bufferedWriter.write(result);
+                    bufferedWriter.newLine();
+                }
             }
         }
     }

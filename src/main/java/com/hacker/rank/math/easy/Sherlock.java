@@ -20,14 +20,18 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.List;
+import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since  1.4.0
  */
-public class Triangle {
+public class Sherlock {
 
     /**
      * Regex used to process input of the program.
@@ -45,18 +49,31 @@ public class Triangle {
     private static final String REPLACEMENT = "";
 
     /**
-     * Find the lowest triangle using the given area and base.
+     * Greatest Common Divisor for the given numbers a, b.
      *
-     * @param base Base of the triangle.
-     * @param area Area of the triangle.
-     * @return Height of the lowest triangle.
+     * @param a Number to calculate gcd.
+     * @param b Number to calculate gcd.
+     * @return Greatest common divisor of the given a,b.
      */
-    private static int lowestTriangle(int base, int area) {
+    private static int gcd(int a, int b) {
+        return (b == 0) ? Math.max(1, a) : gcd(b, a % b);
+    }
 
-        final int doubleArea = 2 * area;
-        final int height = doubleArea / base;
+    /**
+     * Return YES if the given list contains elements that fulfill problem specification.
+     *
+     * @param a List of number to validate.
+     * @return A string representing if the given list could be split in multiple subsets fulfilling the problem specification.
+     */
+    private static String solve(List<Integer> a) {
 
-        return height + (doubleArea % base == 0 ? 0 : 1);
+        int g = a.get(0);
+
+        for (int i = 1; i < a.size(); i++) {
+            g = gcd(g, a.get(i));
+        }
+
+        return g == 1 ? "YES" : "NO";
     }
 
     /**
@@ -72,17 +89,26 @@ public class Triangle {
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                final String[] firstMultipleInput = bufferedReader.readLine()
-                        .replaceAll(REGEX, REPLACEMENT)
-                        .split(SEPARATOR);
+                final int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-                final int base = Integer.parseInt(firstMultipleInput[0]);
-                final int area = Integer.parseInt(firstMultipleInput[1]);
+                for (int i = 0; i < t; i++) {
 
-                final int height = lowestTriangle(base, area);
+                    final int aCount = Integer.parseInt(bufferedReader.readLine().trim());
 
-                bufferedWriter.write(String.valueOf(height));
-                bufferedWriter.newLine();
+                    final List<Integer> a = Stream.of(
+                            bufferedReader.readLine()
+                                    .replaceAll(REGEX, REPLACEMENT)
+                                    .split(SEPARATOR))
+                            .map(Integer::parseInt).collect(toList());
+
+                    if (aCount == a.size()) {
+
+                        final String result = solve(a);
+
+                        bufferedWriter.write(result);
+                        bufferedWriter.newLine();
+                    }
+                }
             }
         }
     }

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.math.easy;
+package com.hacker.rank.math.medium;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -25,38 +25,42 @@ import java.io.InputStreamReader;
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since  1.4.0
  */
-public class Triangle {
+public class Easy {
 
     /**
-     * Regex used to process input of the program.
-     */
-    private static final String REGEX = "\\s+$";
-
-    /**
-     * Separator of values in same line.
-     */
-    private static final String SEPARATOR = " ";
-
-    /**
-     * Replacement of value inline.
-     */
-    private static final String REPLACEMENT = "";
-
-    /**
-     * Find the lowest triangle using the given area and base.
+     * Solve return the final value 2 * a + b.
      *
-     * @param base Base of the triangle.
-     * @param area Area of the triangle.
-     * @return Height of the lowest triangle.
+     * @param x Number to transform based on 4 and 0.
+     * @return Number representing the value of 2 * a + b.
      */
-    private static int lowestTriangle(int base, int area) {
+    private static int solve(int x) {
 
-        final int doubleArea = 2 * area;
-        final int height = doubleArea / base;
+        int exp2 = 0;
 
-        return height + (doubleArea % base == 0 ? 0 : 1);
+        while (x % 2 == 0) {
+            exp2++;
+            x = x / 2;
+        }
+
+        int exp5 = 0;
+
+        while (x % 5 == 0) {
+            exp5++;
+            x = x / 5;
+        }
+
+        int b = Math.max(exp2 - 2, exp5);
+        int a = 1;
+        int remainder = 1 % x;
+
+        while (remainder != 0) {
+            remainder = (remainder * 10 + 1) % x;
+            a++;
+        }
+
+        return 2 * a + b;
     }
 
     /**
@@ -72,17 +76,17 @@ public class Triangle {
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                final String[] firstMultipleInput = bufferedReader.readLine()
-                        .replaceAll(REGEX, REPLACEMENT)
-                        .split(SEPARATOR);
+                final int t = Integer.parseInt(bufferedReader.readLine().trim());
 
-                final int base = Integer.parseInt(firstMultipleInput[0]);
-                final int area = Integer.parseInt(firstMultipleInput[1]);
+                for (int i = 0; i < t; i++) {
 
-                final int height = lowestTriangle(base, area);
+                    final int x = Integer.parseInt(bufferedReader.readLine().trim());
 
-                bufferedWriter.write(String.valueOf(height));
-                bufferedWriter.newLine();
+                    final String result = String.valueOf(solve(x));
+
+                    bufferedWriter.write(result);
+                    bufferedWriter.newLine();
+                }
             }
         }
     }

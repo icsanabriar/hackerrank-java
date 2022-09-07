@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 Iván Camilo Sanabria.
+ * Copyright (C) 2022 Iván Camilo Sanabria.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,9 +29,9 @@ import static org.testng.Assert.assertEquals;
  * Class to handle the test cases given on hacker rank website.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since  1.4.0
  */
-public class FloatingTest {
+public class PickTest {
 
     /**
      * Define line separator for test cases.
@@ -46,19 +46,58 @@ public class FloatingTest {
         final InputStream sysInBackup = System.in;
 
         final String input = "3" + SEPARATOR +
-                "0 2 4 0" + SEPARATOR +
-                "2 2 5 5" + SEPARATOR +
-                "1 9 8 16" + SEPARATOR;
+                "3" + SEPARATOR +
+                "0 0 0" + SEPARATOR +
+                "3" + SEPARATOR +
+                "0 0 1" + SEPARATOR +
+                "3" + SEPARATOR +
+                "0 3 3" + SEPARATOR;
 
-        final String expectedOutput = "1" + SEPARATOR +
-                "2" + SEPARATOR +
-                "6" + SEPARATOR;
+        final String expectedOutput = "6" + SEPARATOR +
+                "4" + SEPARATOR +
+                "0" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        final Floating instance = new Floating();
+        final Pick instance = new Pick();
         instance.main(args);
+
+        final String[] lines = expectedOutput.split("\\r?\\n");
+
+        final File file = new File(System.getenv("OUTPUT_PATH"));
+        final Scanner sc = new Scanner(file);
+
+        int index = 0;
+
+        while (sc.hasNextLine()) {
+            assertEquals(lines[index], sc.nextLine());
+            index++;
+        }
+
+        sc.close();
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void given_invalid_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "2" + SEPARATOR +
+                "3" + SEPARATOR +
+                "1 2 3" + SEPARATOR +
+                "3" + SEPARATOR +
+                "2 4" + SEPARATOR;
+
+        final String expectedOutput = "0" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        Pick.main(args);
 
         final String[] lines = expectedOutput.split("\\r?\\n");
 

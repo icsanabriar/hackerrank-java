@@ -20,18 +20,14 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.stream.Collectors.joining;
 
 /**
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since  1.4.0
  */
-public class Point {
+public class Counter {
 
     /**
      * Regex used to process input of the program.
@@ -49,22 +45,58 @@ public class Point {
     private static final String REPLACEMENT = "";
 
     /**
-     * Find the reflection point of the given coordinates pair.
+     * Return the square of the given number.
      *
-     * @param px X coordinate of point P.
-     * @param py Y coordinate of point P.
-     * @param qx X coordinate of point Q.
-     * @param qy Y coordinate of point Q.
-     * @return List of integer with X and Y coordinate of the reflection point.
+     * @param x Number to calculate the square.
+     * @return Number representing the square of the given x.
      */
-    private static List<Integer> findPoint(int px, int py, int qx, int qy) {
+    private static long square(long x) {
+        return x * x;
+    }
 
-        final List<Integer> result = new ArrayList<>();
+    /**
+     * Validates that the given parameters of the square of formula are in range.
+     *
+     * @param a A parameter of square formula.
+     * @param b B parameter of square formula.
+     * @param d Discriminant of the square formula.
+     * @param x Number to validate.
+     * @return A boolean representing if the given value is in range.
+     */
+    private static boolean outRange(long a, long b, long d, int x) {
+        return square((long) x * 2 * a + b) >= d;
+    }
 
-        result.add(qx * 2 - px);
-        result.add(qy * 2 - py);
+    /**
+     * Return the number queries that satisfy Watson's formula.
+     *
+     * @param n Number given as input to validate number of queries.
+     * @param k Number given as input to validate number of queries.
+     * @return Number of queries that satisfy Watson's formula.
+     */
+    private static int solve(int n, int k) {
 
-        return result;
+        long a = 1;
+        long b = -n;
+        long c = (long) n * k;
+
+        long d = b * b - 4 * a * c;
+
+        if (d <= 0) {
+            return n - 1;
+        }
+
+        int lower = (int) Math.floor((-b - Math.sqrt(d)) / (2 * a));
+        while (outRange(a, b, d, lower)) {
+            lower++;
+        }
+
+        int upper = (int) Math.ceil((-b + Math.sqrt(d)) / (2 * a));
+        while (outRange(a, b, d, upper)) {
+            upper--;
+        }
+
+        return (n - 1) - (upper - lower + 1);
     }
 
     /**
@@ -78,30 +110,23 @@ public class Point {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {
 
-            final int n = Integer.parseInt(
-                    bufferedReader.readLine()
-                            .trim());
-
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                for (int tItr = 0; tItr < n; tItr++) {
+                final int q = Integer.parseInt(bufferedReader.readLine().trim());
+
+                for (int i = 0; i < q; i++) {
 
                     final String[] firstMultipleInput = bufferedReader.readLine()
                             .replaceAll(REGEX, REPLACEMENT)
                             .split(SEPARATOR);
 
-                    final int px = Integer.parseInt(firstMultipleInput[0]);
-                    final int py = Integer.parseInt(firstMultipleInput[1]);
-                    final int qx = Integer.parseInt(firstMultipleInput[2]);
-                    final int qy = Integer.parseInt(firstMultipleInput[3]);
+                    final int n = Integer.parseInt(firstMultipleInput[0]);
+                    final int k = Integer.parseInt(firstMultipleInput[1]);
 
-                    final List<Integer> result = findPoint(px, py, qx, qy);
+                    final String result = String.valueOf(solve(n, k));
 
-                    bufferedWriter.write(
-                            result.stream()
-                                    .map(Object::toString)
-                                    .collect(joining(" "))
-                                    + "\n");
+                    bufferedWriter.write(result);
+                    bufferedWriter.newLine();
                 }
             }
         }

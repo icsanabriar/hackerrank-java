@@ -74,7 +74,7 @@ public class Strange {
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                String[] firstMultipleInput = bufferedReader.readLine()
+                final String[] firstMultipleInput = bufferedReader.readLine()
                         .replaceAll(REGEX, REPLACEMENT)
                         .split(SEPARATOR);
 
@@ -88,4 +88,5 @@ public class Strange {
             }
         }
     }
+
 }
