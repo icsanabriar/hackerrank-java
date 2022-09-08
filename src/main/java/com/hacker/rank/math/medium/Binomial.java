@@ -54,20 +54,20 @@ public class Binomial {
      */
     private static BigInteger solve(String n, int p) {
 
-        final BigInteger N = new BigInteger(n);
-        final BigInteger P = BigInteger.valueOf(p);
+        final BigInteger bn = new BigInteger(n);
+        final BigInteger bp = BigInteger.valueOf(p);
 
         BigInteger noZero = BigInteger.ONE;
 
-        for (BigInteger i = N; !i.equals(BigInteger.ZERO); i = i.divide(P)) {
+        for (BigInteger i = bn; !i.equals(BigInteger.ZERO); i = i.divide(bp)) {
 
-            final BigInteger delta = i.mod(P)
+            final BigInteger delta = i.mod(bp)
                     .add(BigInteger.ONE);
 
             noZero = noZero.multiply(delta);
         }
 
-        return N.add(BigInteger.ONE)
+        return bn.add(BigInteger.ONE)
                 .subtract(noZero);
     }
 

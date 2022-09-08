@@ -43,10 +43,10 @@ public class Multiple {
      * @param n Multiple of generated number.
      * @return Positive integer compose of 9 and 0s.
      */
-    private static BigInteger solve(int n) {
+    private static BigInteger findMultiple(int n) {
 
         final boolean[] cache = new boolean[n];
-        final BigInteger N = BigInteger.valueOf(n);
+        final BigInteger bn = BigInteger.valueOf(n);
 
         final Queue<BigInteger> queue = new LinkedList<>();
         queue.offer(DIGITS[0]);
@@ -63,7 +63,7 @@ public class Multiple {
                 final BigInteger next = BigInteger.TEN.multiply(head)
                         .add(digit);
 
-                final BigInteger remain = next.mod(N);
+                final BigInteger remain = next.mod(bn);
                 final int index = remain.intValue();
 
                 if (remain.equals(BigInteger.ZERO)) {
@@ -99,9 +99,10 @@ public class Multiple {
                             bufferedReader.readLine()
                                     .trim());
 
-                    final String result = String.valueOf(solve(n));
+                    final BigInteger result = findMultiple(n);
+                    final String output = String.valueOf(result);
 
-                    bufferedWriter.write(result);
+                    bufferedWriter.write(output);
                     bufferedWriter.newLine();
                 }
             }

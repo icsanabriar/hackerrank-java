@@ -32,13 +32,13 @@ public class Triangle {
     /**
      * Retrieves the first position of an odd number for the specified triangle.
      *
-     * @param n Row number to find the odd number.
+     * @param row Row number to find the odd number.
      * @return Number representing the first position of an odd number.
      */
-    private static int solve(int n) {
+    private static int findPosition(int row) {
 
         final int[] cache = new int[]{2, 3, 2, 4};
-        final int index = (n - 3) % 4;
+        final int index = (row - 3) % 4;
 
         return cache[index];
     }
@@ -62,13 +62,14 @@ public class Triangle {
 
                 for (int i = 0; i < t; i++) {
 
-                    final int n = Integer.parseInt(
+                    final int row = Integer.parseInt(
                             bufferedReader.readLine()
                                     .trim());
 
-                    final String result = String.valueOf(solve(n));
+                    final int result = findPosition(row);
+                    final String output = String.valueOf(result);
 
-                    bufferedWriter.write(result);
+                    bufferedWriter.write(output);
                     bufferedWriter.newLine();
                 }
             }
