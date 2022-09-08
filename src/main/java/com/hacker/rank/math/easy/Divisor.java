@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.math.medium;
+package com.hacker.rank.math.easy;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -27,40 +27,31 @@ import java.io.InputStreamReader;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Easy {
+public class Divisor {
 
     /**
-     * Solve return the final value 2 * a + b.
+     * Count the number of divisors of the given number that are divisible by 2.
      *
-     * @param x Number to transform based on 4 and 0.
-     * @return Number representing the value of 2 * a + b.
+     * @param n Number to count the divisors.
+     * @return Number of divisors are divisible by 2.
      */
-    private static int solve(int x) {
+    private static int divisors(int n) {
 
-        int exp2 = 0;
+        int counter = 0;
 
-        while (x % 2 == 0) {
-            exp2++;
-            x = x / 2;
+        for (int i = 1; i * i <= n; i++) {
+
+            if (n % i == 0) {
+
+                if (i % 2 == 0)
+                    counter++;
+
+                if (n / i != i && n / i % 2 == 0)
+                    counter++;
+            }
         }
 
-        int exp5 = 0;
-
-        while (x % 5 == 0) {
-            exp5++;
-            x = x / 5;
-        }
-
-        int b = Math.max(exp2 - 2, exp5);
-        int a = 1;
-        int remainder = 1 % x;
-
-        while (remainder != 0) {
-            remainder = (remainder * 10 + 1) % x;
-            a++;
-        }
-
-        return 2 * a + b;
+        return counter;
     }
 
     /**
@@ -76,13 +67,17 @@ public class Easy {
 
             try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 
-                final int t = Integer.parseInt(bufferedReader.readLine().trim());
+                final int t = Integer.parseInt(
+                        bufferedReader.readLine()
+                                .trim());
 
                 for (int i = 0; i < t; i++) {
 
-                    final int x = Integer.parseInt(bufferedReader.readLine().trim());
+                    int n = Integer.parseInt(
+                            bufferedReader.readLine()
+                                    .trim());
 
-                    final String result = String.valueOf(solve(x));
+                    final String result = String.valueOf(divisors(n));
 
                     bufferedWriter.write(result);
                     bufferedWriter.newLine();
@@ -90,5 +85,4 @@ public class Easy {
             }
         }
     }
-
 }

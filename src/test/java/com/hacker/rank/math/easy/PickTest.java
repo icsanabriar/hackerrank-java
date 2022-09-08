@@ -29,7 +29,7 @@ import static org.testng.Assert.assertEquals;
  * Class to handle the test cases given on hacker rank website.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.4.0
+ * @since  1.3.0
  */
 public class PickTest {
 

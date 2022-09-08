@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.4.0
+ * @since  1.3.0
  */
 public class Counter {
 

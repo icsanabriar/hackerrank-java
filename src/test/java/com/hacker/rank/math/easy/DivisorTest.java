@@ -31,7 +31,7 @@ import static org.testng.Assert.assertEquals;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class PathTest {
+public class DivisorTest {
 
     /**
      * Define line separator for test cases.
@@ -45,19 +45,17 @@ public class PathTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3" + SEPARATOR +
-                "1 1 2 3" + SEPARATOR +
-                "2 1 2 3" + SEPARATOR +
-                "3 3 1 1" + SEPARATOR;
+        final String input = "2" + SEPARATOR +
+                "9" + SEPARATOR +
+                "8" + SEPARATOR;
 
-        final String expectedOutput = "YES" + SEPARATOR +
-                "YES" + SEPARATOR +
-                "NO" + SEPARATOR;
+        final String expectedOutput = "0" + SEPARATOR +
+                "3" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        final Path instance = new Path();
+        final Divisor instance = new Divisor();
         instance.main(args);
 
         final String[] lines = expectedOutput.split("\\r?\\n");
