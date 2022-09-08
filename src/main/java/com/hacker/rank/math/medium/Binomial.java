@@ -13,13 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.math.easy;
+package com.hacker.rank.math.medium;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -27,31 +28,47 @@ import java.io.InputStreamReader;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Divisor {
+public class Binomial {
 
     /**
-     * Count the number of divisors of the given number that are divisible by 2.
-     *
-     * @param n Number to count the divisors.
-     * @return Number of divisors are divisible by 2.
+     * Regex used to process input of the program.
      */
-    private static int divisors(int n) {
+    private static final String REGEX = "\\s+$";
 
-        int counter = 0;
+    /**
+     * Separator of values in same line.
+     */
+    private static final String SEPARATOR = " ";
 
-        for (int i = 1; i * i <= n; i++) {
+    /**
+     * Replacement of value inline.
+     */
+    private static final String REPLACEMENT = "";
 
-            if (n % i == 0) {
+    /**
+     * Estimates the number of binomial coefficients of n that become to 0 after modulo by P.
+     *
+     * @param n Number of ways to choose.
+     * @param p Modulo to calculate binomial coefficients.
+     * @return Number of binomial coefficients of n become to 0 after modulo by P.
+     */
+    private static BigInteger solve(String n, int p) {
 
-                if (i % 2 == 0)
-                    counter++;
+        final BigInteger N = new BigInteger(n);
+        final BigInteger P = BigInteger.valueOf(p);
 
-                if (n / i != i && n / i % 2 == 0)
-                    counter++;
-            }
+        BigInteger noZero = BigInteger.ONE;
+
+        for (BigInteger i = N; !i.equals(BigInteger.ZERO); i = i.divide(P)) {
+
+            final BigInteger delta = i.mod(P)
+                    .add(BigInteger.ONE);
+
+            noZero = noZero.multiply(delta);
         }
 
-        return counter;
+        return N.add(BigInteger.ONE)
+                .subtract(noZero);
     }
 
     /**
@@ -73,11 +90,14 @@ public class Divisor {
 
                 for (int i = 0; i < t; i++) {
 
-                    final int n = Integer.parseInt(
-                            bufferedReader.readLine()
-                                    .trim());
+                    final String[] firstMultipleInput = bufferedReader.readLine()
+                            .replaceAll(REGEX, REPLACEMENT)
+                            .split(SEPARATOR);
 
-                    final String result = String.valueOf(divisors(n));
+                    final String n = firstMultipleInput[0];
+                    final int p = Integer.parseInt(firstMultipleInput[1]);
+
+                    final String result = String.valueOf(solve(n, p));
 
                     bufferedWriter.write(result);
                     bufferedWriter.newLine();

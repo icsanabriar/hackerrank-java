@@ -13,13 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.math.easy;
+package com.hacker.rank.math.medium;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigInteger;
+import java.util.LinkedList;
+import java.util.Queue;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -27,31 +30,50 @@ import java.io.InputStreamReader;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Divisor {
+public class Multiple {
 
     /**
-     * Count the number of divisors of the given number that are divisible by 2.
-     *
-     * @param n Number to count the divisors.
-     * @return Number of divisors are divisible by 2.
+     * Define digits used to generate the number.
      */
-    private static int divisors(int n) {
+    private static final BigInteger[] DIGITS = {BigInteger.ZERO, BigInteger.valueOf(9)};
 
-        int counter = 0;
+    /**
+     * Find a positive integer compose of 9 and 0 that is a multiple of n.
+     *
+     * @param n Multiple of generated number.
+     * @return Positive integer compose of 9 and 0s.
+     */
+    private static BigInteger solve(int n) {
 
-        for (int i = 1; i * i <= n; i++) {
+        final boolean[] cache = new boolean[n];
+        final BigInteger N = BigInteger.valueOf(n);
 
-            if (n % i == 0) {
+        final Queue<BigInteger> queue = new LinkedList<>();
+        queue.offer(DIGITS[0]);
 
-                if (i % 2 == 0)
-                    counter++;
+        while (true) {
 
-                if (n / i != i && n / i % 2 == 0)
-                    counter++;
+            final BigInteger head = queue.poll();
+
+            for (BigInteger digit : DIGITS) {
+
+                if (BigInteger.ZERO.equals(head) && digit.equals(BigInteger.ZERO))
+                    continue;
+
+                final BigInteger next = BigInteger.TEN.multiply(head)
+                        .add(digit);
+
+                final BigInteger remain = next.mod(N);
+                final int index = remain.intValue();
+
+                if (remain.equals(BigInteger.ZERO)) {
+                    return next;
+                } else if (!cache[index]) {
+                    cache[index] = true;
+                    queue.offer(next);
+                }
             }
         }
-
-        return counter;
     }
 
     /**
@@ -77,7 +99,7 @@ public class Divisor {
                             bufferedReader.readLine()
                                     .trim());
 
-                    final String result = String.valueOf(divisors(n));
+                    final String result = String.valueOf(solve(n));
 
                     bufferedWriter.write(result);
                     bufferedWriter.newLine();
