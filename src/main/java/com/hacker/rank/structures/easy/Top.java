@@ -73,17 +73,17 @@ class Distance {
     /**
      * Distance between the node and root.
      */
-    Integer distance;
+    Integer value;
 
     /**
      * Constructor of the distance using node information and distance to the root.
      *
-     * @param node     Node instance distant to the node.
-     * @param distance Distance from the node to the root.
+     * @param node  Node instance distant to the node.
+     * @param value Distance from the node to the root.
      */
-    Distance(Node node, Integer distance) {
+    Distance(Node node, Integer value) {
         this.node = node;
-        this.distance = distance;
+        this.value = value;
     }
 
 }
@@ -160,15 +160,14 @@ public class Top {
             final Distance distance = distances.poll();
             final Node node = distance.node;
 
-            if (!cache.containsKey(distance.distance))
-                cache.put(distance.distance, node.value);
-
+            if (!cache.containsKey(distance.value))
+                cache.put(distance.value, node.value);
 
             if (node.left != null)
-                distances.add(new Distance(node.left, distance.distance - 1));
+                distances.add(new Distance(node.left, distance.value - 1));
 
             if (node.right != null)
-                distances.add(new Distance(node.right, distance.distance + 1));
+                distances.add(new Distance(node.right, distance.value + 1));
         }
 
         final StringBuilder builder = new StringBuilder();

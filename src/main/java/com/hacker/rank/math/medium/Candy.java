@@ -37,13 +37,13 @@ public class Candy {
      * @param k Number candies that Jim can purchase.
      * @return Number of ways Jim can buy the k candies.
      */
-    private static int solve(int n, int k) {
+    private static int solve(long n, long k) {
 
         final BigInteger modulus = BigInteger.valueOf(1000000000);
 
         BigInteger result = BigInteger.ONE;
 
-        for (int i = 1; i <= n - 1; i++) {
+        for (long i = 1L; i <= n - 1; i++) {
             result = result.multiply(BigInteger.valueOf(k + n - i))
                     .divide(BigInteger.valueOf(i));
         }
@@ -71,11 +71,11 @@ public class Candy {
 
                 for (int i = 0; i < t; i++) {
 
-                    final int n = Integer.parseInt(
+                    final long n = Long.parseLong(
                             bufferedReader.readLine()
                                     .trim());
 
-                    final int k = Integer.parseInt(
+                    final long k = Long.parseLong(
                             bufferedReader.readLine()
                                     .trim());
 
