@@ -22,6 +22,9 @@ import java.util.StringTokenizer;
 
 /**
  * Interface given by hacker rank website.
+ *
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 interface PerformOperation {
     boolean check(int a);
@@ -29,6 +32,9 @@ interface PerformOperation {
 
 /**
  * Class that is provided by hacker rank website.
+ *
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 class MyMath {
 
@@ -89,6 +95,7 @@ class MyMath {
             return num == Integer.parseInt(reverse);
         };
     }
+
 }
 
 /**

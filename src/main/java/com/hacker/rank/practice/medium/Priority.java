@@ -72,6 +72,9 @@ public class Priority {
 
 /**
  * Define class student.
+ *
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 class Student {
 
@@ -134,6 +137,9 @@ class Student {
 
 /**
  * Define class Priorities.
+ *
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 class Priorities {
 

@@ -19,6 +19,9 @@ import java.util.Scanner;
 
 /**
  * Class that is provided by hacker rank website.
+ *
+ * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
+ * @since  1.0.0
  */
 class MyCalculator {
 
