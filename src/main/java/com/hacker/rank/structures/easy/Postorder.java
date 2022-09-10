@@ -62,6 +62,8 @@ public class Postorder {
         }
 
         postOrder(tree.root);
+
+        sc.close();
     }
 
 }

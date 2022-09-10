@@ -201,6 +201,8 @@ public class Top {
         }
 
         topView(tree.root);
+
+        sc.close();
     }
 
 }

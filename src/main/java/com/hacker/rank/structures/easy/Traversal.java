@@ -74,6 +74,8 @@ public class Traversal {
         }
 
         levelOrder(tree.root);
+
+        sc.close();
     }
 
 }

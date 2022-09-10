@@ -64,6 +64,8 @@ public class Inorder {
         }
 
         inOrder(tree.root);
+
+        sc.close();
     }
 
 }

@@ -68,6 +68,8 @@ public class LCA {
 
         final Node result = lca(tree.root, v1, v2);
         System.out.println(result.value);
+
+        sc.close();
     }
 
 }
