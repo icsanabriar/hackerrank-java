@@ -86,6 +86,8 @@ public class Editor {
                     case 4:
                         s = operations.pop();
                         break;
+                    default:
+                        break;
                 }
             }
         }

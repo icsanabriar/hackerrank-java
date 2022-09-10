@@ -73,4 +73,35 @@ public class EditorTest {
         System.setIn(sysInBackup);
     }
 
+    @Test
+    public void edge_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "7" + SEPARATOR +
+                "1 abc" + SEPARATOR +
+                "3 3" + SEPARATOR +
+                "1 def" + SEPARATOR +
+                "3 2" + SEPARATOR +
+                "4" + SEPARATOR +
+                "1 xyz" + SEPARATOR +
+                "5 1" + SEPARATOR;
+
+        final String expectedOutput = "c" + SEPARATOR +
+                "b" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Editor.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
 }
