@@ -66,6 +66,8 @@ public class Priority {
                 System.out.println(name);
             }
         }
+
+        scan.close();
     }
 
 }

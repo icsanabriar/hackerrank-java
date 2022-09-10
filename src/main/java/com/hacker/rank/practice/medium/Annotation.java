@@ -119,6 +119,8 @@ public class Annotation {
 
             testCases--;
         }
+
+        in.close();
     }
 
 }

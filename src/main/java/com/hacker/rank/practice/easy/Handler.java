@@ -94,6 +94,8 @@ public class Handler {
                 System.out.println(e);
             }
         }
+
+        in.close();
     }
 
 }
