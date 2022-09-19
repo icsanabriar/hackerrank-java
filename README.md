@@ -1,6 +1,6 @@
 # Hacker Rank Solutions
 
-version 1.3.0 - 01/09/2021
+version 1.3.0 - 01/10/2021
 
 [![License](https://img.shields.io/badge/license-apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Build](https://img.shields.io/github/workflow/status/icsanabriar/hackerrank-java/CI)](https://github.com/icsanabriar/hackerrank-java/actions/workflows/main.yml)
