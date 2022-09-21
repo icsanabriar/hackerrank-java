@@ -60,6 +60,46 @@ public class Chosen {
     }
 
     /**
+     * Build the array of great common divisor of the given array from left to right.
+     *
+     * @param a    Array to look the common divisor.
+     * @param size Size of the given array.
+     * @return List of GCDs.
+     */
+    private static List<Long> buildLeftGcd(List<Long> a, int size) {
+
+        final List<Long> leftGcd = new ArrayList<>();
+        leftGcd.add(a.get(0));
+
+        for (int i = 1; i < size; i++) {
+            leftGcd.add(gcd(leftGcd.get(i - 1), a.get(i)));
+        }
+
+        return leftGcd;
+    }
+
+    /**
+     * Build the array of great common divisor of the given array from right to left.
+     *
+     * @param a    Array to look the common divisor.
+     * @param size Size of the given array.
+     * @return List of GCDs.
+     */
+    private static List<Long> buildRightGcd(List<Long> a, int size) {
+
+        final List<Long> rightGcd = new ArrayList<>();
+        rightGcd.add(a.get(size - 1));
+
+        for (int i = 1; i < size; i++) {
+            rightGcd.add(gcd(rightGcd.get(i - 1), a.get(size - i - 1)));
+        }
+
+        Collections.reverse(rightGcd);
+
+        return rightGcd;
+    }
+
+    /**
      * Find the common divisor minus 1 element of the given array.
      *
      * @param a    Array to look the common divisor.
@@ -71,21 +111,8 @@ public class Chosen {
         if (size == 1)
             return a.get(0) + 1;
 
-        final List<Long> leftGcd = new ArrayList<>();
-        leftGcd.add(a.get(0));
-
-        for (int i = 1; i < size; i++) {
-            leftGcd.add(gcd(leftGcd.get(i - 1), a.get(i)));
-        }
-
-        final List<Long> rightGcd = new ArrayList<>();
-        rightGcd.add(a.get(size - 1));
-
-        for (int i = 1; i < size; i++) {
-            rightGcd.add(gcd(rightGcd.get(i - 1), a.get(size - i - 1)));
-        }
-
-        Collections.reverse(rightGcd);
+        final List<Long> leftGcd = buildLeftGcd(a, size);
+        final List<Long> rightGcd = buildRightGcd(a, size);
 
         for (int i = 0; ; i++) {
 
