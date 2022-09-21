@@ -70,4 +70,29 @@ public class BinaryTest {
         assertTrue(result);
     }
 
+    @Test
+    public void edge_test_case() {
+
+        final Node root = new Node(10);
+
+        final Node eight = new Node(8);
+        eight.left = new Node(7);
+        eight.right = new Node(8);
+
+        final Node nine = new Node(9);
+        nine.left = new Node(7);
+        nine.right = eight;
+
+        final Node six = new Node(6);
+        six.left = new Node(3);
+
+        root.left = six;
+        root.right = nine;
+
+        final Binary instance = new Binary();
+        final boolean result = instance.checkBST(root);
+
+        assertFalse(result);
+    }
+
 }
