@@ -15,10 +15,6 @@
  */
 package com.hacker.rank.regex.easy;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -33,29 +29,8 @@ public class Simple {
      * @param args Arguments of the program.
      */
     public static void main(String[] args) {
-        Simple_Test tester = new Simple_Test();
+        Validator tester = new Validator();
         tester.checker("^[a-zA-Z02468]{40}[13579\\s]{5}$");
-    }
-}
-
-/**
- * Given test class on hacker rank website.
- */
-class Simple_Test {
-
-    /**
-     * Checker of the given regex pattern.
-     *
-     * @param Regex_Pattern Pattern to validate.
-     */
-    @SuppressWarnings("Duplicates")
-    void checker(String Regex_Pattern){
-
-        Scanner Input = new Scanner(System.in);
-        String Test_String = Input.nextLine();
-        Pattern p = Pattern.compile(Regex_Pattern);
-        Matcher m = p.matcher(Test_String);
-        System.out.println(m.find());
     }
 
 }

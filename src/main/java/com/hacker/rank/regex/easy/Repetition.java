@@ -33,28 +33,28 @@ public class Repetition {
      * @param args Arguments of the program.
      */
     public static void main(String[] args) {
-        Repetition_Test tester = new Repetition_Test();
+        Validator tester = new Validator();
         tester.checker("^\\d{2,}[a-z]*[A-Z]*$");
     }
+
 }
 
 /**
  * Given test class on hacker rank website.
  */
-class Repetition_Test {
+class Validator {
 
     /**
      * Checker of the given regex pattern.
      *
-     * @param Regex_Pattern Pattern to validate.
+     * @param pattern Pattern to validate.
      */
-    @SuppressWarnings("Duplicates")
-    void checker(String Regex_Pattern){
+    void checker(String pattern){
 
-        Scanner Input = new Scanner(System.in);
-        String Test_String = Input.nextLine();
-        Pattern p = Pattern.compile(Regex_Pattern);
-        Matcher m = p.matcher(Test_String);
+        Scanner input = new Scanner(System.in);
+        String s = input.nextLine();
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(s);
         System.out.println(m.find());
     }
 

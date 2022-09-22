@@ -15,10 +15,6 @@
  */
 package com.hacker.rank.regex.easy;
 
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -33,28 +29,8 @@ public class Specific {
      * @param args Arguments of the program.
      */
     public static void main(String[] args) {
-        Specific_Test tester = new Specific_Test();
+        Validator tester = new Validator();
         tester.checker("^[123][120][xs0][30Aa][xsu][.,]$");
-    }
-}
-
-/**
- * Given test class on hacker rank website.
- */
-class Specific_Test {
-
-    /**
-     * Checker of the given regex pattern.
-     *
-     * @param Regex_Pattern Pattern to validate.
-     */
-    void checker(String Regex_Pattern){
-
-        Scanner Input = new Scanner(System.in);
-        String Test_String = Input.nextLine();
-        Pattern p = Pattern.compile(Regex_Pattern);
-        Matcher m = p.matcher(Test_String);
-        System.out.println(m.find());
     }
 
 }
