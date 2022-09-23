@@ -60,4 +60,5 @@ public class SimpleTest {
 
         System.setIn(sysInBackup);
     }
+
 }

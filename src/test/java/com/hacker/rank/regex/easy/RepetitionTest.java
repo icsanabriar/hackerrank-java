@@ -60,4 +60,5 @@ public class RepetitionTest {
 
         System.setIn(sysInBackup);
     }
+
 }

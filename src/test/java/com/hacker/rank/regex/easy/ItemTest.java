@@ -30,7 +30,7 @@ import static org.testng.Assert.assertEquals;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class MoreTest {
+public class ItemTest {
 
     /**
      * Define line separator for test cases.
@@ -44,7 +44,7 @@ public class MoreTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1Qa" + SEPARATOR;
+        final String input = "Kites" + SEPARATOR;
         final String expectedOutput = "true" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
@@ -53,7 +53,7 @@ public class MoreTest {
         System.setIn(in);
         System.setOut(new PrintStream(controllerOut));
 
-        final More instance = new More();
+        final Item instance = new Item();
         instance.main(args);
 
         assertEquals(expectedOutput, controllerOut.toString());
