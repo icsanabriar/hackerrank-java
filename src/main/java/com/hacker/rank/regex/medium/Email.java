@@ -15,7 +15,11 @@
  */
 package com.hacker.rank.regex.medium;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -24,7 +28,7 @@ import java.util.regex.Pattern;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Language {
+public class Email {
 
     /**
      * Define line separator for test cases.
@@ -32,22 +36,25 @@ public class Language {
     private static final String SEPARATOR = System.lineSeparator();
 
     /**
-     * Identify the programming language of the given code.
+     * Extract the emails found in the given text.
      *
-     * @param code Code to identify programming language.
+     * @param text Text to extract the emails.
+     * @return CSV string representing the emails found in the text.
      */
-    private static void identify(String code) {
+    private static String extract(String text) {
 
-        final Pattern c = Pattern.compile("^\\s*#include", Pattern.MULTILINE);
-        final Pattern java = Pattern.compile("^\\s*import java\\.", Pattern.MULTILINE);
+        final Set<String> emails = new TreeSet<>();
 
-        if (c.matcher(code).find())
-            System.out.println("C");
-        else if (java.matcher(code).find())
-            System.out.println("Java");
-        else
-            System.out.println("Python");
+        final Pattern pattern = Pattern.compile("[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+(\\.[a-zA-Z0-9_]+)+");
+        final Matcher matcher = pattern.matcher(text);
 
+        while (matcher.find()) {
+
+            final String email = matcher.group();
+            emails.add(email);
+        }
+
+        return String.join(";", new ArrayList<>(emails));
     }
 
     /**
@@ -55,18 +62,24 @@ public class Language {
      *
      * @param args Arguments of the program.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
         final Scanner sc = new Scanner(System.in);
 
+        final int n = sc.nextInt();
         final StringBuilder builder = new StringBuilder();
 
-        while (sc.hasNextLine()) {
+        int i = 0;
+
+        while (sc.hasNextLine() && i <= n) {
             builder.append(sc.nextLine());
             builder.append(SEPARATOR);
+            i++;
         }
 
-        identify(builder.toString());
+        final String result = extract(builder.toString());
+        System.out.println(result);
 
         sc.close();
     }
