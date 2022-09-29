@@ -67,15 +67,11 @@ public class Domain {
 
         final Scanner sc = new Scanner(System.in);
 
-        final int n = sc.nextInt();
         final StringBuilder builder = new StringBuilder();
 
-        int i = 0;
-
-        while (sc.hasNextLine() && i <= n) {
+        while (sc.hasNextLine()) {
             builder.append(sc.nextLine());
             builder.append(SEPARATOR);
-            i++;
         }
 
         final String result = extract(builder.toString());

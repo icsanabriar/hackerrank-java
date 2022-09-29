@@ -53,6 +53,8 @@ public class Comment {
                 builder.append(scanner.nextLine().trim());
                 builder.append(SEPARATOR);
             }
+
+            scanner.close();
         }
 
         return builder.substring(0, builder.length() - 1);
@@ -63,6 +65,7 @@ public class Comment {
      *
      * @param args Arguments of the program.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
         final Scanner sc = new Scanner(System.in);

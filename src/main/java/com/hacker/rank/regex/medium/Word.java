@@ -65,12 +65,9 @@ public class Word {
         final int n = sc.nextInt();
         final StringBuilder builder = new StringBuilder();
 
-        int i = 0;
-
-        while (sc.hasNextLine() && i <= n) {
+        for (int i = 0; i <= n; i++) {
             builder.append(sc.nextLine());
             builder.append(SEPARATOR);
-            i++;
         }
 
         final String text = builder.toString();
