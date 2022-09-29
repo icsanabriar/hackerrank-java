@@ -16,6 +16,7 @@
 package com.hacker.rank.regex.medium;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -24,7 +25,7 @@ import java.util.regex.Pattern;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Language {
+public class Word {
 
     /**
      * Define line separator for test cases.
@@ -32,22 +33,23 @@ public class Language {
     private static final String SEPARATOR = System.lineSeparator();
 
     /**
-     * Identify the programming language of the given code.
+     * Extract the emails found in the given text.
      *
-     * @param code Code to identify programming language.
+     * @param text Text to extract the emails.
+     * @return CSV string representing the emails found in the text.
      */
-    private static void identify(String code) {
+    private static int find(String word, String text) {
 
-        final Pattern c = Pattern.compile("^\\s*#include", Pattern.MULTILINE);
-        final Pattern java = Pattern.compile("^\\s*import java\\.", Pattern.MULTILINE);
+        final Pattern pattern = Pattern.compile("(?<![a-zA-Z0-9_])" + word + "(?![a-zA-Z0-9_])");
+        final Matcher matcher = pattern.matcher(text);
 
-        if (c.matcher(code).find())
-            System.out.println("C");
-        else if (java.matcher(code).find())
-            System.out.println("Java");
-        else
-            System.out.println("Python");
+        int counter = 0;
 
+        while (matcher.find()) {
+            counter++;
+        }
+
+        return counter;
     }
 
     /**
@@ -60,14 +62,26 @@ public class Language {
 
         final Scanner sc = new Scanner(System.in);
 
+        final int n = sc.nextInt();
         final StringBuilder builder = new StringBuilder();
 
-        while (sc.hasNextLine()) {
+        int i = 0;
+
+        while (sc.hasNextLine() && i <= n) {
             builder.append(sc.nextLine());
             builder.append(SEPARATOR);
+            i++;
         }
 
-        identify(builder.toString());
+        final String text = builder.toString();
+        final int t = sc.nextInt();
+
+        for (int j = 0; j < t; j++) {
+
+            final String word = sc.next();
+            final int result = find(word, text);
+            System.out.println(result);
+        }
 
         sc.close();
     }

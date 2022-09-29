@@ -16,6 +16,7 @@
 package com.hacker.rank.regex.medium;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -24,7 +25,7 @@ import java.util.regex.Pattern;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Language {
+public class Comment {
 
     /**
      * Define line separator for test cases.
@@ -32,22 +33,29 @@ public class Language {
     private static final String SEPARATOR = System.lineSeparator();
 
     /**
-     * Identify the programming language of the given code.
+     * Extract the comments found in the given text.
      *
-     * @param code Code to identify programming language.
+     * @param text Text to extract the comments.
+     * @return String representing the comments found in the text.
      */
-    private static void identify(String code) {
+    private static String extract(String text) {
 
-        final Pattern c = Pattern.compile("^\\s*#include", Pattern.MULTILINE);
-        final Pattern java = Pattern.compile("^\\s*import java\\.", Pattern.MULTILINE);
+        final Pattern pattern = Pattern.compile("(//[^\\n]*)|(/\\*.*?\\*/)", Pattern.MULTILINE | Pattern.DOTALL);
+        final Matcher matcher = pattern.matcher(text);
 
-        if (c.matcher(code).find())
-            System.out.println("C");
-        else if (java.matcher(code).find())
-            System.out.println("Java");
-        else
-            System.out.println("Python");
+        final StringBuilder builder = new StringBuilder();
 
+        while (matcher.find()) {
+
+            final Scanner scanner = new Scanner(matcher.group());
+
+            while (scanner.hasNextLine()) {
+                builder.append(scanner.nextLine().trim());
+                builder.append(SEPARATOR);
+            }
+        }
+
+        return builder.substring(0, builder.length() - 1);
     }
 
     /**
@@ -55,7 +63,6 @@ public class Language {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
         final Scanner sc = new Scanner(System.in);
@@ -67,7 +74,8 @@ public class Language {
             builder.append(SEPARATOR);
         }
 
-        identify(builder.toString());
+        final String result = extract(builder.toString());
+        System.out.println(result);
 
         sc.close();
     }

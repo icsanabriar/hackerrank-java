@@ -15,7 +15,11 @@
  */
 package com.hacker.rank.regex.medium;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -24,7 +28,7 @@ import java.util.regex.Pattern;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Language {
+public class Domain {
 
     /**
      * Define line separator for test cases.
@@ -32,22 +36,25 @@ public class Language {
     private static final String SEPARATOR = System.lineSeparator();
 
     /**
-     * Identify the programming language of the given code.
+     * Extract the domains found in the given text.
      *
-     * @param code Code to identify programming language.
+     * @param text Text to extract the domains.
+     * @return CSV string representing the domains found in the text.
      */
-    private static void identify(String code) {
+    private static String extract(String text) {
 
-        final Pattern c = Pattern.compile("^\\s*#include", Pattern.MULTILINE);
-        final Pattern java = Pattern.compile("^\\s*import java\\.", Pattern.MULTILINE);
+        final Set<String> domains = new TreeSet<>();
 
-        if (c.matcher(code).find())
-            System.out.println("C");
-        else if (java.matcher(code).find())
-            System.out.println("Java");
-        else
-            System.out.println("Python");
+        final Pattern pattern = Pattern.compile("https?://(www.|ww2.)?([a-zA-Z0-9-]+(\\.[a-zA-Z0-9-]+)+)");
+        final Matcher matcher = pattern.matcher(text);
 
+        while (matcher.find()) {
+
+            final String domain = matcher.group(2);
+            domains.add(domain);
+        }
+
+        return String.join(";", new ArrayList<>(domains));
     }
 
     /**
@@ -60,14 +67,19 @@ public class Language {
 
         final Scanner sc = new Scanner(System.in);
 
+        final int n = sc.nextInt();
         final StringBuilder builder = new StringBuilder();
 
-        while (sc.hasNextLine()) {
+        int i = 0;
+
+        while (sc.hasNextLine() && i <= n) {
             builder.append(sc.nextLine());
             builder.append(SEPARATOR);
+            i++;
         }
 
-        identify(builder.toString());
+        final String result = extract(builder.toString());
+        System.out.println(result);
 
         sc.close();
     }
