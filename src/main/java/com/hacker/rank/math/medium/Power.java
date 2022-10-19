@@ -56,7 +56,7 @@ public class Power {
 
         final BigInteger ba = new BigInteger(a);
         final BigInteger bb = new BigInteger(b);
-        final BigInteger m = new BigInteger("1000000007");
+        final BigInteger m = BigInteger.valueOf(1000000007);
 
         return ba.modPow(bb, m).intValue();
     }
