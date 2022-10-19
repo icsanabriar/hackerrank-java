@@ -27,7 +27,7 @@ import java.util.Map;
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * @since 1.3.0
  */
 public class Manasa {
 
@@ -55,7 +55,10 @@ public class Manasa {
         final Map<Integer, Integer> counts = countDigits(n);
 
         for (int prefix = 0; prefix < 1000; prefix += 8) {
-            final String current = String.format("%0" + Math.min(3, n.length()) + "d", prefix);
+
+            final String exp = "%0" + Math.min(3, n.length()) + "d";
+            final String current = String.format(exp, prefix);
+
             if (allContains(countDigits(current), counts))
                 return "YES";
         }

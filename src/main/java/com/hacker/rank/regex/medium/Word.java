@@ -57,7 +57,6 @@ public class Word {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
         final Scanner sc = new Scanner(System.in);

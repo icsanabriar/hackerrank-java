@@ -65,8 +65,20 @@ public class Comment {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
+
+        final StringBuilder builder = readInput();
+        final String result = extract(builder.toString());
+
+        System.out.println(result);
+    }
+
+    /**
+     * Reads the input of the console and store in string builder.
+     *
+     * @return String builder instance with the input given in the console.
+     */
+    static StringBuilder readInput() {
 
         final Scanner sc = new Scanner(System.in);
 
@@ -77,10 +89,9 @@ public class Comment {
             builder.append(SEPARATOR);
         }
 
-        final String result = extract(builder.toString());
-        System.out.println(result);
-
         sc.close();
+
+        return builder;
     }
 
 }

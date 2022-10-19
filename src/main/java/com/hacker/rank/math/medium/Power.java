@@ -54,11 +54,11 @@ public class Power {
      */
     public static int solve(String a, String b) {
 
-        final BigInteger A = new BigInteger(a);
-        final BigInteger B = new BigInteger(b);
+        final BigInteger ba = new BigInteger(a);
+        final BigInteger bb = new BigInteger(b);
         final BigInteger m = new BigInteger("1000000007");
 
-        return A.modPow(B, m).intValue();
+        return ba.modPow(bb, m).intValue();
     }
 
     /**

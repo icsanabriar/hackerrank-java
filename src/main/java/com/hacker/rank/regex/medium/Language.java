@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.regex.medium;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 /**
@@ -25,11 +24,6 @@ import java.util.regex.Pattern;
  * @since  1.3.0
  */
 public class Language {
-
-    /**
-     * Define line separator for test cases.
-     */
-    private static final String SEPARATOR = System.lineSeparator();
 
     /**
      * Identify the programming language of the given code.
@@ -55,21 +49,11 @@ public class Language {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
-        final Scanner sc = new Scanner(System.in);
-
-        final StringBuilder builder = new StringBuilder();
-
-        while (sc.hasNextLine()) {
-            builder.append(sc.nextLine());
-            builder.append(SEPARATOR);
-        }
+        final StringBuilder builder = Comment.readInput();
 
         identify(builder.toString());
-
-        sc.close();
     }
 
 }

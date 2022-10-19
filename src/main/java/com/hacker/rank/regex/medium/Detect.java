@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.regex.medium;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -40,7 +39,7 @@ public class Detect {
      */
     private static String extract(String text) {
 
-        final Pattern pattern = Pattern.compile("<a [^<>]*href=\"(.*?)\"[^<>]*>((<[^<>]+>)*?([^<>]*)(</[^<>]+>)*?)</a>", Pattern.MULTILINE);
+        final Pattern pattern = Pattern.compile("<a [^<>]*href=\"(.*?)\"[^<>]*>((<[^<>]+>)?+([^<>]*)(</[^<>]+>)*?)</a>", Pattern.MULTILINE);
         final Matcher matcher = pattern.matcher(text);
 
         final StringBuilder builder = new StringBuilder();
@@ -67,22 +66,12 @@ public class Detect {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
-        final Scanner sc = new Scanner(System.in);
-
-        final StringBuilder builder = new StringBuilder();
-
-        while (sc.hasNextLine()) {
-            builder.append(sc.nextLine());
-            builder.append(SEPARATOR);
-        }
-
+        final StringBuilder builder = Comment.readInput();
         final String result = extract(builder.toString());
-        System.out.println(result);
 
-        sc.close();
+        System.out.println(result);
     }
 
 }

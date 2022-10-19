@@ -16,7 +16,6 @@
 package com.hacker.rank.regex.medium;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
@@ -29,11 +28,6 @@ import java.util.regex.Pattern;
  * @since  1.3.0
  */
 public class Domain {
-
-    /**
-     * Define line separator for test cases.
-     */
-    private static final String SEPARATOR = System.lineSeparator();
 
     /**
      * Extract the domains found in the given text.
@@ -62,22 +56,12 @@ public class Domain {
      *
      * @param args Arguments of the program.
      */
-    @SuppressWarnings("Duplicates")
     public static void main(String[] args) {
 
-        final Scanner sc = new Scanner(System.in);
-
-        final StringBuilder builder = new StringBuilder();
-
-        while (sc.hasNextLine()) {
-            builder.append(sc.nextLine());
-            builder.append(SEPARATOR);
-        }
-
+        final StringBuilder builder = Comment.readInput();
         final String result = extract(builder.toString());
-        System.out.println(result);
 
-        sc.close();
+        System.out.println(result);
     }
 
 }
