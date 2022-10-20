@@ -13,7 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.hacker.rank.regex.easy;
+package com.hacker.rank.regex.medium;
+
+import com.hacker.rank.regex.easy.Validator;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -21,7 +23,7 @@ package com.hacker.rank.regex.easy;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-public class Repetition {
+public class Alternative {
 
     /**
      * Main function provided by hacker rank website.
@@ -30,8 +32,7 @@ public class Repetition {
      */
     public static void main(String[] args) {
         Validator tester = new Validator();
-        tester.checker("^\\d{2,}[a-z]*[A-Z]*$");
+        tester.checker("^(Mr\\.|Mrs\\.|Ms\\.|Dr\\.|Er\\.)\\p{Alpha}+$");
     }
 
 }
-

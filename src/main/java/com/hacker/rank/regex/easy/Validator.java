@@ -15,23 +15,27 @@
  */
 package com.hacker.rank.regex.easy;
 
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
- * Class that is executed in hacker rank website as solution.
- *
- * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since  1.3.0
+ * Given test class on hacker rank website.
  */
-public class Repetition {
+public class Validator {
 
     /**
-     * Main function provided by hacker rank website.
+     * Checker of the given regex pattern.
      *
-     * @param args Arguments of the program.
+     * @param pattern Pattern to validate.
      */
-    public static void main(String[] args) {
-        Validator tester = new Validator();
-        tester.checker("^\\d{2,}[a-z]*[A-Z]*$");
+    public void checker(String pattern) {
+
+        Scanner input = new Scanner(System.in);
+        String s = input.nextLine();
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(s);
+        System.out.println(m.find());
     }
 
 }
-
