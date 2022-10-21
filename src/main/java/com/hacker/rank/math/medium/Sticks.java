@@ -22,15 +22,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * Class that is executed in hacker rank website as solution.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
- * @since 1.3.0
+ * @since  1.3.0
  */
 public class Sticks {
 
@@ -122,13 +119,16 @@ public class Sticks {
                         bufferedReader.readLine()
                                 .trim());
 
-                final List<Long> a = Stream.of(bufferedReader.readLine()
+                final String[] aTemp = bufferedReader.readLine()
                         .replaceAll(REGEX, REPLACEMENT)
-                        .split(SEPARATOR))
-                        .map(Long::parseLong)
-                        .collect(toList());
+                        .split(SEPARATOR);
 
-                assert a.size() == n;
+                final List<Long> a = new ArrayList<>();
+
+                for (int i = 0; i < n; i++) {
+                    long aItem = Long.parseLong(aTemp[i]);
+                    a.add(aItem);
+                }
 
                 long result = longestSequence(a);
 

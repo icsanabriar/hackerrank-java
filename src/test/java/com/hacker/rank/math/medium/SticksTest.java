@@ -45,6 +45,40 @@ public class SticksTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
+        final String input = "1" + SEPARATOR +
+                "6" + SEPARATOR;
+
+        final String expectedOutput = "10" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        final Sticks instance = new Sticks();
+        instance.main(args);
+
+        final String[] lines = expectedOutput.split("\\r?\\n");
+
+        final File file = new File(System.getenv("OUTPUT_PATH"));
+        final Scanner sc = new Scanner(file);
+
+        int index = 0;
+
+        while (sc.hasNextLine()) {
+            assertEquals(lines[index], sc.nextLine());
+            index++;
+        }
+
+        sc.close();
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void second_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
         final String input = "3" + SEPARATOR +
                 "1 7 24" + SEPARATOR;
 
@@ -53,8 +87,40 @@ public class SticksTest {
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
 
-        final Sticks instance = new Sticks();
-        instance.main(args);
+        Sticks.main(args);
+
+        final String[] lines = expectedOutput.split("\\r?\\n");
+
+        final File file = new File(System.getenv("OUTPUT_PATH"));
+        final Scanner sc = new Scanner(file);
+
+        int index = 0;
+
+        while (sc.hasNextLine()) {
+            assertEquals(lines[index], sc.nextLine());
+            index++;
+        }
+
+        sc.close();
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void edge_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "3" + SEPARATOR +
+                "27 11411 98689" + SEPARATOR;
+
+        final String expectedOutput = "110117" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        Sticks.main(args);
 
         final String[] lines = expectedOutput.split("\\r?\\n");
 
