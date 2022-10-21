@@ -57,16 +57,16 @@ public class Sticks {
      */
     private static List<Long> buildFactors(Long bar) {
 
-        final int factor = 2;
+        final long factor = 2;
 
         List<Long> factors = new ArrayList<>();
 
         while (bar % factor == 0) {
-            factors.add((long) factor);
+            factors.add(factor);
             bar = bar / factor;
         }
 
-        for (long i = factor + 1; i <= Math.sqrt(bar); i += factor) {
+        for (long i = factor + 1L; i <= Math.sqrt(bar); i += factor) {
             while (bar % i == 0) {
                 factors.add((long) factor);
                 bar = bar / i;
