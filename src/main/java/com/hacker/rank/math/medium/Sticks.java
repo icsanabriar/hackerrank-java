@@ -65,7 +65,7 @@ public class Sticks {
 
         for (long i = factor + 1L; i <= Math.sqrt(bar); i += factor) {
             while (bar % i == 0) {
-                factors.add(factor);
+                factors.add(i);
                 bar = bar / i;
             }
         }

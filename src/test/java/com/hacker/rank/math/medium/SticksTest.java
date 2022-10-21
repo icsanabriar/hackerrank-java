@@ -115,7 +115,41 @@ public class SticksTest {
         final String input = "3" + SEPARATOR +
                 "27 11411 98689" + SEPARATOR;
 
-        final String expectedOutput = "110117" + SEPARATOR;
+        final String expectedOutput = "110142" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+
+        Sticks.main(args);
+
+        final String[] lines = expectedOutput.split("\\r?\\n");
+
+        final File file = new File(System.getenv("OUTPUT_PATH"));
+        final Scanner sc = new Scanner(file);
+
+        int index = 0;
+
+        while (sc.hasNextLine()) {
+            assertEquals(lines[index], sc.nextLine());
+            index++;
+        }
+
+        sc.close();
+
+        System.setIn(sysInBackup);
+    }
+
+    @Test
+    public void hidden_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "27" + SEPARATOR +
+                "656498 874575 10 7 5 12 2 8 820864 6 835290 559277 608745 983061 766719 9 13 608745 15 11 686788 " +
+                "759627 14 1 3 4 686788" + SEPARATOR;
+
+        final String expectedOutput = "13684318" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
