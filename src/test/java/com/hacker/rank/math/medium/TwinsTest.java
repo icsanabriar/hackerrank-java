@@ -45,7 +45,7 @@ public class TwinsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "3 13" + SEPARATOR;
+        final String input = "1 13" + SEPARATOR;
 
         final String expectedOutput = "3" + SEPARATOR;
 
