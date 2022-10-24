@@ -45,9 +45,9 @@ public class TwinsTest {
         final String[] args = {};
         final InputStream sysInBackup = System.in;
 
-        final String input = "1 13" + SEPARATOR;
+        final String input = "0 13" + SEPARATOR;
 
-        final String expectedOutput = "3" + SEPARATOR;
+        final String expectedOutput = "4" + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);

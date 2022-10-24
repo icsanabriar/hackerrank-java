@@ -98,7 +98,7 @@ public class Twins {
         int pairs = 0;
 
         for (int i = 0; i + 2 < cache.length; i++) {
-            if (n + i >= 2 && cache[i] && cache[i + 2])
+            if (n + i >= 1 && cache[i] && cache[i + 2])
                 pairs++;
         }
 
