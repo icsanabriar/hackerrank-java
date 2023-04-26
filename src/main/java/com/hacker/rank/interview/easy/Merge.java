@@ -117,7 +117,7 @@ public class Merge {
                     SinglyLinkedList llist2 = com.hacker.rank.structures.easy.Merge.readLinkedList(bufferedReader, llist2Count);
 
 
-                    SinglyLinkedListNode llist3 = mergeLists(llist1.head, llist2.head);
+                    SinglyLinkedListNode llist3 = mergeLists(llist1.getHead(), llist2.getHead());
 
                     printSinglyLinkedList(llist3, " ", bufferedWriter);
                     bufferedWriter.newLine();

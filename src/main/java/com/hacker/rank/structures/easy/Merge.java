@@ -91,7 +91,7 @@ public class Merge {
         /**
          * Head of the linked list.
          */
-        public SinglyLinkedListNode head;
+        private SinglyLinkedListNode head;
 
         /**
          * Tail of the linked list.
@@ -122,6 +122,15 @@ public class Merge {
             }
 
             this.tail = node;
+        }
+
+        /**
+         * Retrieves the head of the linked list.
+         *
+         * @return Head of the linked list.
+         */
+        public SinglyLinkedListNode getHead() {
+            return head;
         }
     }
 
