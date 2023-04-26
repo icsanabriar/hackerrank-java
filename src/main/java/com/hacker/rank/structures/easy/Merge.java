@@ -33,24 +33,24 @@ public class Merge {
     /**
      * Given node class.
      */
-    static class SinglyLinkedListNode {
+    public static class SinglyLinkedListNode {
 
         /**
          * Data of the node.
          */
-        int data;
+        public int data;
 
         /**
          * Next node of the list.
          */
-        SinglyLinkedListNode next;
+        public SinglyLinkedListNode next;
 
         /**
          * Constructor of the linked list.
          *
          * @param nodeData Data of the node.
          */
-        SinglyLinkedListNode(int nodeData) {
+        public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
             this.next = null;
         }
@@ -59,22 +59,22 @@ public class Merge {
     /**
      * Given linked list class.
      */
-    static class SinglyLinkedList {
+    public static class SinglyLinkedList {
 
         /**
          * Head of the linked list.
          */
-        SinglyLinkedListNode head;
+        public SinglyLinkedListNode head;
 
         /**
          * Tail of the linked list.
          */
-        SinglyLinkedListNode tail;
+        private SinglyLinkedListNode tail;
 
         /**
          * Constructor of the linked list.
          */
-        SinglyLinkedList() {
+        public SinglyLinkedList() {
             this.head = null;
             this.tail = null;
         }
@@ -84,7 +84,7 @@ public class Merge {
          *
          * @param nodeData Data to insert in the list.
          */
-        void insertNode(int nodeData) {
+        public void insertNode(int nodeData) {
 
             SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
 
@@ -146,7 +146,7 @@ public class Merge {
      * @return Linked list instance with the read data.
      * @throws IOException Thrown when there is a problem reading the data of the list.
      */
-    private static SinglyLinkedList readLinkedList(BufferedReader bufferedReader, int size) throws IOException {
+    public static SinglyLinkedList readLinkedList(BufferedReader bufferedReader, int size) throws IOException {
 
         SinglyLinkedList list = new SinglyLinkedList();
 
