@@ -32,50 +32,66 @@ import java.io.InputStreamReader;
  */
 public class Merge {
 
+    /**
+     * Merge the given list maintaining the order of the values.
+     *
+     * @param head1 Head of the first linked list.
+     * @param head2 Head of the second linked list.
+     * @return Single linked list node with the head of the merge result.
+     */
     private static SinglyLinkedListNode mergeLists(SinglyLinkedListNode head1, SinglyLinkedListNode head2) {
 
         SinglyLinkedListNode result = new SinglyLinkedListNode(0);
         SinglyLinkedListNode temp = result;
 
         while (head1 != null && head2 != null) {
-            if (head1.data < head2.data) {
-                temp.next = head1;
-                head1 = head1.next;
+
+            if (head1.getData() < head2.getData()) {
+                temp.setNext(head1);
+                head1 = head1.getNext();
             } else {
-                temp.next = head2;
-                head2 = head2.next;
+                temp.setNext(head2);
+                head2 = head2.getNext();
             }
-            temp = temp.next;
+
+            temp = temp.getNext();
         }
 
-        if (head1 != null) {
-            temp.next = head1;
-        } else {
-            temp.next = head2;
-        }
+        if (head1 != null)
+            temp.setNext(head1);
+        else
+            temp.setNext(head2);
 
-        return result.next;
+        return result.getNext();
     }
 
     /**
-     * @param node
-     * @param sep
-     * @param bufferedWriter
-     * @throws IOException
+     * Print single linked list using the given node, separator and writer instance.
+     *
+     * @param node      Head node of the list to start printing the list.
+     * @param separator Separator character between the values of the nodes.
+     * @param writer    Buffer writer instance used to write the linked list data.
+     * @throws IOException Thrown when the application is not able to write data in the OUTPUT_PATH.
      */
-    private static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
+    private static void printSinglyLinkedList(SinglyLinkedListNode node, String separator, BufferedWriter writer) throws IOException {
 
         while (node != null) {
-            bufferedWriter.write(String.valueOf(node.data));
+            writer.write(String.valueOf(node.getData()));
 
-            node = node.next;
+            node = node.getNext();
 
-            if (node != null) {
-                bufferedWriter.write(sep);
-            }
+            if (node != null)
+                writer.write(separator);
+
         }
     }
 
+    /**
+     * Main function provided by hacker rank website.
+     *
+     * @param args Arguments of the program.
+     * @throws IOException Thrown when the application is not able to read or write data in the OUTPUT_PATH.
+     */
     public static void main(String[] args) throws IOException {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {

@@ -38,12 +38,12 @@ public class Merge {
         /**
          * Data of the node.
          */
-        public int data;
+        private int data;
 
         /**
          * Next node of the list.
          */
-        public SinglyLinkedListNode next;
+        private SinglyLinkedListNode next;
 
         /**
          * Constructor of the linked list.
@@ -53,6 +53,33 @@ public class Merge {
         public SinglyLinkedListNode(int nodeData) {
             this.data = nodeData;
             this.next = null;
+        }
+
+        /**
+         * Retrieves the data of the node.
+         *
+         * @return Data of the node.
+         */
+        public int getData() {
+            return data;
+        }
+
+        /**
+         * Retrieve the next node of the linked list.
+         *
+         * @return Next node of the linked list.
+         */
+        public SinglyLinkedListNode getNext() {
+            return next;
+        }
+
+        /**
+         * Set the next node of the linked list.
+         *
+         * @param next Next node of the linked list.
+         */
+        public void setNext(SinglyLinkedListNode next) {
+            this.next = next;
         }
     }
 
@@ -74,7 +101,7 @@ public class Merge {
         /**
          * Constructor of the linked list.
          */
-        public SinglyLinkedList() {
+        SinglyLinkedList() {
             this.head = null;
             this.tail = null;
         }
@@ -84,7 +111,7 @@ public class Merge {
          *
          * @param nodeData Data to insert in the list.
          */
-        public void insertNode(int nodeData) {
+        void insertNode(int nodeData) {
 
             SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
 
