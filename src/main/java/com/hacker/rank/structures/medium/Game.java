@@ -92,6 +92,7 @@ public class Game {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in the OUTPUT_PATH.
      */
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in))) {

@@ -15,7 +15,6 @@
  */
 package com.hacker.rank.math.medium;
 
-import com.hacker.rank.math.easy.Counter;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;

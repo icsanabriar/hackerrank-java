@@ -36,22 +36,27 @@ public class DecoderTest {
         final String expectedOutput = "ABACA";
         final String s = "1001011";
 
-        final Code cll = new Code(1);
+        final CNode cll = new CNode(1);
         cll.data = 'B';
+        assertEquals(cll.frequency, 1);
 
-        final Code clf = new Code(1);
+        final CNode clf = new CNode(1);
         clf.data = 'C';
+        assertEquals(clf.frequency, 1);
 
-        final Code cl = new Code(2);
+        final CNode cl = new CNode(2);
         cl.left = cll;
         cl.right = clf;
+        assertEquals(cl.frequency, 2);
 
-        final Code cr = new Code(3);
+        final CNode cr = new CNode(3);
         cr.data = 'A';
+        assertEquals(cr.frequency, 3);
 
-        final Code root = new Code(5);
+        final CNode root = new CNode(5);
         root.left = cl;
         root.right = cr;
+        assertEquals(root.frequency, 5);
 
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
         System.setOut(new PrintStream(controllerOut));

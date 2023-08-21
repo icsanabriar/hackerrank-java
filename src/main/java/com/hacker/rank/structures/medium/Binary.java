@@ -26,7 +26,7 @@ class Node {
     /**
      * Data of the node.
      */
-    int data;
+    final int data;
 
     /**
      * Node on the left path.

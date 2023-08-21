@@ -116,7 +116,7 @@ public class AlmostSort {
      * @param args Arguments of the program.
      * @throws IOException Thrown when the application is not able to read or write data in the OUTPUT_PATH.
      */
-    @SuppressWarnings("unused")
+    @SuppressWarnings("Duplicates")
     public static void main(String[] args) throws IOException {
 
         final BufferedReader bufferedReader = new BufferedReader(
@@ -130,6 +130,8 @@ public class AlmostSort {
                         .split(SEPARATOR))
                 .map(Integer::parseInt)
                 .collect(toList());
+
+        assert n == arr.size();
 
         System.out.println(almostSorted(arr));
 

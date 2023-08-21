@@ -32,7 +32,7 @@ class Node {
     /**
      * Value of the node.
      */
-    int value;
+    final int value;
 
     /**
      * Node on the left path.
@@ -68,12 +68,12 @@ class Distance {
     /**
      * Node instance.
      */
-    Node node;
+    final Node node;
 
     /**
      * Distance between the node and root.
      */
-    Integer value;
+    final Integer value;
 
     /**
      * Constructor of the distance using node information and distance to the root.

@@ -83,17 +83,17 @@ class Student {
     /**
      * Identifier of the student.
      */
-    private int id;
+    private final int id;
 
     /**
      * Name of the student.
      */
-    private String name;
+    private final String name;
 
     /**
      * CGPA of the student.
      */
-    private double cgpa;
+    private final double cgpa;
 
     /**
      * Constructor of the student with given identifier, name and CGPA.
@@ -153,7 +153,7 @@ class Priorities {
     /**
      * Define priority queue.
      */
-    private PriorityQueue<Student> students = new PriorityQueue<>((o1, o2) -> {
+    private final PriorityQueue<Student> students = new PriorityQueue<>((o1, o2) -> {
 
         if (Double.compare(o1.getCgpa(), o2.getCgpa()) != 0) {
             return Double.compare(o2.getCgpa(), o1.getCgpa());

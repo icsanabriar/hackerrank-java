@@ -28,7 +28,7 @@ public class ParameterReader {
     /**
      * Scanner instance used to read input from console.
      */
-    private Scanner scanner;
+    private final Scanner scanner;
 
     /**
      * Parameter given as problem input.

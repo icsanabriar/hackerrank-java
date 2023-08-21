@@ -38,7 +38,7 @@ public class Merge {
         /**
          * Data of the node.
          */
-        private int data;
+        private final int data;
 
         /**
          * Next node of the list.

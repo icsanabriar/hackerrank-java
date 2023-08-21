@@ -59,12 +59,12 @@ public class QueenAttack {
         /**
          * Row number of the position.
          */
-        private int row;
+        private final int row;
 
         /**
          * Column number of the position.
          */
-        private int column;
+        private final int column;
 
         /**
          * Constructor of the position using the given row and column.

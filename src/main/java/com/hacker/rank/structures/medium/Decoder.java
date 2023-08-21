@@ -21,12 +21,12 @@ package com.hacker.rank.structures.medium;
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.3.0
  */
-class Code {
+class CNode {
 
     /**
      * Frequency of the character.
      */
-    int frequency;
+    final int frequency;
 
     /**
      * Data of the node.
@@ -36,19 +36,19 @@ class Code {
     /**
      * Node on the left path.
      */
-    Code left;
+    CNode left;
 
     /**
      * Node on the right path.
      */
-    Code right;
+    CNode right;
 
     /**
      * Constructor of the node using the given frequency value.
      *
      * @param frequency Value to store in as frequency in the node.
      */
-    Code(int frequency) {
+    CNode(int frequency) {
         this.frequency = frequency;
     }
 
@@ -68,9 +68,9 @@ class Decoder {
      * @param s    String given to decode.
      * @param root Binary tree given with the frequency to decode the string.
      */
-    void decode(String s, Code root) {
+    void decode(String s, CNode root) {
 
-        Code node = root;
+        CNode node = root;
 
         for (char c : s.toCharArray()) {
 
