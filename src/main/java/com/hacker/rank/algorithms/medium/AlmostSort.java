@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toList;
+
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -76,7 +78,7 @@ public class AlmostSort {
         return IntStream.range(0, array.size())
                 .filter(i -> !array.get(i).equals(sorted.get(i)))
                 .boxed()
-                .toList();
+                .collect(toList());
     }
 
     /**
@@ -127,7 +129,7 @@ public class AlmostSort {
                         .replaceAll(REGEX, REPLACEMENT)
                         .split(SEPARATOR))
                 .map(Integer::parseInt)
-                .toList();
+                .collect(toList());
 
         assert n == arr.size();
 
