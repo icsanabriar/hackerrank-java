@@ -23,8 +23,6 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -113,13 +111,13 @@ public class Game {
                             .replaceAll(REGEX, REPLACEMENT)
                             .split(SEPARATOR))
                             .map(Integer::parseInt)
-                            .collect(toList());
+                            .toList();
 
                     final List<Integer> b = Stream.of(bufferedReader.readLine()
                             .replaceAll(REGEX, REPLACEMENT)
                             .split(SEPARATOR))
                             .map(Integer::parseInt)
-                            .collect(toList());
+                            .toList();
 
                     final int result = twoStacks(maxSum, a, b);
 

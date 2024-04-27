@@ -25,7 +25,6 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -94,7 +93,7 @@ public class Count {
                         .replaceAll(REGEX, REPLACEMENT)
                         .split(SEPARATOR))
                         .map(Integer::parseInt)
-                        .collect(toList());
+                        .toList();
 
                 final List<Integer> result = countingSort(arr, n);
 

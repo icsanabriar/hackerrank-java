@@ -25,8 +25,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -116,7 +114,7 @@ public class Pick {
                                     .replaceAll(REGEX, REPLACEMENT)
                                     .split(SEPARATOR))
                             .map(Integer::parseInt)
-                            .collect(toList());
+                            .toList();
 
                     if (cCount == c.size()) {
 

@@ -23,8 +23,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -152,7 +150,7 @@ public class Chosen {
                             .replaceAll(REGEX, REPLACEMENT)
                             .split(SEPARATOR))
                     .map(Long::parseLong)
-                    .collect(toList());
+                    .toList();
 
             final Long result = chose(a, n);
             System.out.println(result);

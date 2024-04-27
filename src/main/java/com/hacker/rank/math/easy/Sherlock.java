@@ -23,8 +23,6 @@ import java.io.InputStreamReader;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.toList;
-
 /**
  * Class that is executed in hacker rank website as solution.
  *
@@ -99,7 +97,7 @@ public class Sherlock {
                             bufferedReader.readLine()
                                     .replaceAll(REGEX, REPLACEMENT)
                                     .split(SEPARATOR))
-                            .map(Integer::parseInt).collect(toList());
+                            .map(Integer::parseInt).toList();
 
                     if (aCount == a.size()) {
 
