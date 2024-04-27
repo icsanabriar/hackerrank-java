@@ -87,11 +87,11 @@ public class DetectTest {
         final InputStream sysInBackup = System.in;
 
         final String input = "2" + SEPARATOR +
-                "<p><a href=\"http://www.quackit.com/html/tutorial/html_links.cfm\">Example Link</a></p>" + SEPARATOR +
-                "<div class=\"more-info\"><a href=\"http://www.quackit.com/html/examples/html_links_examples.cfm\">More Link Examples...</a></div>";
+                "<p><a href=\"https://www.quackit.com/html/tutorial/html_links.cfm\">Example Link</a></p>" + SEPARATOR +
+                "<div class=\"more-info\"><a href=\"https://www.quackit.com/html/examples/html_links_examples.cfm\">More Link Examples...</a></div>";
 
-        final String expectedOutput = "http://www.quackit.com/html/tutorial/html_links.cfm,Example Link" + SEPARATOR +
-                "http://www.quackit.com/html/examples/html_links_examples.cfm,More Link Examples..." + SEPARATOR;
+        final String expectedOutput = "https://www.quackit.com/html/tutorial/html_links.cfm,Example Link" + SEPARATOR +
+                "https://www.quackit.com/html/examples/html_links_examples.cfm,More Link Examples..." + SEPARATOR;
 
         final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
         final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();

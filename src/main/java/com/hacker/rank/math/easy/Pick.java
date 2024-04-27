@@ -53,8 +53,8 @@ public class Pick {
     /**
      * Adjust the given value using specific module.
      *
-     * @param x Number of current ways specific card could be pick it up.
-     * @param y Current card number that could be pick up.
+     * @param x Number of current ways specific card could be picked it up.
+     * @param y Current card number that could be picked up.
      * @return Number of ways the current card could be pick up adjusted to specify modulus.
      */
     private static int adjustValue(int x, int y) {
@@ -62,10 +62,10 @@ public class Pick {
     }
 
     /**
-     * Retrieves the number of ways the given card list could be pick it up.
+     * Retrieves the number of ways the given card list could be picked it up.
      *
      * @param c List of cards.
-     * @return Number representing the ways the given card list could be pick it up.
+     * @return Number representing the ways the given card list could be picked it up.
      */
     private static int solve(List<Integer> c) {
 

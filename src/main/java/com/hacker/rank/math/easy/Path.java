@@ -56,7 +56,7 @@ public class Path {
     }
 
     /**
-     * Return YES if point with coordinates (x,y) is reachable starting from (a,b) adding a or b units. Otherwise NO is
+     * Return YES if point with coordinates (x,y) is reachable starting from (a,b) adding a or b units. Otherwise, NO is
      * given on the return statement.
      *
      * @param a X coordinate of starting point.

@@ -68,12 +68,11 @@ public class Merge {
     /**
      * Print single linked list using the given node, separator and writer instance.
      *
-     * @param node      Head node of the list to start printing the list.
-     * @param separator Separator character between the values of the nodes.
-     * @param writer    Buffer writer instance used to write the linked list data.
+     * @param node   Head node of the list to start printing the list.
+     * @param writer Buffer writer instance used to write the linked list data.
      * @throws IOException Thrown when the application is not able to write data in the OUTPUT_PATH.
      */
-    private static void printSinglyLinkedList(SinglyLinkedListNode node, String separator, BufferedWriter writer) throws IOException {
+    private static void printSinglyLinkedList(SinglyLinkedListNode node, BufferedWriter writer) throws IOException {
 
         while (node != null) {
             writer.write(String.valueOf(node.getData()));
@@ -81,7 +80,7 @@ public class Merge {
             node = node.getNext();
 
             if (node != null)
-                writer.write(separator);
+                writer.write(" ");
 
         }
     }
@@ -104,22 +103,22 @@ public class Merge {
 
                 for (int i = 0; i < t; i++) {
 
-                    final int llist1Count = Integer.parseInt(
+                    final int list1Count = Integer.parseInt(
                             bufferedReader.readLine()
                                     .trim());
 
-                    SinglyLinkedList llist1 = com.hacker.rank.structures.easy.Merge.readLinkedList(bufferedReader, llist1Count);
+                    SinglyLinkedList list1 = com.hacker.rank.structures.easy.Merge.readLinkedList(bufferedReader, list1Count);
 
-                    final int llist2Count = Integer.parseInt(
+                    final int list2Count = Integer.parseInt(
                             bufferedReader.readLine()
                                     .trim());
 
-                    SinglyLinkedList llist2 = com.hacker.rank.structures.easy.Merge.readLinkedList(bufferedReader, llist2Count);
+                    SinglyLinkedList list2 = com.hacker.rank.structures.easy.Merge.readLinkedList(bufferedReader, list2Count);
 
 
-                    SinglyLinkedListNode llist3 = mergeLists(llist1.getHead(), llist2.getHead());
+                    SinglyLinkedListNode list3 = mergeLists(list1.getHead(), list2.getHead());
 
-                    printSinglyLinkedList(llist3, " ", bufferedWriter);
+                    printSinglyLinkedList(list3, bufferedWriter);
                     bufferedWriter.newLine();
                 }
             }

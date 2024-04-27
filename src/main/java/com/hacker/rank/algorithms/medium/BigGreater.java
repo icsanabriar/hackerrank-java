@@ -58,7 +58,7 @@ public class BigGreater {
     }
 
     /**
-     * Retrieves the smallest lexicographically higher string possible from the given string. In case is not found
+     * Retrieves the smallest lexicographically higher string possible from the given string. In case is not found,
      * no answer is returned.
      *
      * @param w String to find the smallest lexicographically higher string possible.

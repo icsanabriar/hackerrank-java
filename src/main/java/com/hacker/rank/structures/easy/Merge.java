@@ -20,6 +20,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 import java.util.Stack;
 
 /**
@@ -171,7 +172,7 @@ public class Merge {
             stack2.pop();
         }
 
-        return merge.data;
+        return Objects.requireNonNull(merge).data;
     }
 
     /**
@@ -220,36 +221,36 @@ public class Merge {
                             bufferedReader.readLine()
                                     .trim());
 
-                    final int llist1Count = Integer.parseInt(
+                    final int list1Count = Integer.parseInt(
                             bufferedReader.readLine()
                                     .trim());
 
-                    SinglyLinkedList llist1 = readLinkedList(bufferedReader, llist1Count);
+                    SinglyLinkedList list1 = readLinkedList(bufferedReader, list1Count);
 
-                    final int llist2Count = Integer.parseInt(
+                    final int list2Count = Integer.parseInt(
                             bufferedReader.readLine()
                                     .trim());
 
-                    SinglyLinkedList llist2 = readLinkedList(bufferedReader, llist2Count);
+                    SinglyLinkedList list2 = readLinkedList(bufferedReader, list2Count);
 
-                    SinglyLinkedListNode ptr1 = llist1.head;
-                    SinglyLinkedListNode ptr2 = llist2.head;
+                    SinglyLinkedListNode ptr1 = list1.head;
+                    SinglyLinkedListNode ptr2 = list2.head;
 
-                    for (int j = 0; j < llist1Count; j++) {
+                    for (int j = 0; j < list1Count; j++) {
                         if (j < index) {
                             ptr1 = ptr1.next;
                         }
                     }
 
-                    for (int j = 0; j < llist2Count; j++) {
-                        if (j != llist2Count - 1) {
+                    for (int j = 0; j < list2Count; j++) {
+                        if (j != list2Count - 1) {
                             ptr2 = ptr2.next;
                         }
                     }
 
                     ptr2.next = ptr1;
 
-                    final int result = findMergeNode(llist1.head, llist2.head);
+                    final int result = findMergeNode(list1.head, list2.head);
 
                     bufferedWriter.write(
                             String.valueOf(result));

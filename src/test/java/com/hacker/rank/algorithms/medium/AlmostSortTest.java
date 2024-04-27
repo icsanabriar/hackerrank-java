@@ -138,4 +138,24 @@ public class AlmostSortTest {
         System.setIn(sysInBackup);
     }
 
+    @Test (expectedExceptions = { AssertionError.class })
+    public void bad_input_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "2" + SEPARATOR +
+                "1 2 3 4" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        AlmostSort.main(args);
+
+        System.setIn(sysInBackup);
+    }
+
 }

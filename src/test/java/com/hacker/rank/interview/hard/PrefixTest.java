@@ -97,4 +97,43 @@ public class PrefixTest {
         System.setIn(sysInBackup);
     }
 
+    @Test
+    public void third_test_case() throws IOException {
+
+        final String[] args = {};
+        final InputStream sysInBackup = System.in;
+
+        final String input = "15" + SEPARATOR +
+                "hgiiccfchbeadgebc" + SEPARATOR +
+                "biiga" + SEPARATOR +
+                "edchgb" + SEPARATOR +
+                "ccfdbeajaeid" + SEPARATOR +
+                "ijgbeecjbj" + SEPARATOR +
+                "bcfbbacfbfcfbhcbfjafibfhffac" + SEPARATOR +
+                "ebechbfhfcijcjbcehbgbdgbh" + SEPARATOR +
+                "ijbfifdbfifaidje" + SEPARATOR +
+                "acgffegiihcddcdfjhhgadfjb" + SEPARATOR +
+                "ggbdfdhaffhghbdh" + SEPARATOR +
+                "dcjaichjejgheiaie" + SEPARATOR +
+                "d" + SEPARATOR +
+                "jeedfch" + SEPARATOR +
+                "ahabicdffbedcbdeceed" + SEPARATOR +
+                "eeahhcggaaidifdigcfjbficcfhjj" + SEPARATOR;
+
+        final String expectedOutput = "BAD SET" + SEPARATOR +
+                "d" + SEPARATOR;
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(input.getBytes());
+        final ByteArrayOutputStream controllerOut = new ByteArrayOutputStream();
+
+        System.setIn(in);
+        System.setOut(new PrintStream(controllerOut));
+
+        Prefix.main(args);
+
+        assertEquals(expectedOutput, controllerOut.toString());
+
+        System.setIn(sysInBackup);
+    }
+
 }

@@ -87,7 +87,7 @@ public class Annotation {
             final String role = in.next();
             final int spend = in.nextInt();
 
-            final Class annotatedClass = FamilyMember.class;
+            final Class<FamilyMember> annotatedClass = FamilyMember.class;
             final Method[] methods = annotatedClass.getMethods();
 
             for (Method method : methods) {

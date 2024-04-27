@@ -36,7 +36,7 @@ public class SHA {
      * Main function provided by hacker rank website.
      *
      * @param args Arguments of the program.
-     * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
+     * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different from supported algorithms.
      */
     public static void main(String[] args) throws NoSuchAlgorithmException {
         Hash.generate(ALGORITHM);

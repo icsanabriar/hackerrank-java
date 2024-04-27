@@ -53,7 +53,7 @@ public class Strange {
      */
     private static long strangeGrid(int r, int c) {
 
-        final long base = (((r - 1) / 2) * 10L) + (2 * (c - 1));
+        final long base = (((r - 1) / 2) * 10L) + (2L * (c - 1));
 
         if (r % 2 == 0)
             return base + 1;

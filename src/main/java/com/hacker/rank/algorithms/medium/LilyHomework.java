@@ -101,7 +101,7 @@ public class LilyHomework {
      * @param arr Array to make it beautiful.
      * @return Minimum number of swaps required to make the given array beautiful.
      */
-    private static int lilysHomework(final List<Integer> arr) {
+    private static int lilyHomework(final List<Integer> arr) {
 
         final List<Integer> ascending = new ArrayList<>(arr);
         Collections.sort(ascending);
@@ -141,7 +141,7 @@ public class LilyHomework {
             }
         }
 
-        final int result = lilysHomework(arr);
+        final int result = lilyHomework(arr);
 
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")))) {
 

@@ -18,10 +18,8 @@ package com.hacker.rank.interview.hard;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * Class that is executed in hacker rank website as solution.
@@ -97,13 +95,11 @@ public class Prefix {
                     bufferedReader.readLine()
                             .trim());
 
-            final List<String> words = IntStream.range(0, n).mapToObj(i -> {
-                try {
-                    return bufferedReader.readLine();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }).collect(toList());
+            final List<String> words = new ArrayList<>();
+            for (int i = 0; i < n; i++) {
+                String word = bufferedReader.readLine();
+                words.add(word);
+            }
 
             final String result = noPrefix(words);
 

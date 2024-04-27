@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class MyRegex {
 
     /**
-     * Pattern to identify numbers between 0 to 255, allowing 0 on the left side. (001) (011)
+     * Pattern to identify numbers between 0 and 255, allowing 0 on the left side. (001) (011)
      */
     private static final String ACCEPTANCE_IP = "([01]?[0-9]{1,2}|2[0-4][0-9]|25[0-5])";
 

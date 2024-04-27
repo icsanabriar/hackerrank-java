@@ -22,7 +22,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Scanner;
 
 /**
- * Class that is responsible of generating HASHES based on given algorithm.
+ * Class that is responsible for generating HASHES based on given algorithm.
  *
  * @author Iván Camilo Sanabria (icsanabriar@googlemail.com)
  * @since  1.0.0
@@ -38,7 +38,7 @@ public class Hash {
      * - SHA <p>
      *
      * @param algorithm Name of the algorithm to generate and print the hash.
-     * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different than supported algorithms.
+     * @throws NoSuchAlgorithmException Thrown when the hashing algorithm specification is different from supported algorithms.
      */
     public static void generate(final String algorithm) throws NoSuchAlgorithmException {
 

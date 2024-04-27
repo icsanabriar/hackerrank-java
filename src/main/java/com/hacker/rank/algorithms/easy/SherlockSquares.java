@@ -29,7 +29,7 @@ import java.util.Scanner;
 public class SherlockSquares {
 
     /**
-     * Return the  number of squares (1,4,9..) of given range.
+     * Return the  number of squares (1,4,9...) of given range.
      *
      * @param a Start of the range.
      * @param b End of the range.

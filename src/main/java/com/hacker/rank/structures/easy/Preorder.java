@@ -26,7 +26,7 @@ import java.util.Scanner;
 public class Preorder {
 
     /**
-     * Prints pre order the given tree.
+     * Prints preorder the given tree.
      *
      * @param root Root node of the tree.
      */

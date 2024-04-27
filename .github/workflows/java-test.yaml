@@ -1,0 +1,28 @@
+name: "Java Test"
+
+on: [ push ]
+
+jobs:
+  build:
+    name: "Build & Test"
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: set up java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'adopt'
+          java-version: '21'
+          cache: 'maven'
+      - name: verify & sonar analysis
+        env:
+          OUTPUT_PATH: /home/runner/work/hackerrank-java/hackerrank-java/test-output.out
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          echo 'Bootstrap output file' > results.txt
+          mvn -B verify sonar:sonar \
+            -Dsonar.projectKey=icsanabriar_hackerrank-java \
+            -Dsonar.organization=icsanabriar \
+            -Dsonar.host.url=https://sonarcloud.io \
+            -Dsonar.login=$SONAR_TOKEN

@@ -32,10 +32,10 @@ public class Kaprekar {
     private static final String SEPARATOR = " ";
 
     /**
-     * Return the number of digits of given a.
+     * Return the number of digits of given number.
      *
      * @param a Number to calculate the digits.
-     * @return A number representing the number of digits of the given a.
+     * @return A number representing the number of digits of the given number.
      */
     private static int digits(long a) {
         if (a < 100) {
@@ -68,27 +68,7 @@ public class Kaprekar {
         for (long i = p; i <= q; i++) {
 
             final int d = digits(i);
-            final String square = String.valueOf(i * i);
-
-            final int rightStartIndex = square.length() - d;
-
-            int left = 0;
-            int right;
-
-            if (rightStartIndex <= 0) {
-
-                right = Integer.parseInt(square);
-
-            } else {
-
-                right = Integer.parseInt(
-                        square.substring(rightStartIndex));
-
-                left = Integer.parseInt(
-                        square.substring(0, rightStartIndex));
-            }
-
-            final int sum = left + right;
+            final int sum = getSum(i, d);
 
             if (sum == i) {
 
@@ -98,6 +78,37 @@ public class Kaprekar {
         }
 
         System.out.println(results.isEmpty() ? "INVALID RANGE" : String.join(SEPARATOR, results));
+    }
+
+    /**
+     * Return the sum of the right and left part of the square of the given number.
+     *
+     * @param i Number to calculate the sum of the square.
+     * @param d Digits of the number.
+     * @return A number representing the sum of the square of the given number.
+     */
+    private static int getSum(long i, int d) {
+
+        final String square = String.valueOf(i * i);
+        final int rightStartIndex = square.length() - d;
+
+        int left = 0;
+        int right;
+
+        if (rightStartIndex <= 0) {
+
+            right = Integer.parseInt(square);
+
+        } else {
+
+            right = Integer.parseInt(
+                    square.substring(rightStartIndex));
+
+            left = Integer.parseInt(
+                    square.substring(0, rightStartIndex));
+        }
+
+        return left + right;
     }
 
     /**

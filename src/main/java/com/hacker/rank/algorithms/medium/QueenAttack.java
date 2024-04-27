@@ -54,7 +54,7 @@ public class QueenAttack {
     /**
      * Position in a chess board.
      */
-    private static class Position {
+    protected static class Position {
 
         /**
          * Row number of the position.

@@ -39,7 +39,7 @@ public class Email {
 
         final Set<String> emails = new TreeSet<>();
 
-        final Pattern pattern = Pattern.compile("[\\w]+(\\.[\\w]+)*@[\\w]+(\\.[\\w]+)+");
+        final Pattern pattern = Pattern.compile("\\w+(\\.\\w+)*@\\w+(\\.\\w+)+");
         final Matcher matcher = pattern.matcher(text);
 
         while (matcher.find()) {

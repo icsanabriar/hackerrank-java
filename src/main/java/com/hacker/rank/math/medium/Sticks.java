@@ -50,7 +50,7 @@ public class Sticks {
      * Build prime factor to break the given bar.
      *
      * @param bar Bar to break into prime factors.
-     * @return Number of factors the bar could be break.
+     * @return A List of factors the bar could be break.
      */
     private static List<Long> buildFactors(Long bar) {
 

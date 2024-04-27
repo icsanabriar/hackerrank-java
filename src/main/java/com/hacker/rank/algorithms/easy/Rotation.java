@@ -29,7 +29,7 @@ import java.util.Scanner;
 public class Rotation {
 
     /**
-     * Return the values of given queries after array a is rotated k times.
+     * Return the values of given queries after array is rotated k times.
      *
      * @param a       Array to rotate.
      * @param k       Number of times array should be rotated.

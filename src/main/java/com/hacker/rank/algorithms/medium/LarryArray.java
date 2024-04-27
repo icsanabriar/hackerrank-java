@@ -53,7 +53,7 @@ public class LarryArray {
      * @param array Sequence of numbers to sort.
      * @return String representing if the array could be sorted or not.
      */
-    private static String larrysArray(final List<Integer> array) {
+    private static String larryArray(final List<Integer> array) {
 
         for (int i = 0; i < array.size(); i++) {
 
@@ -114,7 +114,7 @@ public class LarryArray {
                         array.add(AItem);
                     }
 
-                    final String result = larrysArray(array);
+                    final String result = larryArray(array);
 
                     bufferedWriter.write(result);
                     bufferedWriter.newLine();
